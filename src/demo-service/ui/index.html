@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Reservation Console (demo) — Lightning-style</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="slds-global-header">
+    <span class="logo">&#9729;</span>
+    <strong>Reservation Console</strong>
+    <span class="badge">LOCAL DEMO · SYNTHETIC DATA ONLY</span>
+    <span id="build" class="build"></span>
+  </header>
+  <nav class="slds-tabs" role="tablist">
+    <button role="tab" data-tab="create" data-testid="tab-create" class="active">Create Reservation</button>
+    <button role="tab" data-tab="search" data-testid="tab-search">Search</button>
+    <button role="tab" data-tab="manage" data-testid="tab-manage">Modify / Cancel</button>
+    <button role="tab" data-tab="validate" data-testid="tab-validate">Validate Customer &amp; Payment</button>
+  </nav>
+  <main>
+    <!-- c-create-reservation (force-app/main/default/lwc/createReservation) -->
+    <section class="slds-card" data-panel="create" data-lwc="c-create-reservation">
+      <h2>Create Reservation</h2>
+      <form id="create-form" data-testid="create-form" novalidate>
+        <div class="grid">
+          <label>Location<select name="locationId" data-testid="locationId"><option value="">-- select --</option></select></label>
+          <label>Resource type<select name="resourceType" data-testid="resourceType">
+            <option>STANDARD_ROOM</option><option>SUITE</option><option>CONFERENCE_ROOM</option></select></label>
+          <label>Start date<input type="date" name="startDate" data-testid="startDate" /></label>
+          <label>End date<input type="date" name="endDate" data-testid="endDate" /></label>
+          <label>Customer count<input type="number" name="customerCount" data-testid="customerCount" /></label>
+          <span></span>
+          <label>First name<input name="customer.firstName" data-testid="firstName" data-sensitive /></label>
+          <label>Last name<input name="customer.lastName" data-testid="lastName" data-sensitive /></label>
+          <label>Email<input name="customer.email" data-testid="email" data-sensitive /></label>
+          <label>Payment method<select name="payment.paymentMethod" data-testid="paymentMethod">
+            <option value="">-- select --</option><option>CARD_TOKEN</option><option>INVOICE</option><option>CASH</option><option>GIFT_VOUCHER</option></select></label>
+          <label>Payment token (synthetic)<input type="password" name="payment.paymentToken" data-testid="paymentToken" data-sensitive autocomplete="off" /></label>
+        </div>
+        <button type="submit" class="brand" data-testid="submit-create">Create reservation</button>
+      </form>
+      <div id="create-result" data-testid="create-result" aria-live="polite"></div>
+    </section>
+
+    <!-- c-reservation-search -->
+    <section class="slds-card hidden" data-panel="search" data-lwc="c-reservation-search">
+      <h2>Search Reservations</h2>
+      <form id="search-form" class="inline">
+        <label>Confirmation number<input name="confirmationNumber" data-testid="search-confirmation" /></label>
+        <label>Last name<input name="lastName" data-testid="search-lastName" /></label>
+        <button type="submit" data-testid="submit-search">Search</button>
+      </form>
+      <table data-testid="search-results"><thead><tr><th>Confirmation</th><th>Location</th><th>Start</th><th>End</th><th>Customers</th><th>Status</th></tr></thead><tbody></tbody></table>
+    </section>
+
+    <!-- c-reservation-manage -->
+    <section class="slds-card hidden" data-panel="manage" data-lwc="c-reservation-manage">
+      <h2>Modify or Cancel</h2>
+      <form id="modify-form" class="inline">
+        <label>Confirmation number<input name="confirmationNumber" data-testid="manage-confirmation" /></label>
+        <label>New end date<input type="date" name="endDate" data-testid="manage-endDate" /></label>
+        <label>New customer count<input type="number" name="customerCount" data-testid="manage-customerCount" /></label>
+        <button type="submit" data-testid="submit-modify">Modify</button>
+      </form>
+      <form id="cancel-form" class="inline">
+        <label>Cancellation reason<input name="reason" data-testid="cancel-reason" /></label>
+        <button type="submit" class="destructive" data-testid="submit-cancel">Cancel reservation</button>
+      </form>
+      <div id="manage-result" data-testid="manage-result" aria-live="polite"></div>
+    </section>
+
+    <section class="slds-card hidden" data-panel="validate">
+      <h2>Validate Customer &amp; Payment</h2>
+      <form id="validate-form" class="grid">
+        <label>First name<input name="firstName" data-testid="v-firstName" data-sensitive /></label>
+        <label>Last name<input name="lastName" data-testid="v-lastName" data-sensitive /></label>
+        <label>Email<input name="email" data-testid="v-email" data-sensitive /></label>
+        <label>Payment method<select name="paymentMethod" data-testid="v-paymentMethod"><option>CARD_TOKEN</option><option>INVOICE</option><option>CASH</option><option>GIFT_VOUCHER</option></select></label>
+        <label>Payment token<input type="password" name="paymentToken" data-testid="v-paymentToken" data-sensitive /></label>
+        <button type="submit" data-testid="submit-validate">Validate</button>
+      </form>
+      <div id="validate-result" data-testid="validate-result" aria-live="polite"></div>
+    </section>
+  </main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

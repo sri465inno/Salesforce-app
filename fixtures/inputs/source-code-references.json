@@ -1,0 +1,295 @@
+{
+  "recordedFrom": "Indexed from @rule markers in the repository source by scripts/record-source-refs.ts",
+  "files": [
+    {
+      "file": "force-app/main/default/classes/ReservationValidator.cls",
+      "sha256": "4a3a551e09b00ad45548fddec103a026ae32c4b279176f63cce5c00e16f5e468"
+    },
+    {
+      "file": "force-app/main/default/classes/ReservationService.cls",
+      "sha256": "40b289ed00917a66228f86cff633c90de0103e4926ec5f8e1e3192d2bcf6a2d5"
+    },
+    {
+      "file": "src/demo-service/reservation-validator.ts",
+      "sha256": "398484616fe35cbf3aa741e0138d891b2c10cb497e9cafdf6cca6f0aafe6ca65"
+    },
+    {
+      "file": "src/demo-service/reservation-service.ts",
+      "sha256": "d1878ffffe6eb8c37db6de5b42bf8af581a6263eb02219a0f05ea7e31af06dd5"
+    }
+  ],
+  "references": [
+    {
+      "ruleId": "BR-006",
+      "code": "MISSING_REQUIRED_FIELD",
+      "file": "force-app/main/default/classes/ReservationValidator.cls",
+      "line": 33,
+      "symbol": "validateRequiredCustomerFields",
+      "layer": "apex",
+      "excerpt": [
+        "    private static void validateRequiredCustomerFields(ReservationService.CreateReservationInput input, List<ValidationError> errors) {",
+        "        Map<String, String> required = new Map<String, String>{",
+        "            'customer.firstName' => input.customer == null ? null : input.customer.firstName,",
+        "            'customer.lastName' => input.customer == null ? null : input.customer.lastName,",
+        "            'customer.email' => input.customer == null ? null : input.customer.email",
+        "        };",
+        "        for (String field : required.keySet()) {",
+        "            if (String.isBlank(required.get(field))) {",
+        "                errors.add(new ValidationError('MISSING_REQUIRED_FIELD', field, field + ' is required', 'BR-006'));",
+        "            }",
+        "        }",
+        "    }"
+      ]
+    },
+    {
+      "ruleId": "BR-D01",
+      "code": "INVALID_EMAIL",
+      "file": "force-app/main/default/classes/ReservationValidator.cls",
+      "line": 47,
+      "symbol": "validateEmail",
+      "layer": "apex",
+      "excerpt": [
+        "    private static void validateEmail(ReservationService.CreateReservationInput input, List<ValidationError> errors) {",
+        "        if (input.customer != null && String.isNotBlank(input.customer.email) && !EMAIL_PATTERN.matcher(input.customer.email).matches()) {",
+        "            errors.add(new ValidationError('INVALID_EMAIL', 'customer.email', 'Email address is not valid', 'BR-D01'));",
+        "        }",
+        "    }"
+      ]
+    },
+    {
+      "ruleId": "BR-001",
+      "code": "INVALID_DATE_RANGE",
+      "file": "force-app/main/default/classes/ReservationValidator.cls",
+      "line": 54,
+      "symbol": "validateDates",
+      "layer": "apex",
+      "excerpt": [
+        "    private static void validateDates(ReservationService.CreateReservationInput input, List<ValidationError> errors) {",
+        "        if (input.startDate == null || input.endDate == null || input.startDate >= input.endDate) {",
+        "            errors.add(new ValidationError('INVALID_DATE_RANGE', 'startDate', 'Start date must be earlier than end date', 'BR-001'));",
+        "        }",
+        "    }"
+      ]
+    },
+    {
+      "ruleId": "BR-002",
+      "code": "INVALID_CUSTOMER_COUNT",
+      "file": "force-app/main/default/classes/ReservationValidator.cls",
+      "line": 61,
+      "symbol": "validateCustomerCount",
+      "layer": "apex",
+      "excerpt": [
+        "    private static void validateCustomerCount(ReservationService.CreateReservationInput input, List<ValidationError> errors) {",
+        "        if (input.customerCount == null || input.customerCount < 0 || input.customerCount > 10) {",
+        "            errors.add(new ValidationError('INVALID_CUSTOMER_COUNT', 'customerCount', 'Customer count must be between 1 and 10', 'BR-002'));",
+        "        }",
+        "    }"
+      ]
+    },
+    {
+      "ruleId": "BR-003",
+      "code": "INVALID_LOCATION",
+      "file": "force-app/main/default/classes/ReservationValidator.cls",
+      "line": 68,
+      "symbol": "validateLocation",
+      "layer": "apex",
+      "excerpt": [
+        "    private static void validateLocation(ReservationService.CreateReservationInput input, List<ValidationError> errors) {",
+        "        if (String.isBlank(input.locationId) || !LocationDirectory.isActive(input.locationId)) {",
+        "            errors.add(new ValidationError('INVALID_LOCATION', 'locationId', 'A valid, active location is required', 'BR-003'));",
+        "        }",
+        "    }"
+      ]
+    },
+    {
+      "ruleId": "BR-004",
+      "code": "PAYMENT_METHOD_NOT_APPROVED",
+      "file": "force-app/main/default/classes/ReservationValidator.cls",
+      "line": 75,
+      "symbol": "validatePaymentMethod",
+      "layer": "apex",
+      "excerpt": [
+        "    private static void validatePaymentMethod(ReservationService.CreateReservationInput input, List<ValidationError> errors) {",
+        "        if (input.payment == null || input.payment.paymentMethod == null || !APPROVED_PAYMENT_METHODS.contains(input.payment.paymentMethod)) {",
+        "            errors.add(new ValidationError('PAYMENT_METHOD_NOT_APPROVED', 'payment.paymentMethod', 'An approved payment method is required', 'BR-004'));",
+        "        }",
+        "    }"
+      ]
+    },
+    {
+      "ruleId": "BR-D02",
+      "code": "PAYMENT_NOT_AUTHORIZED",
+      "file": "force-app/main/default/classes/ReservationValidator.cls",
+      "line": 82,
+      "symbol": "validateAuthorization",
+      "layer": "apex",
+      "excerpt": [
+        "    public static ValidationError validateAuthorization(String authorizationStatus) {",
+        "        if (authorizationStatus != 'AUTHORIZED') {",
+        "            return new ValidationError('PAYMENT_NOT_AUTHORIZED', 'payment.paymentToken', 'Payment was not authorized', 'BR-D02');",
+        "        }",
+        "        return null;",
+        "    }"
+      ]
+    },
+    {
+      "ruleId": "BR-007",
+      "code": "RESOURCE_UNAVAILABLE",
+      "file": "force-app/main/default/classes/ReservationValidator.cls",
+      "line": 90,
+      "symbol": "validateAvailability",
+      "layer": "apex",
+      "excerpt": [
+        "    public static ValidationError validateAvailability(ReservationService.CreateReservationInput input) {",
+        "        if (!InventoryService.isAvailable(input.locationId, input.resourceType, input.startDate, input.endDate)) {",
+        "            return new ValidationError('RESOURCE_UNAVAILABLE', 'resourceType', 'The requested resource is not available for the selected dates', 'BR-007');",
+        "        }",
+        "        return null;",
+        "    }"
+      ]
+    },
+    {
+      "ruleId": "BR-005",
+      "code": "CONFIRMATION_NUMBER",
+      "file": "force-app/main/default/classes/ReservationService.cls",
+      "line": 43,
+      "symbol": "generateConfirmationNumber",
+      "layer": "apex",
+      "excerpt": [
+        "            Confirmation_Number__c = generateConfirmationNumber() // @rule BR-005 CONFIRMATION_NUMBER"
+      ]
+    },
+    {
+      "ruleId": "BR-006",
+      "code": "MISSING_REQUIRED_FIELD",
+      "file": "src/demo-service/reservation-validator.ts",
+      "line": 57,
+      "symbol": "validateRequiredCustomerFields",
+      "layer": "node-port",
+      "excerpt": [
+        "export function validateRequiredCustomerFields(input: CreateReservationInput, errors: ValidationError[]): void {",
+        "  for (const field of ['firstName', 'lastName', 'email'] as const) {",
+        "    if (blank(input.customer?.[field])) {",
+        "      errors.push({ code: 'MISSING_REQUIRED_FIELD', field: `customer.${field}`, message: `customer.${field} is required`, ruleId: 'BR-006' });",
+        "    }"
+      ]
+    },
+    {
+      "ruleId": "BR-D01",
+      "code": "INVALID_EMAIL",
+      "file": "src/demo-service/reservation-validator.ts",
+      "line": 66,
+      "symbol": "validateEmail",
+      "layer": "node-port",
+      "excerpt": [
+        "export function validateEmail(input: CreateReservationInput, errors: ValidationError[]): void {",
+        "  const email = input.customer?.email;",
+        "  if (!blank(email) && !EMAIL_PATTERN.test(String(email))) {",
+        "    errors.push({ code: 'INVALID_EMAIL', field: 'customer.email', message: 'Email address is not valid', ruleId: 'BR-D01' });",
+        "  }"
+      ]
+    },
+    {
+      "ruleId": "BR-001",
+      "code": "INVALID_DATE_RANGE",
+      "file": "src/demo-service/reservation-validator.ts",
+      "line": 74,
+      "symbol": "validateDates",
+      "layer": "node-port",
+      "excerpt": [
+        "export function validateDates(input: CreateReservationInput, errors: ValidationError[]): void {",
+        "  const { startDate, endDate } = input;",
+        "  if (!startDate || !endDate || !ISO_DATE.test(startDate) || !ISO_DATE.test(endDate) || startDate >= endDate) {",
+        "    errors.push({ code: 'INVALID_DATE_RANGE', field: 'startDate', message: 'Start date must be earlier than end date', ruleId: 'BR-001' });",
+        "  }"
+      ]
+    },
+    {
+      "ruleId": "BR-002",
+      "code": "INVALID_CUSTOMER_COUNT",
+      "file": "src/demo-service/reservation-validator.ts",
+      "line": 82,
+      "symbol": "validateCustomerCount",
+      "layer": "node-port",
+      "excerpt": [
+        "export function validateCustomerCount(input: CreateReservationInput, errors: ValidationError[], options: ValidatorOptions = {}): void {",
+        "  const count = input.customerCount;",
+        "  const lowerBound = options.fixedDefects?.includes('BR-002') ? 1 : 0;",
+        "  if (count === undefined || count === null || !Number.isInteger(count) || count < lowerBound || count > 10) {",
+        "    errors.push({ code: 'INVALID_CUSTOMER_COUNT', field: 'customerCount', message: 'Customer count must be between 1 and 10', ruleId: 'BR-002' });",
+        "  }"
+      ]
+    },
+    {
+      "ruleId": "BR-003",
+      "code": "INVALID_LOCATION",
+      "file": "src/demo-service/reservation-validator.ts",
+      "line": 91,
+      "symbol": "validateLocation",
+      "layer": "node-port",
+      "excerpt": [
+        "export function validateLocation(input: CreateReservationInput, errors: ValidationError[]): void {",
+        "  const location = LOCATIONS.find((l) => l.locationId === input.locationId);",
+        "  if (!location || !location.active) {",
+        "    errors.push({ code: 'INVALID_LOCATION', field: 'locationId', message: 'A valid, active location is required', ruleId: 'BR-003' });",
+        "  }"
+      ]
+    },
+    {
+      "ruleId": "BR-004",
+      "code": "PAYMENT_METHOD_NOT_APPROVED",
+      "file": "src/demo-service/reservation-validator.ts",
+      "line": 99,
+      "symbol": "validatePaymentMethod",
+      "layer": "node-port",
+      "excerpt": [
+        "export function validatePaymentMethod(input: CreateReservationInput, errors: ValidationError[]): void {",
+        "  const method = input.payment?.paymentMethod;",
+        "  if (!method || !APPROVED_PAYMENT_METHODS.includes(method)) {",
+        "    errors.push({ code: 'PAYMENT_METHOD_NOT_APPROVED', field: 'payment.paymentMethod', message: 'An approved payment method is required', ruleId: 'BR-004' });",
+        "  }"
+      ]
+    },
+    {
+      "ruleId": "BR-D02",
+      "code": "PAYMENT_NOT_AUTHORIZED",
+      "file": "src/demo-service/reservation-validator.ts",
+      "line": 107,
+      "symbol": "validateAuthorization",
+      "layer": "node-port",
+      "excerpt": [
+        "export function validateAuthorization(authorizationStatus: string): ValidationError | null {",
+        "  return authorizationStatus === 'AUTHORIZED'",
+        "    ? null",
+        "    : { code: 'PAYMENT_NOT_AUTHORIZED', field: 'payment.paymentToken', message: 'Payment was not authorized', ruleId: 'BR-D02' };",
+        "}"
+      ]
+    },
+    {
+      "ruleId": "BR-007",
+      "code": "RESOURCE_UNAVAILABLE",
+      "file": "src/demo-service/reservation-validator.ts",
+      "line": 114,
+      "symbol": "validateAvailability",
+      "layer": "node-port",
+      "excerpt": [
+        "export function validateAvailability(available: boolean): ValidationError | null {",
+        "  return available",
+        "    ? null",
+        "    : { code: 'RESOURCE_UNAVAILABLE', field: 'resourceType', message: 'The requested resource is not available for the selected dates', ruleId: 'BR-007' };",
+        "}"
+      ]
+    },
+    {
+      "ruleId": "BR-005",
+      "code": "CONFIRMATION_NUMBER",
+      "file": "src/demo-service/reservation-service.ts",
+      "line": 103,
+      "symbol": "confirmationNumber",
+      "layer": "node-port",
+      "excerpt": [
+        "      confirmationNumber: this.confirmationNumber(), // @rule BR-005 CONFIRMATION_NUMBER"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,753 @@
+{
+  "runId": "RUN-CYC-0001",
+  "executed": true,
+  "startedAt": "2026-09-29T21:40:53.086Z",
+  "finishedAt": "2026-09-29T21:40:58.533Z",
+  "durationMs": 5447,
+  "demoServiceBuild": "reservation-demo@1.0.0 (seeded defect BR-002)",
+  "baseURL": "http://127.0.0.1:42003",
+  "playwrightExitCode": 1,
+  "totals": {
+    "total": 22,
+    "passed": 20,
+    "failed": 2,
+    "skipped": 0,
+    "notRun": 0
+  },
+  "results": [
+    {
+      "id": "EX-TC-001",
+      "testCaseId": "TC-001",
+      "scriptId": "AS-TC-001",
+      "datasetId": "DS-TC-001",
+      "status": "passed",
+      "durationMs": 53,
+      "startedAt": "2026-09-29T21:40:53.925Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-001-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-001/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-001-02",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-001/02-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-001-03",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-001/service-log.json",
+          "label": "Demo service log (1 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-002",
+      "testCaseId": "TC-002",
+      "scriptId": "AS-TC-002",
+      "datasetId": "DS-TC-002",
+      "status": "passed",
+      "durationMs": 34,
+      "startedAt": "2026-09-29T21:40:53.955Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-002-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-002/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-002-02",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-002/02-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-002-03",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-002/service-log.json",
+          "label": "Demo service log (1 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-003",
+      "testCaseId": "TC-003",
+      "scriptId": "AS-TC-003",
+      "datasetId": "DS-TC-003",
+      "status": "passed",
+      "durationMs": 60,
+      "startedAt": "2026-09-29T21:40:53.928Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-003-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-003/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-003-02",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-003/02-request-response-reservation.json",
+          "label": "request-response-reservation"
+        },
+        {
+          "id": "EV-TC-003-03",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-003/03-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-003-04",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-003/service-log.json",
+          "label": "Demo service log (2 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-004",
+      "testCaseId": "TC-004",
+      "scriptId": "AS-TC-004",
+      "datasetId": "DS-TC-004",
+      "status": "failed",
+      "durationMs": 46,
+      "startedAt": "2026-09-29T21:40:53.932Z",
+      "error": {
+        "message": "Error: BR-002: createReservation.success\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: false\nReceived: true\n\n  12 |   const ds = aqe.dataset('DS-TC-004');\n  13 |   const result = await aqe.createReservation(ds.values);\n> 14 |   expect(result.success, 'BR-002: createReservation.success').toBe(false);\n     |                                                               ^\n  15 |   expect(result.reservation, 'BR-002: no reservation created').toBeNull();",
+        "expected": "false",
+        "actual": "true"
+      },
+      "evidence": [
+        {
+          "id": "EV-TC-004-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-004/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-004-02",
+          "kind": "stdout",
+          "path": "cycles/CYC-0001/execution/evidence/TC-004/02-error-context.txt",
+          "label": "error-context"
+        },
+        {
+          "id": "EV-TC-004-03",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-004/03-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-004-04",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-004/service-log.json",
+          "label": "Demo service log (1 masked GraphQL calls)"
+        },
+        {
+          "id": "EV-TC-004-05",
+          "kind": "error",
+          "path": "cycles/CYC-0001/execution/evidence/TC-004/error.txt",
+          "label": "Assertion failure"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-005",
+      "testCaseId": "TC-005",
+      "scriptId": "AS-TC-005",
+      "datasetId": "DS-TC-005",
+      "status": "failed",
+      "durationMs": 4391,
+      "startedAt": "2026-09-29T21:40:54.023Z",
+      "error": {
+        "message": "Error: BR-002: create outcome\n\nexpect(locator).toHaveAttribute(expected) failed\n\nLocator:  getByTestId('create-result').locator('.toast')\nExpected: \"error-toast\"\nReceived: \"success-toast\"\nTimeout:  4000ms\n\nCall log:\n  - BR-002: create outcome getByTestId('create-result').locator('.toast') with timeout 4000ms\n  - waiting for getByTestId('create-result').locator('.toast')",
+        "expected": "\"error-toast\"",
+        "actual": "\"success-toast\""
+      },
+      "evidence": [
+        {
+          "id": "EV-TC-005-01",
+          "kind": "screenshot",
+          "path": "cycles/CYC-0001/execution/evidence/TC-005/01-screenshot-create-outcome.png",
+          "label": "screenshot-create-outcome"
+        },
+        {
+          "id": "EV-TC-005-02",
+          "kind": "stdout",
+          "path": "cycles/CYC-0001/execution/evidence/TC-005/02-error-context.txt",
+          "label": "error-context"
+        },
+        {
+          "id": "EV-TC-005-03",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-005/03-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-005-04",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-005/service-log.json",
+          "label": "Demo service log (2 masked GraphQL calls)"
+        },
+        {
+          "id": "EV-TC-005-05",
+          "kind": "error",
+          "path": "cycles/CYC-0001/execution/evidence/TC-005/error.txt",
+          "label": "Assertion failure"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-006",
+      "testCaseId": "TC-006",
+      "scriptId": "AS-TC-006",
+      "datasetId": "DS-TC-006",
+      "status": "passed",
+      "durationMs": 15,
+      "startedAt": "2026-09-29T21:40:54.032Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-006-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-006/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-006-02",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-006/02-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-006-03",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-006/service-log.json",
+          "label": "Demo service log (1 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-007",
+      "testCaseId": "TC-007",
+      "scriptId": "AS-TC-007",
+      "datasetId": "DS-TC-007",
+      "status": "passed",
+      "durationMs": 16,
+      "startedAt": "2026-09-29T21:40:54.035Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-007-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-007/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-007-02",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-007/02-request-response-reservation.json",
+          "label": "request-response-reservation"
+        },
+        {
+          "id": "EV-TC-007-03",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-007/03-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-007-04",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-007/service-log.json",
+          "label": "Demo service log (2 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-008",
+      "testCaseId": "TC-008",
+      "scriptId": "AS-TC-008",
+      "datasetId": "DS-TC-008",
+      "status": "passed",
+      "durationMs": 41,
+      "startedAt": "2026-09-29T21:40:54.332Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-008-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-008/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-008-02",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-008/02-request-response-reservation.json",
+          "label": "request-response-reservation"
+        },
+        {
+          "id": "EV-TC-008-03",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-008/03-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-008-04",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-008/service-log.json",
+          "label": "Demo service log (2 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-009",
+      "testCaseId": "TC-009",
+      "scriptId": "AS-TC-009",
+      "datasetId": "DS-TC-009",
+      "status": "passed",
+      "durationMs": 14,
+      "startedAt": "2026-09-29T21:40:54.060Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-009-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-009/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-009-02",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-009/02-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-009-03",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-009/service-log.json",
+          "label": "Demo service log (1 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-010",
+      "testCaseId": "TC-010",
+      "scriptId": "AS-TC-010",
+      "datasetId": "DS-TC-010",
+      "status": "passed",
+      "durationMs": 17,
+      "startedAt": "2026-09-29T21:40:54.066Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-010-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-010/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-010-02",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-010/02-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-010-03",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-010/service-log.json",
+          "label": "Demo service log (1 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-011",
+      "testCaseId": "TC-011",
+      "scriptId": "AS-TC-011",
+      "datasetId": "DS-TC-011",
+      "status": "passed",
+      "durationMs": 17,
+      "startedAt": "2026-09-29T21:40:54.088Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-011-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-011/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-011-02",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-011/02-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-011-03",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-011/service-log.json",
+          "label": "Demo service log (1 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-012",
+      "testCaseId": "TC-012",
+      "scriptId": "AS-TC-012",
+      "datasetId": "DS-TC-012",
+      "status": "passed",
+      "durationMs": 11,
+      "startedAt": "2026-09-29T21:40:54.100Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-012-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-012/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-012-02",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-012/02-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-012-03",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-012/service-log.json",
+          "label": "Demo service log (1 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-013",
+      "testCaseId": "TC-013",
+      "scriptId": "AS-TC-013",
+      "datasetId": "DS-TC-013",
+      "status": "passed",
+      "durationMs": 17,
+      "startedAt": "2026-09-29T21:40:54.120Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-013-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-013/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-013-02",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-013/02-request-response-reservation.json",
+          "label": "request-response-reservation"
+        },
+        {
+          "id": "EV-TC-013-03",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-013/03-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-013-04",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-013/service-log.json",
+          "label": "Demo service log (2 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-014",
+      "testCaseId": "TC-014",
+      "scriptId": "AS-TC-014",
+      "datasetId": "DS-TC-014",
+      "status": "passed",
+      "durationMs": 22,
+      "startedAt": "2026-09-29T21:40:54.126Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-014-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-014/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-014-02",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-014/02-request-response-reservation.json",
+          "label": "request-response-reservation"
+        },
+        {
+          "id": "EV-TC-014-03",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-014/03-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-014-04",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-014/service-log.json",
+          "label": "Demo service log (2 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-015",
+      "testCaseId": "TC-015",
+      "scriptId": "AS-TC-015",
+      "datasetId": "DS-TC-015",
+      "status": "passed",
+      "durationMs": 359,
+      "startedAt": "2026-09-29T21:40:54.157Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-015-01",
+          "kind": "screenshot",
+          "path": "cycles/CYC-0001/execution/evidence/TC-015/01-screenshot-create-outcome.png",
+          "label": "screenshot-create-outcome"
+        },
+        {
+          "id": "EV-TC-015-02",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-015/02-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-015-03",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-015/service-log.json",
+          "label": "Demo service log (2 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-016",
+      "testCaseId": "TC-016",
+      "scriptId": "AS-TC-016",
+      "datasetId": "DS-TC-016",
+      "status": "passed",
+      "durationMs": 755,
+      "startedAt": "2026-09-29T21:40:54.164Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-016-01",
+          "kind": "screenshot",
+          "path": "cycles/CYC-0001/execution/evidence/TC-016/01-screenshot-create-outcome.png",
+          "label": "screenshot-create-outcome"
+        },
+        {
+          "id": "EV-TC-016-02",
+          "kind": "screenshot",
+          "path": "cycles/CYC-0001/execution/evidence/TC-016/02-screenshot-search-result.png",
+          "label": "screenshot-search-result"
+        },
+        {
+          "id": "EV-TC-016-03",
+          "kind": "screenshot",
+          "path": "cycles/CYC-0001/execution/evidence/TC-016/03-screenshot-after-cancel.png",
+          "label": "screenshot-after-cancel"
+        },
+        {
+          "id": "EV-TC-016-04",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-016/04-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-016-05",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-016/service-log.json",
+          "label": "Demo service log (5 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-017",
+      "testCaseId": "TC-017",
+      "scriptId": "AS-TC-017",
+      "datasetId": "DS-TC-017",
+      "status": "passed",
+      "durationMs": 12,
+      "startedAt": "2026-09-29T21:40:54.422Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-017-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-017/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-017-02",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-017/02-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-017-03",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-017/service-log.json",
+          "label": "Demo service log (1 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-018",
+      "testCaseId": "TC-018",
+      "scriptId": "AS-TC-018",
+      "datasetId": "DS-TC-018",
+      "status": "passed",
+      "durationMs": 9,
+      "startedAt": "2026-09-29T21:40:54.446Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-018-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-018/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-018-02",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-018/02-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-018-03",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-018/service-log.json",
+          "label": "Demo service log (1 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-019",
+      "testCaseId": "TC-019",
+      "scriptId": "AS-TC-019",
+      "datasetId": "DS-TC-019",
+      "status": "passed",
+      "durationMs": 11,
+      "startedAt": "2026-09-29T21:40:54.467Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-019-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-019/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-019-02",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-019/02-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-019-03",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-019/service-log.json",
+          "label": "Demo service log (1 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-020",
+      "testCaseId": "TC-020",
+      "scriptId": "AS-TC-020",
+      "datasetId": "DS-TC-020",
+      "status": "passed",
+      "durationMs": 10,
+      "startedAt": "2026-09-29T21:40:54.489Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-020-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-020/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-020-02",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-020/02-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-020-03",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-020/service-log.json",
+          "label": "Demo service log (1 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-021",
+      "testCaseId": "TC-021",
+      "scriptId": "AS-TC-021",
+      "datasetId": "DS-TC-021",
+      "status": "passed",
+      "durationMs": 12,
+      "startedAt": "2026-09-29T21:40:54.510Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-021-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-021/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-021-02",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-021/02-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-021-03",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-021/service-log.json",
+          "label": "Demo service log (1 masked GraphQL calls)"
+        }
+      ]
+    },
+    {
+      "id": "EX-TC-022",
+      "testCaseId": "TC-022",
+      "scriptId": "AS-TC-022",
+      "datasetId": "DS-TC-022",
+      "status": "passed",
+      "durationMs": 9,
+      "startedAt": "2026-09-29T21:40:54.536Z",
+      "error": null,
+      "evidence": [
+        {
+          "id": "EV-TC-022-01",
+          "kind": "request-response",
+          "path": "cycles/CYC-0001/execution/evidence/TC-022/01-request-response-createReservation.json",
+          "label": "request-response-createReservation"
+        },
+        {
+          "id": "EV-TC-022-02",
+          "kind": "trace",
+          "path": "cycles/CYC-0001/execution/evidence/TC-022/02-trace.zip",
+          "label": "Playwright trace (open with npx playwright show-trace)"
+        },
+        {
+          "id": "EV-TC-022-03",
+          "kind": "service-log",
+          "path": "cycles/CYC-0001/execution/evidence/TC-022/service-log.json",
+          "label": "Demo service log (1 masked GraphQL calls)"
+        }
+      ]
+    }
+  ]
+}

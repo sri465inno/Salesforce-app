@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Agentic QE Platform — Reservation Management (local MVP)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="top">
+    <strong class="brand">Agentic QE Platform</strong>
+    <span class="muted">Salesforce reservation management · STORY-001</span>
+    <span class="badge">LOCAL · SYNTHETIC DATA ONLY</span>
+    <label class="cycle-pick">Cycle <select id="cycle-select" data-testid="cycle-select"></select></label>
+  </header>
+  <nav class="nav" data-testid="nav">
+    <a href="#/" data-route="home">Home</a>
+    <a href="#/run" data-route="run">Run</a>
+    <a href="#/review" data-route="review">Human Review</a>
+    <a href="#/cycle" data-route="cycle">Cycle Details</a>
+    <a href="#/data" data-route="data">Test Data</a>
+    <a href="#/execution" data-route="execution">Execution</a>
+    <a href="#/reporting" data-route="reporting">Reporting</a>
+    <a href="#/lab" data-route="lab">Test Lab</a>
+    <a href="#/audit" data-route="audit">Audit Log</a>
+  </nav>
+  <main id="view" data-testid="view"></main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

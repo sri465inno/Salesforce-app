@@ -1,0 +1,43 @@
+{
+  "request": {
+    "operation": "createReservation",
+    "variables": {
+      "input": {
+        "locationId": "LOC-SYN-002",
+        "startDate": "2027-01-31",
+        "endDate": "2027-02-03",
+        "customerCount": 2,
+        "resourceType": "STANDARD_ROOM",
+        "customer": {
+          "firstName": "R***",
+          "lastName": "M***",
+          "email": "r***@example.test"
+        },
+        "payment": {
+          "paymentMethod": "CARD_TOKEN",
+          "paymentToken": "tok_****6ac4"
+        }
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "createReservation": {
+          "success": false,
+          "errors": [
+            {
+              "code": "PAYMENT_NOT_AUTHORIZED",
+              "field": "payment.paymentToken",
+              "message": "Payment was not authorized",
+              "ruleId": "BR-D02"
+            }
+          ],
+          "reservation": null
+        }
+      }
+    }
+  },
+  "durationMs": 5
+}

@@ -1,0 +1,500 @@
+{
+  "matrix": [
+    {
+      "requirementId": "REQ-001",
+      "sourceId": "STORY-001",
+      "text": "As a service associate, I want to create a customer reservation, so that the customer receives a confirmation number.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-005"
+      ],
+      "testCaseIds": [
+        "TC-014",
+        "TC-015",
+        "TC-016"
+      ],
+      "byType": {
+        "smoke": 1,
+        "positive": 1,
+        "negative": 0,
+        "boundary": 0,
+        "e2e": 1
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-002",
+      "sourceId": "STORY-001-AC-1",
+      "text": "Given valid reservation details, when the associate submits the reservation, then a confirmation number must be generated and the reservation status is CONFIRMED.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-005"
+      ],
+      "testCaseIds": [
+        "TC-014",
+        "TC-015",
+        "TC-016"
+      ],
+      "byType": {
+        "smoke": 1,
+        "positive": 1,
+        "negative": 0,
+        "boundary": 0,
+        "e2e": 1
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-003",
+      "sourceId": "STORY-001-AC-2",
+      "text": "The start date must be earlier than the end date.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-001"
+      ],
+      "testCaseIds": [
+        "TC-001",
+        "TC-002",
+        "TC-003"
+      ],
+      "byType": {
+        "smoke": 0,
+        "positive": 0,
+        "negative": 1,
+        "boundary": 2,
+        "e2e": 0
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-004",
+      "sourceId": "STORY-001-AC-3",
+      "text": "The customer count must be greater than zero.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-002"
+      ],
+      "testCaseIds": [
+        "TC-004",
+        "TC-005",
+        "TC-006",
+        "TC-007",
+        "TC-008",
+        "TC-009"
+      ],
+      "byType": {
+        "smoke": 0,
+        "positive": 0,
+        "negative": 1,
+        "boundary": 5,
+        "e2e": 0
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-005",
+      "sourceId": "STORY-001-AC-4",
+      "text": "A valid location is required.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-003"
+      ],
+      "testCaseIds": [
+        "TC-010",
+        "TC-011"
+      ],
+      "byType": {
+        "smoke": 0,
+        "positive": 0,
+        "negative": 2,
+        "boundary": 0,
+        "e2e": 0
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-006",
+      "sourceId": "STORY-001-AC-5",
+      "text": "An approved payment method is required.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-004"
+      ],
+      "testCaseIds": [
+        "TC-012",
+        "TC-013"
+      ],
+      "byType": {
+        "smoke": 0,
+        "positive": 1,
+        "negative": 1,
+        "boundary": 0,
+        "e2e": 0
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-007",
+      "sourceId": "STORY-001-AC-6",
+      "text": "Customer first name, last name and email are required.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-006"
+      ],
+      "testCaseIds": [
+        "TC-017",
+        "TC-018",
+        "TC-019"
+      ],
+      "byType": {
+        "smoke": 0,
+        "positive": 0,
+        "negative": 3,
+        "boundary": 0,
+        "e2e": 0
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-008",
+      "sourceId": "STORY-001-AC-7",
+      "text": "The number of customers must be at least one.",
+      "status": "merged",
+      "ruleIds": [],
+      "testCaseIds": [],
+      "byType": {
+        "smoke": 0,
+        "positive": 0,
+        "negative": 0,
+        "boundary": 0,
+        "e2e": 0
+      },
+      "coverage": "merged"
+    },
+    {
+      "requirementId": "REQ-009",
+      "sourceId": "EPIC-10-AC-1",
+      "text": "A reservation may include up to 12 customers.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-002"
+      ],
+      "testCaseIds": [
+        "TC-004",
+        "TC-005",
+        "TC-006",
+        "TC-007",
+        "TC-008",
+        "TC-009"
+      ],
+      "byType": {
+        "smoke": 0,
+        "positive": 0,
+        "negative": 1,
+        "boundary": 5,
+        "e2e": 0
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-010",
+      "sourceId": "EPIC-10-AC-2",
+      "text": "All customer and payment data used outside production must be synthetic.",
+      "status": "baselined",
+      "ruleIds": [],
+      "testCaseIds": [],
+      "byType": {
+        "smoke": 0,
+        "positive": 0,
+        "negative": 0,
+        "boundary": 0,
+        "e2e": 0
+      },
+      "coverage": "non-functional (privacy controls)"
+    },
+    {
+      "requirementId": "REQ-011",
+      "sourceId": "BR-001",
+      "text": "Start date must be earlier than end date.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-001"
+      ],
+      "testCaseIds": [
+        "TC-001",
+        "TC-002",
+        "TC-003"
+      ],
+      "byType": {
+        "smoke": 0,
+        "positive": 0,
+        "negative": 1,
+        "boundary": 2,
+        "e2e": 0
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-012",
+      "sourceId": "BR-002",
+      "text": "Customer count must be greater than zero.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-002"
+      ],
+      "testCaseIds": [
+        "TC-004",
+        "TC-005",
+        "TC-006",
+        "TC-007",
+        "TC-008",
+        "TC-009"
+      ],
+      "byType": {
+        "smoke": 0,
+        "positive": 0,
+        "negative": 1,
+        "boundary": 5,
+        "e2e": 0
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-013",
+      "sourceId": "BR-003",
+      "text": "A valid location is required.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-003"
+      ],
+      "testCaseIds": [
+        "TC-010",
+        "TC-011"
+      ],
+      "byType": {
+        "smoke": 0,
+        "positive": 0,
+        "negative": 2,
+        "boundary": 0,
+        "e2e": 0
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-014",
+      "sourceId": "BR-004",
+      "text": "An approved payment method is required.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-004"
+      ],
+      "testCaseIds": [
+        "TC-012",
+        "TC-013"
+      ],
+      "byType": {
+        "smoke": 0,
+        "positive": 1,
+        "negative": 1,
+        "boundary": 0,
+        "e2e": 0
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-015",
+      "sourceId": "BR-005",
+      "text": "A confirmation number must be generated after successful creation.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-005"
+      ],
+      "testCaseIds": [
+        "TC-014",
+        "TC-015",
+        "TC-016"
+      ],
+      "byType": {
+        "smoke": 1,
+        "positive": 1,
+        "negative": 0,
+        "boundary": 0,
+        "e2e": 1
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-016",
+      "sourceId": "BR-006",
+      "text": "Required customer fields must be supplied.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-006"
+      ],
+      "testCaseIds": [
+        "TC-017",
+        "TC-018",
+        "TC-019"
+      ],
+      "byType": {
+        "smoke": 0,
+        "positive": 0,
+        "negative": 3,
+        "boundary": 0,
+        "e2e": 0
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-017",
+      "sourceId": "BR-007",
+      "text": "The requested resource must be available for the selected dates.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-007"
+      ],
+      "testCaseIds": [
+        "TC-020"
+      ],
+      "byType": {
+        "smoke": 0,
+        "positive": 0,
+        "negative": 1,
+        "boundary": 0,
+        "e2e": 0
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-018",
+      "sourceId": "RF-003:BR-007",
+      "text": "The requested resource must be available for the selected dates.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-007"
+      ],
+      "testCaseIds": [
+        "TC-020"
+      ],
+      "byType": {
+        "smoke": 0,
+        "positive": 0,
+        "negative": 1,
+        "boundary": 0,
+        "e2e": 0
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-019",
+      "sourceId": "RF-004:BR-D01",
+      "text": "Customer email must be valid.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-D01"
+      ],
+      "testCaseIds": [
+        "TC-021"
+      ],
+      "byType": {
+        "smoke": 0,
+        "positive": 0,
+        "negative": 1,
+        "boundary": 0,
+        "e2e": 0
+      },
+      "coverage": "covered"
+    },
+    {
+      "requirementId": "REQ-020",
+      "sourceId": "RF-005:BR-D02",
+      "text": "Payment must be authorized by the payment gateway.",
+      "status": "baselined",
+      "ruleIds": [
+        "BR-D02"
+      ],
+      "testCaseIds": [
+        "TC-022"
+      ],
+      "byType": {
+        "smoke": 0,
+        "positive": 0,
+        "negative": 1,
+        "boundary": 0,
+        "e2e": 0
+      },
+      "coverage": "covered"
+    }
+  ],
+  "rules": {
+    "total": 9,
+    "verified": 9,
+    "failing": 0,
+    "untested": 0,
+    "byRule": [
+      {
+        "id": "BR-001",
+        "tests": 3,
+        "passed": 3,
+        "failed": 0,
+        "status": "verified"
+      },
+      {
+        "id": "BR-002",
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "status": "verified"
+      },
+      {
+        "id": "BR-003",
+        "tests": 2,
+        "passed": 2,
+        "failed": 0,
+        "status": "verified"
+      },
+      {
+        "id": "BR-004",
+        "tests": 2,
+        "passed": 2,
+        "failed": 0,
+        "status": "verified"
+      },
+      {
+        "id": "BR-005",
+        "tests": 3,
+        "passed": 3,
+        "failed": 0,
+        "status": "verified"
+      },
+      {
+        "id": "BR-006",
+        "tests": 3,
+        "passed": 3,
+        "failed": 0,
+        "status": "verified"
+      },
+      {
+        "id": "BR-007",
+        "tests": 1,
+        "passed": 1,
+        "failed": 0,
+        "status": "verified"
+      },
+      {
+        "id": "BR-D01",
+        "tests": 1,
+        "passed": 1,
+        "failed": 0,
+        "status": "verified"
+      },
+      {
+        "id": "BR-D02",
+        "tests": 1,
+        "passed": 1,
+        "failed": 0,
+        "status": "verified"
+      }
+    ]
+  }
+}

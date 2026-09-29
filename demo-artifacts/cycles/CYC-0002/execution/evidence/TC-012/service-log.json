@@ -1,0 +1,43 @@
+[
+  {
+    "seq": 14,
+    "at": "2026-09-29T21:40:59.604Z",
+    "testId": "TC-012",
+    "operationName": "CreateReservation",
+    "variables": {
+      "input": {
+        "locationId": "LOC-SYN-002",
+        "startDate": "2027-02-01",
+        "endDate": "2027-02-03",
+        "customerCount": 1,
+        "resourceType": "STANDARD_ROOM",
+        "customer": {
+          "firstName": "R***",
+          "lastName": "D***",
+          "email": "r***@example.test"
+        },
+        "payment": {
+          "paymentMethod": "CASH",
+          "paymentToken": "tok_****3a90"
+        }
+      }
+    },
+    "response": {
+      "data": {
+        "createReservation": {
+          "success": false,
+          "errors": [
+            {
+              "code": "PAYMENT_METHOD_NOT_APPROVED",
+              "field": "payment.paymentMethod",
+              "message": "An approved payment method is required",
+              "ruleId": "BR-004"
+            }
+          ],
+          "reservation": null
+        }
+      }
+    },
+    "durationMs": 0
+  }
+]

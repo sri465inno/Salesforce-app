@@ -1,0 +1,27 @@
+{
+  "id": "DS-TC-019",
+  "classification": "SYNTHETIC",
+  "provenance": {
+    "generator": "aqe-test-data-agent@1.0.0",
+    "seed": "TC-019:1.0.0",
+    "dictionaryVersion": "1.0.0",
+    "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+    "generatedAt": "2026-09-29T21:40:58.615Z"
+  },
+  "values": {
+    "locationId": "LOC-SYN-003",
+    "startDate": "2027-01-23",
+    "endDate": "2027-01-27",
+    "customerCount": 4,
+    "resourceType": "STANDARD_ROOM",
+    "customer": {
+      "firstName": "Quinn",
+      "lastName": null,
+      "email": "quinn.mockridge.501@example.test"
+    },
+    "payment": {
+      "paymentMethod": "CARD_TOKEN",
+      "paymentToken": "tok_synthetic_b1ad05c0a867"
+    }
+  }
+}

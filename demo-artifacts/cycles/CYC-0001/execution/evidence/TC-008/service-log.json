@@ -1,0 +1,81 @@
+[
+  {
+    "seq": 21,
+    "at": "2026-09-29T21:40:54.372Z",
+    "testId": "TC-008",
+    "operationName": "CreateReservation",
+    "variables": {
+      "input": {
+        "locationId": "LOC-SYN-001",
+        "startDate": "2027-02-01",
+        "endDate": "2027-02-02",
+        "customerCount": 10,
+        "resourceType": "STANDARD_ROOM",
+        "customer": {
+          "firstName": "R***",
+          "lastName": "S***",
+          "email": "r***@example.test"
+        },
+        "payment": {
+          "paymentMethod": "CARD_TOKEN",
+          "paymentToken": "tok_****6a3a"
+        }
+      }
+    },
+    "response": {
+      "data": {
+        "createReservation": {
+          "success": true,
+          "errors": [],
+          "reservation": {
+            "reservationId": "RSV-SYN-000007",
+            "confirmationNumber": "CNF-7DLR2432",
+            "locationId": "LOC-SYN-001",
+            "startDate": "2027-02-01",
+            "endDate": "2027-02-02",
+            "customerCount": 10,
+            "resourceType": "STANDARD_ROOM",
+            "status": "CONFIRMED",
+            "createdAt": "2026-09-29T21:40:54.373Z",
+            "payment": {
+              "paymentMethod": "CARD_TOKEN",
+              "paymentToken": "tok_****6a3a",
+              "authorizationStatus": "AUTHORIZED"
+            }
+          }
+        }
+      }
+    },
+    "durationMs": 1
+  },
+  {
+    "seq": 22,
+    "at": "2026-09-29T21:40:54.385Z",
+    "testId": "TC-008",
+    "operationName": "Reservation",
+    "variables": {
+      "confirmationNumber": "CNF-7DLR2432"
+    },
+    "response": {
+      "data": {
+        "reservation": {
+          "reservationId": "RSV-SYN-000007",
+          "confirmationNumber": "CNF-7DLR2432",
+          "locationId": "LOC-SYN-001",
+          "startDate": "2027-02-01",
+          "endDate": "2027-02-02",
+          "customerCount": 10,
+          "resourceType": "STANDARD_ROOM",
+          "status": "CONFIRMED",
+          "createdAt": "2026-09-29T21:40:54.373Z",
+          "payment": {
+            "paymentMethod": "CARD_TOKEN",
+            "paymentToken": "tok_****6a3a",
+            "authorizationStatus": "AUTHORIZED"
+          }
+        }
+      }
+    },
+    "durationMs": 0
+  }
+]

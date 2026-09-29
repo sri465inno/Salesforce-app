@@ -1,0 +1,8 @@
+{
+  "recordedFrom": "Local fixture pointing at the versioned contract file in this repository.",
+  "name": "Reservation GraphQL API",
+  "version": "1.0.0",
+  "schemaFile": "contracts/reservation.graphql",
+  "endpoint": "/graphql",
+  "operations": ["createReservation", "modifyReservation", "cancelReservation", "reservation", "searchReservations", "availability", "validateCustomer", "validatePayment", "locations", "health"]
+}

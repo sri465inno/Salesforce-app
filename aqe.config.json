@@ -1,0 +1,9 @@
+{
+  "evidenceRetentionDays": 30,
+  "deleteEvidenceOnReset": true,
+  "maskSensitiveValues": true,
+  "localOnly": true,
+  "approvedDatasetGenerators": ["aqe-test-data-agent@1.0.0"],
+  "platformPort": 3000,
+  "executionTimeoutMs": 180000
+}

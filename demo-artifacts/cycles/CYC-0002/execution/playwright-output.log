@@ -1,0 +1,27 @@
+
+Running 22 tests using 4 workers
+
+  ✓   1 tests/TC-004.api.spec.ts:11:5 › TC-004 customerCount = 0 is rejected @BR-002 @REQ-004 @REQ-009 @REQ-012 @boundary @api (34ms)
+  ✓   2 tests/TC-001.api.spec.ts:11:5 › TC-001 startDate after endDate is rejected @BR-001 @REQ-003 @REQ-011 @negative @api (34ms)
+  ✓   4 tests/TC-002.api.spec.ts:11:5 › TC-002 startDate equal to endDate is rejected @BR-001 @REQ-003 @REQ-011 @boundary @api (32ms)
+  ✓   3 tests/TC-003.api.spec.ts:11:5 › TC-003 endDate one day after startDate is accepted @BR-001 @REQ-003 @REQ-011 @boundary @api (39ms)
+  ✓   6 tests/TC-006.api.spec.ts:11:5 › TC-006 customerCount = -1 is rejected @BR-002 @REQ-004 @REQ-009 @REQ-012 @negative @api (15ms)
+  ✓   7 tests/TC-007.api.spec.ts:11:5 › TC-007 customerCount = 1 is accepted @BR-002 @REQ-004 @REQ-009 @REQ-012 @boundary @api (22ms)
+  ✓   8 tests/TC-008.api.spec.ts:11:5 › TC-008 customerCount = 10 (dictionary maximum) is accepted @BR-002 @REQ-004 @REQ-009 @REQ-012 @boundary @api (21ms)
+  ✓   9 tests/TC-009.api.spec.ts:11:5 › TC-009 customerCount = 11 is rejected @BR-002 @REQ-004 @REQ-009 @REQ-012 @boundary @api (12ms)
+  ✓  10 tests/TC-010.api.spec.ts:11:5 › TC-010 Unknown locationId is rejected @BR-003 @REQ-005 @REQ-013 @negative @api (12ms)
+  ✓  12 tests/TC-012.api.spec.ts:11:5 › TC-012 Unapproved payment.paymentMethod CASH is rejected @BR-004 @REQ-006 @REQ-014 @negative @api (15ms)
+  ✓  11 tests/TC-011.api.spec.ts:11:5 › TC-011 Inactive locationId LOC-SYN-004 is rejected @BR-003 @REQ-005 @REQ-013 @negative @api (19ms)
+  ✓  13 tests/TC-013.api.spec.ts:11:5 › TC-013 Approved payment.paymentMethod INVOICE is accepted @BR-004 @REQ-006 @REQ-014 @positive @api (21ms)
+  ✓  14 tests/TC-014.api.spec.ts:11:5 › TC-014 Smoke: createReservation with valid synthetic data returns a confirmation number @BR-005 @REQ-001 @REQ-002 @REQ-015 @smoke @api (17ms)
+  ✓  17 tests/TC-017.api.spec.ts:11:5 › TC-017 Missing customer.email is rejected @BR-006 @REQ-007 @REQ-016 @negative @api (20ms)
+  ✓  18 tests/TC-018.api.spec.ts:11:5 › TC-018 Missing customer.firstName is rejected @BR-006 @REQ-007 @REQ-016 @negative @api (11ms)
+  ✓  19 tests/TC-019.api.spec.ts:11:5 › TC-019 Missing customer.lastName is rejected @BR-006 @REQ-007 @REQ-016 @negative @api (16ms)
+  ✓  20 tests/TC-020.api.spec.ts:11:5 › TC-020 Unavailable SUITE at LOC-SYN-002 for booked dates is rejected @BR-007 @REQ-017 @REQ-018 @negative @api (10ms)
+  ✓  21 tests/TC-021.api.spec.ts:11:5 › TC-021 Malformed customer.email is rejected @BR-D01 @REQ-019 @negative @api (11ms)
+  ✓  22 tests/TC-022.api.spec.ts:11:5 › TC-022 Declined synthetic payment token is rejected @BR-D02 @REQ-020 @negative @api (10ms)
+  ✓   5 tests/TC-005.ui.spec.ts:12:5 › TC-005 customerCount = 0 is rejected in the console @BR-002 @REQ-004 @REQ-009 @REQ-012 @boundary @ui (368ms)
+  ✓  15 tests/TC-015.ui.spec.ts:12:5 › TC-015 Service associate creates a reservation in the console and receives a confirmation number @BR-005 @REQ-001 @REQ-002 @REQ-015 @positive @ui (361ms)
+  ✓  16 tests/TC-016.ui.spec.ts:12:5 › TC-016 End to end: create, search by confirmation number and cancel the reservation @BR-005 @REQ-001 @REQ-002 @REQ-015 @e2e @ui (746ms)
+
+  22 passed (1.5s)

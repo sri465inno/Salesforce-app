@@ -1,0 +1,80 @@
+[
+  {
+    "seq": 24,
+    "at": "2026-09-29T21:40:59.767Z",
+    "testId": "TC-015",
+    "operationName": "Locations",
+    "variables": {},
+    "response": {
+      "data": {
+        "locations": [
+          {
+            "locationId": "LOC-SYN-001",
+            "name": "Synthetic Downtown Centre",
+            "active": true
+          },
+          {
+            "locationId": "LOC-SYN-002",
+            "name": "Synthetic Airport Lodge",
+            "active": true
+          },
+          {
+            "locationId": "LOC-SYN-003",
+            "name": "Synthetic Harbour Suites",
+            "active": true
+          },
+          {
+            "locationId": "LOC-SYN-004",
+            "name": "Synthetic Closed Annex",
+            "active": false
+          }
+        ]
+      }
+    },
+    "durationMs": 1
+  },
+  {
+    "seq": 29,
+    "at": "2026-09-29T21:40:59.918Z",
+    "testId": "TC-015",
+    "operationName": "CreateReservation",
+    "variables": {
+      "input": {
+        "locationId": "LOC-SYN-002",
+        "resourceType": "STANDARD_ROOM",
+        "startDate": "2027-01-27",
+        "endDate": "2027-01-31",
+        "customerCount": 4,
+        "customer": {
+          "firstName": "J***",
+          "lastName": "M***",
+          "email": "j***@example.test"
+        },
+        "payment": {
+          "paymentMethod": "CARD_TOKEN",
+          "paymentToken": "tok_****34dd"
+        }
+      }
+    },
+    "response": {
+      "data": {
+        "createReservation": {
+          "success": true,
+          "errors": [],
+          "reservation": {
+            "reservationId": "RSV-SYN-000006",
+            "confirmationNumber": "CNF-NLRU8PRK",
+            "locationId": "LOC-SYN-002",
+            "startDate": "2027-01-27",
+            "endDate": "2027-01-31",
+            "customerCount": 4,
+            "resourceType": "STANDARD_ROOM",
+            "status": "CONFIRMED",
+            "createdAt": "2026-09-29T21:40:59.919Z"
+          }
+        }
+      }
+    },
+    "durationMs": 1
+  }
+]

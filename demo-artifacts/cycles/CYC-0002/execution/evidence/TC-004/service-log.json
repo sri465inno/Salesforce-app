@@ -1,0 +1,43 @@
+[
+  {
+    "seq": 1,
+    "at": "2026-09-29T21:40:59.493Z",
+    "testId": "TC-004",
+    "operationName": "CreateReservation",
+    "variables": {
+      "input": {
+        "locationId": "LOC-SYN-001",
+        "startDate": "2027-02-03",
+        "endDate": "2027-02-04",
+        "customerCount": 0,
+        "resourceType": "STANDARD_ROOM",
+        "customer": {
+          "firstName": "R***",
+          "lastName": "T***",
+          "email": "r***@example.test"
+        },
+        "payment": {
+          "paymentMethod": "CARD_TOKEN",
+          "paymentToken": "tok_****9024"
+        }
+      }
+    },
+    "response": {
+      "data": {
+        "createReservation": {
+          "success": false,
+          "errors": [
+            {
+              "code": "INVALID_CUSTOMER_COUNT",
+              "field": "customerCount",
+              "message": "Customer count must be between 1 and 10",
+              "ruleId": "BR-002"
+            }
+          ],
+          "reservation": null
+        }
+      }
+    },
+    "durationMs": 1
+  }
+]

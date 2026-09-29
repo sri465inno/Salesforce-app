@@ -1,0 +1,51 @@
+[
+  {
+    "seq": 3,
+    "at": "2026-09-29T21:40:53.989Z",
+    "testId": "TC-004",
+    "operationName": "CreateReservation",
+    "variables": {
+      "input": {
+        "locationId": "LOC-SYN-001",
+        "startDate": "2027-02-03",
+        "endDate": "2027-02-04",
+        "customerCount": 0,
+        "resourceType": "STANDARD_ROOM",
+        "customer": {
+          "firstName": "R***",
+          "lastName": "T***",
+          "email": "r***@example.test"
+        },
+        "payment": {
+          "paymentMethod": "CARD_TOKEN",
+          "paymentToken": "tok_****9024"
+        }
+      }
+    },
+    "response": {
+      "data": {
+        "createReservation": {
+          "success": true,
+          "errors": [],
+          "reservation": {
+            "reservationId": "RSV-SYN-000002",
+            "confirmationNumber": "CNF-XBJ6ST38",
+            "locationId": "LOC-SYN-001",
+            "startDate": "2027-02-03",
+            "endDate": "2027-02-04",
+            "customerCount": 0,
+            "resourceType": "STANDARD_ROOM",
+            "status": "CONFIRMED",
+            "createdAt": "2026-09-29T21:40:53.990Z",
+            "payment": {
+              "paymentMethod": "CARD_TOKEN",
+              "paymentToken": "tok_****9024",
+              "authorizationStatus": "AUTHORIZED"
+            }
+          }
+        }
+      }
+    },
+    "durationMs": 1
+  }
+]

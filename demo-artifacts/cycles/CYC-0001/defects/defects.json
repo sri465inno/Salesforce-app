@@ -1,0 +1,57 @@
+[
+  {
+    "id": "DEF-001",
+    "title": "BR-002 not enforced: customerCount = 0 is accepted by createReservation",
+    "status": "open",
+    "severity": "high",
+    "blocksRelease": true,
+    "ruleId": "BR-002",
+    "requirementIds": [
+      "REQ-004",
+      "REQ-009",
+      "REQ-012"
+    ],
+    "testCaseIds": [
+      "TC-004",
+      "TC-005"
+    ],
+    "executionIds": [
+      "EX-TC-004",
+      "EX-TC-005"
+    ],
+    "evidenceIds": [
+      "EV-TC-004-01",
+      "EV-TC-004-02",
+      "EV-TC-004-03",
+      "EV-TC-004-04",
+      "EV-TC-004-05",
+      "EV-TC-005-01",
+      "EV-TC-005-02",
+      "EV-TC-005-03",
+      "EV-TC-005-04",
+      "EV-TC-005-05"
+    ],
+    "expected": "Customer count must be greater than zero. createReservation returns success=false with error INVALID_CUSTOMER_COUNT when customerCount = 0 (TC-004 API, TC-005 UI).",
+    "actual": "createReservation returned success=true, status CONFIRMED, confirmation number CNF-XBJ6ST38.",
+    "impact": "Reservation records that violate BR-002 (customerCount > 0 and customerCount <= 10 (data dictionary)) are confirmed and receive a confirmation number, so fulfilment and occupancy reporting receive invalid reservations. Reproduced through API and UI in 2 test(s).",
+    "suspectedCause": "Boundary value 0 for customerCount passes validation. The rule is enforced in validateCustomerCount (src/demo-service/reservation-validator.ts:82) by `if (count === undefined || count === null || !Number.isInteger(count) || count < lowerBound || count > 10) {`; the lower bound admits 0 although BR-002 requires customerCount > 0.",
+    "codeReference": {
+      "file": "src/demo-service/reservation-validator.ts",
+      "line": 82,
+      "symbol": "validateCustomerCount",
+      "excerpt": [
+        "export function validateCustomerCount(input: CreateReservationInput, errors: ValidationError[], options: ValidatorOptions = {}): void {",
+        "  const count = input.customerCount;",
+        "  const lowerBound = options.fixedDefects?.includes('BR-002') ? 1 : 0;",
+        "  if (count === undefined || count === null || !Number.isInteger(count) || count < lowerBound || count > 10) {",
+        "    errors.push({ code: 'INVALID_CUSTOMER_COUNT', field: 'customerCount', message: 'Customer count must be between 1 and 10', ruleId: 'BR-002' });",
+        "  }",
+        "}",
+        ""
+      ]
+    },
+    "suggestedRemediation": "Reject customerCount <= 0 in validateCustomerCount (lower bound 1) and apply the same fix to force-app/main/default/classes/ReservationValidator.cls:61; then re-run TC-004, TC-005.",
+    "createdAt": "2026-09-29T21:40:58.535Z",
+    "createdFrom": "execution-failure"
+  }
+]

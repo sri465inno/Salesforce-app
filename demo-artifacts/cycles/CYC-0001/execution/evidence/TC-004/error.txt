@@ -1,0 +1,12 @@
+Error: BR-002: createReservation.success
+
+expect(received).toBe(expected) // Object.is equality
+
+Expected: false
+Received: true
+
+  12 |   const ds = aqe.dataset('DS-TC-004');
+  13 |   const result = await aqe.createReservation(ds.values);
+> 14 |   expect(result.success, 'BR-002: createReservation.success').toBe(false);
+     |                                                               ^
+  15 |   expect(result.reservation, 'BR-002: no reservation created').toBeNull();

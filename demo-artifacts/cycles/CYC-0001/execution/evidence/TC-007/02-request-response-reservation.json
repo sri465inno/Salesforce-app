@@ -1,0 +1,32 @@
+{
+  "request": {
+    "operation": "reservation",
+    "variables": {
+      "confirmationNumber": "CNF-8PRTWVSP"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "reservation": {
+          "reservationId": "RSV-SYN-000003",
+          "confirmationNumber": "CNF-8PRTWVSP",
+          "locationId": "LOC-SYN-002",
+          "startDate": "2027-02-19",
+          "endDate": "2027-02-20",
+          "customerCount": 1,
+          "resourceType": "STANDARD_ROOM",
+          "status": "CONFIRMED",
+          "createdAt": "2026-09-29T21:40:54.042Z",
+          "payment": {
+            "paymentMethod": "CARD_TOKEN",
+            "paymentToken": "tok_****079c",
+            "authorizationStatus": "AUTHORIZED"
+          }
+        }
+      }
+    }
+  },
+  "durationMs": 3
+}

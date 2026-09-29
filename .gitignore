@@ -1,0 +1,12 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+.aqe-test/
+*.log
+.env
+.env.*
+.sfdx/
+.sf/
+.aqe-dev/
+!demo-artifacts/**/*.log

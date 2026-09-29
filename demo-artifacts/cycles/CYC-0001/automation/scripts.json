@@ -1,0 +1,339 @@
+[
+  {
+    "id": "AS-TC-001",
+    "testCaseId": "TC-001",
+    "datasetId": "DS-TC-001",
+    "ruleIds": [
+      "BR-001"
+    ],
+    "requirementIds": [
+      "REQ-003",
+      "REQ-011"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-001.api.spec.ts",
+    "sha256": "328e116926ac2d2dfa777212ea95a69e7c2cf70b6464323d32a39ed85d9d7eb7"
+  },
+  {
+    "id": "AS-TC-002",
+    "testCaseId": "TC-002",
+    "datasetId": "DS-TC-002",
+    "ruleIds": [
+      "BR-001"
+    ],
+    "requirementIds": [
+      "REQ-003",
+      "REQ-011"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-002.api.spec.ts",
+    "sha256": "44131c0a6e77258aba6516e126c880136a0ba186ad00379ea0055e28094db035"
+  },
+  {
+    "id": "AS-TC-003",
+    "testCaseId": "TC-003",
+    "datasetId": "DS-TC-003",
+    "ruleIds": [
+      "BR-001"
+    ],
+    "requirementIds": [
+      "REQ-003",
+      "REQ-011"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-003.api.spec.ts",
+    "sha256": "c8f83c9704cf2d3d05c0324b77a911425496e754f5492f8af108cac874d2264b"
+  },
+  {
+    "id": "AS-TC-004",
+    "testCaseId": "TC-004",
+    "datasetId": "DS-TC-004",
+    "ruleIds": [
+      "BR-002"
+    ],
+    "requirementIds": [
+      "REQ-004",
+      "REQ-009",
+      "REQ-012"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-004.api.spec.ts",
+    "sha256": "b8607b89b4dac1d1f930756bb50770a34f4e791965733342735482b936770ce1"
+  },
+  {
+    "id": "AS-TC-005",
+    "testCaseId": "TC-005",
+    "datasetId": "DS-TC-005",
+    "ruleIds": [
+      "BR-002"
+    ],
+    "requirementIds": [
+      "REQ-004",
+      "REQ-009",
+      "REQ-012"
+    ],
+    "channel": "ui",
+    "file": "cycles/CYC-0001/automation/tests/TC-005.ui.spec.ts",
+    "sha256": "b890c375cc6783e4a7d6402a25e920dc9b0aa16b8d627900f8f687fa57a14192"
+  },
+  {
+    "id": "AS-TC-006",
+    "testCaseId": "TC-006",
+    "datasetId": "DS-TC-006",
+    "ruleIds": [
+      "BR-002"
+    ],
+    "requirementIds": [
+      "REQ-004",
+      "REQ-009",
+      "REQ-012"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-006.api.spec.ts",
+    "sha256": "4afe5ff72683d9fe8dc398a4d5a5dc5e55ae27c054316fcd9499fc246fca1614"
+  },
+  {
+    "id": "AS-TC-007",
+    "testCaseId": "TC-007",
+    "datasetId": "DS-TC-007",
+    "ruleIds": [
+      "BR-002"
+    ],
+    "requirementIds": [
+      "REQ-004",
+      "REQ-009",
+      "REQ-012"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-007.api.spec.ts",
+    "sha256": "cccec632ac328629e5ee26791fe1e361664c520d96aa0187606f03f983fbe3b6"
+  },
+  {
+    "id": "AS-TC-008",
+    "testCaseId": "TC-008",
+    "datasetId": "DS-TC-008",
+    "ruleIds": [
+      "BR-002"
+    ],
+    "requirementIds": [
+      "REQ-004",
+      "REQ-009",
+      "REQ-012"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-008.api.spec.ts",
+    "sha256": "1a0834e8a955468dc6798fd69daee48df96c4b24aa1edbaf56c41adc193a899e"
+  },
+  {
+    "id": "AS-TC-009",
+    "testCaseId": "TC-009",
+    "datasetId": "DS-TC-009",
+    "ruleIds": [
+      "BR-002"
+    ],
+    "requirementIds": [
+      "REQ-004",
+      "REQ-009",
+      "REQ-012"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-009.api.spec.ts",
+    "sha256": "c0a7241015c9afc6619c1b3564df021d576f3b21b35da4bbdaf80e5e2c9b8b67"
+  },
+  {
+    "id": "AS-TC-010",
+    "testCaseId": "TC-010",
+    "datasetId": "DS-TC-010",
+    "ruleIds": [
+      "BR-003"
+    ],
+    "requirementIds": [
+      "REQ-005",
+      "REQ-013"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-010.api.spec.ts",
+    "sha256": "31bc9c1dd90dfd898960c3fef1c87ecdd8b8634a094c6be871810a769f6184c8"
+  },
+  {
+    "id": "AS-TC-011",
+    "testCaseId": "TC-011",
+    "datasetId": "DS-TC-011",
+    "ruleIds": [
+      "BR-003"
+    ],
+    "requirementIds": [
+      "REQ-005",
+      "REQ-013"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-011.api.spec.ts",
+    "sha256": "65a6b29d4893d81a843106d2349ab5e4b118f3a438bde19dafbcb04752bb9cd0"
+  },
+  {
+    "id": "AS-TC-012",
+    "testCaseId": "TC-012",
+    "datasetId": "DS-TC-012",
+    "ruleIds": [
+      "BR-004"
+    ],
+    "requirementIds": [
+      "REQ-006",
+      "REQ-014"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-012.api.spec.ts",
+    "sha256": "75492a23e5d059ec3cbc81905275a517c5c7f3a772a74f6a04c0c44baba73284"
+  },
+  {
+    "id": "AS-TC-013",
+    "testCaseId": "TC-013",
+    "datasetId": "DS-TC-013",
+    "ruleIds": [
+      "BR-004"
+    ],
+    "requirementIds": [
+      "REQ-006",
+      "REQ-014"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-013.api.spec.ts",
+    "sha256": "ab3b9328e55973e3b1fe2277df985dd1787f424cfe65d0ccf96fc0df2768e405"
+  },
+  {
+    "id": "AS-TC-014",
+    "testCaseId": "TC-014",
+    "datasetId": "DS-TC-014",
+    "ruleIds": [
+      "BR-005"
+    ],
+    "requirementIds": [
+      "REQ-001",
+      "REQ-002",
+      "REQ-015"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-014.api.spec.ts",
+    "sha256": "6501ca39dc8fa7521a7f0ceb292cd4fd34caffc71ef3a8a1c997031cfa26d5ee"
+  },
+  {
+    "id": "AS-TC-015",
+    "testCaseId": "TC-015",
+    "datasetId": "DS-TC-015",
+    "ruleIds": [
+      "BR-005"
+    ],
+    "requirementIds": [
+      "REQ-001",
+      "REQ-002",
+      "REQ-015"
+    ],
+    "channel": "ui",
+    "file": "cycles/CYC-0001/automation/tests/TC-015.ui.spec.ts",
+    "sha256": "ea4bc9af9bc9ddf1e0679f35ac49fae3e9083e2cc0ce3f9b3a90a1e90e51d1ab"
+  },
+  {
+    "id": "AS-TC-016",
+    "testCaseId": "TC-016",
+    "datasetId": "DS-TC-016",
+    "ruleIds": [
+      "BR-005"
+    ],
+    "requirementIds": [
+      "REQ-001",
+      "REQ-002",
+      "REQ-015"
+    ],
+    "channel": "ui",
+    "file": "cycles/CYC-0001/automation/tests/TC-016.ui.spec.ts",
+    "sha256": "4b65f8c56a1ff06a78a5e0824ca38d8bb9f6073a4ac2b3bc15007a33a9e45278"
+  },
+  {
+    "id": "AS-TC-017",
+    "testCaseId": "TC-017",
+    "datasetId": "DS-TC-017",
+    "ruleIds": [
+      "BR-006"
+    ],
+    "requirementIds": [
+      "REQ-007",
+      "REQ-016"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-017.api.spec.ts",
+    "sha256": "6d7fbad17fd7bbd786fe68c9c3dcf5e12573988fdff17fbc2be221d83dc30901"
+  },
+  {
+    "id": "AS-TC-018",
+    "testCaseId": "TC-018",
+    "datasetId": "DS-TC-018",
+    "ruleIds": [
+      "BR-006"
+    ],
+    "requirementIds": [
+      "REQ-007",
+      "REQ-016"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-018.api.spec.ts",
+    "sha256": "c909c492efd6aa48d9bac4af91b4e53eeda82c5424b3b3348ca9a9741d57b364"
+  },
+  {
+    "id": "AS-TC-019",
+    "testCaseId": "TC-019",
+    "datasetId": "DS-TC-019",
+    "ruleIds": [
+      "BR-006"
+    ],
+    "requirementIds": [
+      "REQ-007",
+      "REQ-016"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-019.api.spec.ts",
+    "sha256": "005025b20a803f983708a284484ee655bcfab8bd29e73ed2e453ff84a249a511"
+  },
+  {
+    "id": "AS-TC-020",
+    "testCaseId": "TC-020",
+    "datasetId": "DS-TC-020",
+    "ruleIds": [
+      "BR-007"
+    ],
+    "requirementIds": [
+      "REQ-017",
+      "REQ-018"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-020.api.spec.ts",
+    "sha256": "9dc76b625c7041080c25e1482b1907094f5dd099107fd9ba2088009d30d3c67a"
+  },
+  {
+    "id": "AS-TC-021",
+    "testCaseId": "TC-021",
+    "datasetId": "DS-TC-021",
+    "ruleIds": [
+      "BR-D01"
+    ],
+    "requirementIds": [
+      "REQ-019"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-021.api.spec.ts",
+    "sha256": "bb79b6eb22418f9b67c3fcd94ece61adc591385856b163b8c30226656efd3da7"
+  },
+  {
+    "id": "AS-TC-022",
+    "testCaseId": "TC-022",
+    "datasetId": "DS-TC-022",
+    "ruleIds": [
+      "BR-D02"
+    ],
+    "requirementIds": [
+      "REQ-020"
+    ],
+    "channel": "api",
+    "file": "cycles/CYC-0001/automation/tests/TC-022.api.spec.ts",
+    "sha256": "3edfa1f64b1e2f4e289a19eda68350614d34def74232a0a6b1409985afed759c"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "ruleId": "BR-D01",
+    "text": "Customer email must be valid."
+  },
+  {
+    "ruleId": "BR-D02",
+    "text": "Payment must be authorized by the payment gateway."
+  }
+]

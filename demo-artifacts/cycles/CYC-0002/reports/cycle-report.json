@@ -1,0 +1,843 @@
+{
+  "cycle": {
+    "id": "CYC-0002",
+    "config": {
+      "mode": "baseline",
+      "testingTypes": [
+        "smoke",
+        "positive",
+        "negative",
+        "boundary",
+        "e2e"
+      ],
+      "channels": [
+        "ui",
+        "api"
+      ],
+      "inputs": [
+        "initiative",
+        "epic",
+        "story",
+        "business-rules",
+        "graphql-contract",
+        "data-dictionary",
+        "source-code-references"
+      ],
+      "skills": [
+        "playwright-ui",
+        "graphql-api",
+        "synthetic-data",
+        "defect-triage"
+      ],
+      "requestedBy": "Demo QE Lead",
+      "fixedDefects": [
+        "BR-002"
+      ]
+    },
+    "createdAt": "2026-09-29T21:40:58.605Z",
+    "updatedAt": "2026-09-29T21:41:00.564Z",
+    "status": "completed",
+    "stages": [
+      {
+        "id": "intake",
+        "name": "Load inputs",
+        "agent": "Intake",
+        "gate": null,
+        "status": "completed",
+        "startedAt": "2026-09-29T21:40:58.605Z",
+        "finishedAt": "2026-09-29T21:40:58.606Z",
+        "inputs": [
+          "fixtures/inputs/*.json",
+          "contracts/reservation.graphql"
+        ],
+        "outputs": [
+          {
+            "label": "Input manifest (provenance)",
+            "path": "cycles/CYC-0002/inputs/manifest.json"
+          },
+          {
+            "label": "Input: initiative",
+            "path": "cycles/CYC-0002/inputs/initiative.json"
+          },
+          {
+            "label": "Input: epic",
+            "path": "cycles/CYC-0002/inputs/epic.json"
+          },
+          {
+            "label": "Input: story",
+            "path": "cycles/CYC-0002/inputs/story.json"
+          },
+          {
+            "label": "Input: business-rules",
+            "path": "cycles/CYC-0002/inputs/business-rules.json"
+          },
+          {
+            "label": "Input: graphql-contract",
+            "path": "cycles/CYC-0002/inputs/graphql-contract.json"
+          },
+          {
+            "label": "Input: data-dictionary",
+            "path": "cycles/CYC-0002/inputs/data-dictionary.json"
+          },
+          {
+            "label": "Input: source-code-references",
+            "path": "cycles/CYC-0002/inputs/source-code-references.json"
+          }
+        ],
+        "summary": "8 inputs loaded with sha256 provenance (STORY-001: Create a customer reservation).",
+        "error": null
+      },
+      {
+        "id": "requirements",
+        "name": "Normalize requirements",
+        "agent": "Requirements Agent",
+        "gate": null,
+        "status": "completed",
+        "startedAt": "2026-09-29T21:40:58.606Z",
+        "finishedAt": "2026-09-29T21:40:58.607Z",
+        "inputs": [
+          "inputs/manifest.json"
+        ],
+        "outputs": [
+          {
+            "label": "Requirements repository (draft)",
+            "path": "cycles/CYC-0002/requirements/draft.json"
+          }
+        ],
+        "summary": "17 requirements normalized (versions v1).",
+        "error": null
+      },
+      {
+        "id": "review",
+        "name": "Review requirements",
+        "agent": "Review Agent",
+        "gate": null,
+        "status": "completed",
+        "startedAt": "2026-09-29T21:40:58.607Z",
+        "finishedAt": "2026-09-29T21:40:58.609Z",
+        "inputs": [
+          "requirements/draft.json",
+          "source-code-references"
+        ],
+        "outputs": [
+          {
+            "label": "Review findings (advisory)",
+            "path": "cycles/CYC-0002/review/findings.json"
+          }
+        ],
+        "summary": "5 advisory findings: 1 missing, 1 duplicate, 1 conflict, 2 code-only. Nothing approved or changed.",
+        "error": null
+      },
+      {
+        "id": "gate-requirements-baseline",
+        "name": "Gate 1: requirements baseline",
+        "agent": null,
+        "gate": "requirements-baseline",
+        "status": "completed",
+        "startedAt": "2026-09-29T21:40:58.609Z",
+        "finishedAt": "2026-09-29T21:40:58.610Z",
+        "inputs": [
+          "requirements/draft.json",
+          "review/findings.json"
+        ],
+        "outputs": [
+          {
+            "label": "Requirements baseline",
+            "path": "cycles/CYC-0002/requirements/baseline.json"
+          },
+          {
+            "label": "Accepted code-only rules",
+            "path": "cycles/CYC-0002/requirements/accepted-code-rules.json"
+          }
+        ],
+        "summary": "Approved by Demo QE Lead: Requirements baseline approved after reviewing every finding (npm run demo).",
+        "error": null
+      },
+      {
+        "id": "business-rules",
+        "name": "Extract business rules",
+        "agent": "Business Rules Agent",
+        "gate": null,
+        "status": "completed",
+        "startedAt": "2026-09-29T21:40:58.610Z",
+        "finishedAt": "2026-09-29T21:40:58.612Z",
+        "inputs": [
+          "requirements/baseline.json",
+          "data-dictionary"
+        ],
+        "outputs": [
+          {
+            "label": "Business-rules catalogue",
+            "path": "cycles/CYC-0002/rules/business-rules.json"
+          }
+        ],
+        "summary": "9 rules extracted (BR-001, BR-002, BR-003, BR-004, BR-005, BR-006, BR-007, BR-D01, BR-D02), each linked to source requirements and code.",
+        "error": null
+      },
+      {
+        "id": "test-design",
+        "name": "Design tests and coverage",
+        "agent": "Test Design Agent",
+        "gate": null,
+        "status": "completed",
+        "startedAt": "2026-09-29T21:40:58.612Z",
+        "finishedAt": "2026-09-29T21:40:58.613Z",
+        "inputs": [
+          "rules/business-rules.json"
+        ],
+        "outputs": [
+          {
+            "label": "Test cases",
+            "path": "cycles/CYC-0002/tests/test-cases.json"
+          },
+          {
+            "label": "Coverage matrix",
+            "path": "cycles/CYC-0002/tests/coverage-matrix.json"
+          },
+          {
+            "label": "Excluded by selection",
+            "path": "cycles/CYC-0002/tests/excluded.json"
+          }
+        ],
+        "summary": "22 test cases generated (0 excluded by selection).",
+        "error": null
+      },
+      {
+        "id": "gate-test-design",
+        "name": "Gate 2: test cases and coverage",
+        "agent": null,
+        "gate": "test-design",
+        "status": "completed",
+        "startedAt": "2026-09-29T21:40:58.613Z",
+        "finishedAt": "2026-09-29T21:40:58.613Z",
+        "inputs": [
+          "tests/test-cases.json",
+          "tests/coverage-matrix.json"
+        ],
+        "outputs": [],
+        "summary": "Approved by Demo QE Lead: Test cases and coverage matrix reviewed.",
+        "error": null
+      },
+      {
+        "id": "test-data",
+        "name": "Generate synthetic test data",
+        "agent": "Test Data Agent",
+        "gate": null,
+        "status": "completed",
+        "startedAt": "2026-09-29T21:40:58.614Z",
+        "finishedAt": "2026-09-29T21:40:58.616Z",
+        "inputs": [
+          "tests/test-cases.json",
+          "data-dictionary"
+        ],
+        "outputs": [
+          {
+            "label": "Synthetic datasets",
+            "path": "cycles/CYC-0002/data/datasets.json"
+          }
+        ],
+        "summary": "22 SYNTHETIC datasets generated and validated against data dictionary v1.0.0.",
+        "error": null
+      },
+      {
+        "id": "automation",
+        "name": "Generate Playwright UI and GraphQL tests",
+        "agent": "Automation Agent",
+        "gate": null,
+        "status": "completed",
+        "startedAt": "2026-09-29T21:40:58.617Z",
+        "finishedAt": "2026-09-29T21:40:58.619Z",
+        "inputs": [
+          "tests/test-cases.json",
+          "data/datasets.json",
+          "contracts/reservation.graphql"
+        ],
+        "outputs": [
+          {
+            "label": "Automation scripts",
+            "path": "cycles/CYC-0002/automation/scripts.json"
+          },
+          {
+            "label": "Playwright config",
+            "path": "cycles/CYC-0002/automation/playwright.config.ts"
+          },
+          {
+            "label": "Shared fixtures",
+            "path": "cycles/CYC-0002/automation/support/aqe.ts"
+          },
+          {
+            "label": "Page object",
+            "path": "cycles/CYC-0002/automation/support/reservation-console.ts"
+          }
+        ],
+        "summary": "22 Playwright specs generated (3 UI, 19 GraphQL API).",
+        "error": null
+      },
+      {
+        "id": "gate-execution",
+        "name": "Gate 3: automation execution",
+        "agent": null,
+        "gate": "execution",
+        "status": "completed",
+        "startedAt": "2026-09-29T21:40:58.619Z",
+        "finishedAt": "2026-09-29T21:40:58.619Z",
+        "inputs": [
+          "automation/scripts.json"
+        ],
+        "outputs": [],
+        "summary": "Approved by Demo QE Lead: Execution against the local demo service approved.",
+        "error": null
+      },
+      {
+        "id": "execution",
+        "name": "Execute against local demo service",
+        "agent": "Execution Agent",
+        "gate": null,
+        "status": "completed",
+        "startedAt": "2026-09-29T21:40:58.620Z",
+        "finishedAt": "2026-09-29T21:41:00.524Z",
+        "inputs": [
+          "automation/"
+        ],
+        "outputs": [
+          {
+            "label": "Execution summary",
+            "path": "cycles/CYC-0002/execution/summary.json"
+          },
+          {
+            "label": "Playwright JSON report (masked)",
+            "path": "cycles/CYC-0002/execution/playwright-report.json"
+          },
+          {
+            "label": "Playwright output log",
+            "path": "cycles/CYC-0002/execution/playwright-output.log"
+          }
+        ],
+        "summary": "22 tests: 22 passed, 0 failed against reservation-demo@1.0.1 (fixed: BR-002).",
+        "error": null
+      },
+      {
+        "id": "defects",
+        "name": "Create defects from failures",
+        "agent": "Defect Intelligence Agent",
+        "gate": null,
+        "status": "completed",
+        "startedAt": "2026-09-29T21:41:00.524Z",
+        "finishedAt": "2026-09-29T21:41:00.525Z",
+        "inputs": [
+          "execution/summary.json"
+        ],
+        "outputs": [
+          {
+            "label": "Defects",
+            "path": "cycles/CYC-0002/defects/defects.json"
+          }
+        ],
+        "summary": "No failed executions, so no defects were created.",
+        "error": null
+      },
+      {
+        "id": "reporting",
+        "name": "Generate reports and recommendation",
+        "agent": "Reporting Agent",
+        "gate": null,
+        "status": "completed",
+        "startedAt": "2026-09-29T21:41:00.525Z",
+        "finishedAt": "2026-09-29T21:41:00.551Z",
+        "inputs": [
+          "all cycle artifacts"
+        ],
+        "outputs": [
+          {
+            "label": "Cycle report (JSON)",
+            "path": "cycles/CYC-0002/reports/cycle-report.json"
+          },
+          {
+            "label": "Cycle report (Markdown)",
+            "path": "cycles/CYC-0002/reports/cycle-report.md"
+          },
+          {
+            "label": "Coverage report (JSON)",
+            "path": "cycles/CYC-0002/reports/coverage-report.json"
+          },
+          {
+            "label": "Coverage report (Markdown)",
+            "path": "cycles/CYC-0002/reports/coverage-report.md"
+          },
+          {
+            "label": "Execution summary (JSON)",
+            "path": "cycles/CYC-0002/reports/execution-summary.json"
+          },
+          {
+            "label": "Execution summary (Markdown)",
+            "path": "cycles/CYC-0002/reports/execution-summary.md"
+          },
+          {
+            "label": "Defect report (JSON)",
+            "path": "cycles/CYC-0002/reports/defect-report.json"
+          },
+          {
+            "label": "Defect report (Markdown)",
+            "path": "cycles/CYC-0002/reports/defect-report.md"
+          },
+          {
+            "label": "Release readiness (JSON)",
+            "path": "cycles/CYC-0002/reports/release-readiness.json"
+          },
+          {
+            "label": "Release readiness (Markdown)",
+            "path": "cycles/CYC-0002/reports/release-readiness.md"
+          },
+          {
+            "label": "QE lead report (JSON)",
+            "path": "cycles/CYC-0002/reports/qe-lead-report.json"
+          },
+          {
+            "label": "QE lead report (Markdown)",
+            "path": "cycles/CYC-0002/reports/qe-lead-report.md"
+          },
+          {
+            "label": "QE lead report (HTML)",
+            "path": "cycles/CYC-0002/reports/qe-lead-report.html"
+          },
+          {
+            "label": "Executive dashboard (HTML)",
+            "path": "cycles/CYC-0002/reports/executive-dashboard.html"
+          },
+          {
+            "label": "Metrics (JSON)",
+            "path": "cycles/CYC-0002/reports/metrics.json"
+          },
+          {
+            "label": "Traceability (JSON)",
+            "path": "cycles/CYC-0002/traceability/traceability.json"
+          },
+          {
+            "label": "Traceability (Excel)",
+            "path": "cycles/CYC-0002/traceability/traceability.xlsx"
+          }
+        ],
+        "summary": "Recommendation Go: Every release policy rule passed.",
+        "error": null
+      },
+      {
+        "id": "gate-release",
+        "name": "Gate 4: final baseline and release",
+        "agent": null,
+        "gate": "release",
+        "status": "completed",
+        "startedAt": "2026-09-29T21:41:00.551Z",
+        "finishedAt": "2026-09-29T21:41:00.552Z",
+        "inputs": [
+          "reports/qe-lead-report.md",
+          "reports/release-readiness.json"
+        ],
+        "outputs": [
+          {
+            "label": "Final baseline BL-0002",
+            "path": "state/baselines/BL-0002.json"
+          },
+          {
+            "label": "Cycle report (JSON)",
+            "path": "cycles/CYC-0002/reports/cycle-report.json"
+          },
+          {
+            "label": "Cycle report (Markdown)",
+            "path": "cycles/CYC-0002/reports/cycle-report.md"
+          },
+          {
+            "label": "Coverage report (JSON)",
+            "path": "cycles/CYC-0002/reports/coverage-report.json"
+          },
+          {
+            "label": "Coverage report (Markdown)",
+            "path": "cycles/CYC-0002/reports/coverage-report.md"
+          },
+          {
+            "label": "Execution summary (JSON)",
+            "path": "cycles/CYC-0002/reports/execution-summary.json"
+          },
+          {
+            "label": "Execution summary (Markdown)",
+            "path": "cycles/CYC-0002/reports/execution-summary.md"
+          },
+          {
+            "label": "Defect report (JSON)",
+            "path": "cycles/CYC-0002/reports/defect-report.json"
+          },
+          {
+            "label": "Defect report (Markdown)",
+            "path": "cycles/CYC-0002/reports/defect-report.md"
+          },
+          {
+            "label": "Release readiness (JSON)",
+            "path": "cycles/CYC-0002/reports/release-readiness.json"
+          },
+          {
+            "label": "Release readiness (Markdown)",
+            "path": "cycles/CYC-0002/reports/release-readiness.md"
+          },
+          {
+            "label": "QE lead report (JSON)",
+            "path": "cycles/CYC-0002/reports/qe-lead-report.json"
+          },
+          {
+            "label": "QE lead report (Markdown)",
+            "path": "cycles/CYC-0002/reports/qe-lead-report.md"
+          },
+          {
+            "label": "QE lead report (HTML)",
+            "path": "cycles/CYC-0002/reports/qe-lead-report.html"
+          },
+          {
+            "label": "Executive dashboard (HTML)",
+            "path": "cycles/CYC-0002/reports/executive-dashboard.html"
+          },
+          {
+            "label": "Metrics (JSON)",
+            "path": "cycles/CYC-0002/reports/metrics.json"
+          },
+          {
+            "label": "Traceability (JSON)",
+            "path": "cycles/CYC-0002/traceability/traceability.json"
+          }
+        ],
+        "summary": "Approved by Demo QE Lead: Signed off: Go on the fixed build.",
+        "error": null
+      }
+    ],
+    "approvals": [
+      {
+        "id": "APR-0005",
+        "gate": "requirements-baseline",
+        "approver": "Demo QE Lead",
+        "decision": "approved",
+        "comments": "Requirements baseline approved after reviewing every finding (npm run demo).",
+        "timestamp": "2026-09-29T21:40:58.610Z",
+        "findingDecisions": [
+          {
+            "findingId": "RF-001",
+            "decision": "accept",
+            "comment": "Accepted: Merge REQ-008 (STORY-001-AC-7) into REQ-004 (STORY-001-AC-3) so the rule is tested once and traced to one criterion."
+          },
+          {
+            "findingId": "RF-002",
+            "decision": "accept",
+            "comment": "Accepted: Confirm the maximum with the product owner. Until then treat 10 as the tested upper bound and record EPIC-10-AC-1 as needing clarification."
+          },
+          {
+            "findingId": "RF-003",
+            "decision": "accept",
+            "comment": "Accepted: Add an acceptance criterion to STORY-001: \"The requested resource must be available for the selected dates.\""
+          },
+          {
+            "findingId": "RF-004",
+            "decision": "accept",
+            "comment": "Accepted: Confirm the behavior and, if intended, add it to the rules catalogue as \"Customer email must be valid.\" so it is tested and traced."
+          },
+          {
+            "findingId": "RF-005",
+            "decision": "accept",
+            "comment": "Accepted: Confirm the behavior and, if intended, add it to the rules catalogue as \"Payment must be authorized by the payment gateway.\" so it is tested and traced."
+          }
+        ]
+      },
+      {
+        "id": "APR-0006",
+        "gate": "test-design",
+        "approver": "Demo QE Lead",
+        "decision": "approved",
+        "comments": "Test cases and coverage matrix reviewed.",
+        "timestamp": "2026-09-29T21:40:58.613Z"
+      },
+      {
+        "id": "APR-0007",
+        "gate": "execution",
+        "approver": "Demo QE Lead",
+        "decision": "approved",
+        "comments": "Execution against the local demo service approved.",
+        "timestamp": "2026-09-29T21:40:58.619Z"
+      },
+      {
+        "id": "APR-0008",
+        "gate": "release",
+        "approver": "Demo QE Lead",
+        "decision": "approved",
+        "comments": "Signed off: Go on the fixed build.",
+        "timestamp": "2026-09-29T21:41:00.552Z"
+      }
+    ],
+    "baselineId": "BL-0002",
+    "previousBaselineId": "BL-0001",
+    "demoServiceBuild": "reservation-demo@1.0.1 (fixed: BR-002)"
+  },
+  "metrics": {
+    "cycleId": "CYC-0002",
+    "generatedAt": "2026-09-29T21:43:00.198Z",
+    "requirements": {
+      "total": 20,
+      "active": 19,
+      "merged": 1,
+      "reviewerAdded": 3,
+      "covered": 18,
+      "verified": 18,
+      "failing": 0,
+      "notCovered": 0
+    },
+    "rules": {
+      "total": 9,
+      "verified": 9,
+      "failing": 0,
+      "untested": 0,
+      "byRule": [
+        {
+          "id": "BR-001",
+          "tests": 3,
+          "passed": 3,
+          "failed": 0,
+          "status": "verified"
+        },
+        {
+          "id": "BR-002",
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "status": "verified"
+        },
+        {
+          "id": "BR-003",
+          "tests": 2,
+          "passed": 2,
+          "failed": 0,
+          "status": "verified"
+        },
+        {
+          "id": "BR-004",
+          "tests": 2,
+          "passed": 2,
+          "failed": 0,
+          "status": "verified"
+        },
+        {
+          "id": "BR-005",
+          "tests": 3,
+          "passed": 3,
+          "failed": 0,
+          "status": "verified"
+        },
+        {
+          "id": "BR-006",
+          "tests": 3,
+          "passed": 3,
+          "failed": 0,
+          "status": "verified"
+        },
+        {
+          "id": "BR-007",
+          "tests": 1,
+          "passed": 1,
+          "failed": 0,
+          "status": "verified"
+        },
+        {
+          "id": "BR-D01",
+          "tests": 1,
+          "passed": 1,
+          "failed": 0,
+          "status": "verified"
+        },
+        {
+          "id": "BR-D02",
+          "tests": 1,
+          "passed": 1,
+          "failed": 0,
+          "status": "verified"
+        }
+      ]
+    },
+    "testCases": {
+      "total": 22,
+      "byType": {
+        "smoke": 1,
+        "positive": 2,
+        "negative": 11,
+        "boundary": 7,
+        "e2e": 1
+      },
+      "byChannel": {
+        "ui": 3,
+        "api": 19
+      },
+      "excluded": 0
+    },
+    "datasets": {
+      "total": 22,
+      "valid": 22,
+      "invalid": 0,
+      "synthetic": 22,
+      "provenanceApproved": 22
+    },
+    "scripts": {
+      "total": 22,
+      "ui": 3,
+      "api": 19
+    },
+    "execution": {
+      "executed": true,
+      "total": 22,
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0,
+      "notRun": 0,
+      "passRate": 100,
+      "durationMs": 1903,
+      "build": "reservation-demo@1.0.1 (fixed: BR-002)"
+    },
+    "defects": {
+      "total": 0,
+      "blocking": 0,
+      "bySeverity": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    "review": {
+      "findings": 5,
+      "accepted": 5,
+      "rejected": 0,
+      "deferred": 0,
+      "deferredHigh": 0
+    },
+    "approvals": [
+      {
+        "gate": "requirements-baseline",
+        "status": "approved",
+        "approver": "Demo QE Lead",
+        "timestamp": "2026-09-29T21:40:58.610Z",
+        "comments": "Requirements baseline approved after reviewing every finding (npm run demo)."
+      },
+      {
+        "gate": "test-design",
+        "status": "approved",
+        "approver": "Demo QE Lead",
+        "timestamp": "2026-09-29T21:40:58.613Z",
+        "comments": "Test cases and coverage matrix reviewed."
+      },
+      {
+        "gate": "execution",
+        "status": "approved",
+        "approver": "Demo QE Lead",
+        "timestamp": "2026-09-29T21:40:58.619Z",
+        "comments": "Execution against the local demo service approved."
+      },
+      {
+        "gate": "release",
+        "status": "approved",
+        "approver": "Demo QE Lead",
+        "timestamp": "2026-09-29T21:41:00.552Z",
+        "comments": "Signed off: Go on the fixed build."
+      }
+    ],
+    "privacy": {
+      "checks": [
+        {
+          "name": "Every dataset classified SYNTHETIC",
+          "passed": true,
+          "detail": "22 datasets"
+        },
+        {
+          "name": "Dataset provenance recognised (unknown provenance rejected)",
+          "passed": true,
+          "detail": "22/22 from aqe-test-data-agent@1.0.0"
+        },
+        {
+          "name": "Dataset privacy checks (synthetic domain, token placeholders, no card numbers)",
+          "passed": true,
+          "detail": "132 checks"
+        },
+        {
+          "name": "Secret and card-number scan of generated code, evidence and reports",
+          "passed": true,
+          "detail": "153 files, 0 findings"
+        },
+        {
+          "name": "Demo service bound to localhost only",
+          "passed": true,
+          "detail": "http://127.0.0.1:42945"
+        },
+        {
+          "name": "Sensitive values masked in evidence and logs",
+          "passed": true,
+          "detail": "emails, names, payment tokens masked; screenshots mask [data-sensitive] fields"
+        }
+      ],
+      "secretScan": {
+        "filesScanned": 153,
+        "findings": []
+      }
+    },
+    "recommendation": {
+      "decision": "Go",
+      "reason": "Every release policy rule passed.",
+      "conditions": [],
+      "policy": [
+        {
+          "id": "RP-1",
+          "description": "Generated tests were executed against the demo service",
+          "passed": true,
+          "outcomeIfFailed": "Not ready",
+          "detail": "22 tests executed"
+        },
+        {
+          "id": "RP-2",
+          "description": "Gates 1-3 (requirements, test design, execution) approved by a human",
+          "passed": true,
+          "outcomeIfFailed": "Not ready",
+          "detail": "requirements-baseline: approved; test-design: approved; execution: approved"
+        },
+        {
+          "id": "RP-3",
+          "description": "Privacy and security validation passed",
+          "passed": true,
+          "outcomeIfFailed": "No-go",
+          "detail": "all checks passed"
+        },
+        {
+          "id": "RP-4",
+          "description": "No open release-blocking (critical/high) defects",
+          "passed": true,
+          "outcomeIfFailed": "No-go",
+          "detail": "none"
+        },
+        {
+          "id": "RP-5",
+          "description": "Every P1 test case passed",
+          "passed": true,
+          "outcomeIfFailed": "No-go",
+          "detail": "all P1 passed"
+        },
+        {
+          "id": "RP-6",
+          "description": "Every business rule verified by at least one passing test",
+          "passed": true,
+          "outcomeIfFailed": "Conditional go",
+          "detail": "all rules verified"
+        },
+        {
+          "id": "RP-7",
+          "description": "No open non-blocking defects and no unaccepted high-severity review findings",
+          "passed": true,
+          "outcomeIfFailed": "Conditional go",
+          "detail": "0 non-blocking defects, 0 unaccepted high findings"
+        }
+      ]
+    },
+    "risks": [
+      "REQ-009 (EPIC-10-AC-1) needs clarification: Tested upper bound is 10 (dictionary and code); 12 pending product-owner confirmation. Accepted by Demo QE Lead (RF-002).",
+      "Out of scope for this cycle: STORY-002..004 (search, modify, cancel) are exercised only by the end-to-end UI case.",
+      "Playwright traces contain DOM snapshots with synthetic (unmasked) form values; they are covered by the evidence-retention policy."
+    ]
+  }
+}

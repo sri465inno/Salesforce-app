@@ -1,0 +1,51 @@
+{
+  "request": {
+    "operation": "createReservation",
+    "variables": {
+      "input": {
+        "locationId": "LOC-SYN-002",
+        "startDate": "2027-02-19",
+        "endDate": "2027-02-20",
+        "customerCount": 1,
+        "resourceType": "STANDARD_ROOM",
+        "customer": {
+          "firstName": "R***",
+          "lastName": "F***",
+          "email": "r***@example.test"
+        },
+        "payment": {
+          "paymentMethod": "CARD_TOKEN",
+          "paymentToken": "tok_****079c"
+        }
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "createReservation": {
+          "success": true,
+          "errors": [],
+          "reservation": {
+            "reservationId": "RSV-SYN-000002",
+            "confirmationNumber": "CNF-PN8MWTAV",
+            "locationId": "LOC-SYN-002",
+            "startDate": "2027-02-19",
+            "endDate": "2027-02-20",
+            "customerCount": 1,
+            "resourceType": "STANDARD_ROOM",
+            "status": "CONFIRMED",
+            "createdAt": "2026-09-29T21:40:59.556Z",
+            "payment": {
+              "paymentMethod": "CARD_TOKEN",
+              "paymentToken": "tok_****079c",
+              "authorizationStatus": "AUTHORIZED"
+            }
+          }
+        }
+      }
+    }
+  },
+  "durationMs": 4
+}

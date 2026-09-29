@@ -1,0 +1,12 @@
+Error: BR-002: create outcome
+
+expect(locator).toHaveAttribute(expected) failed
+
+Locator:  getByTestId('create-result').locator('.toast')
+Expected: "error-toast"
+Received: "success-toast"
+Timeout:  4000ms
+
+Call log:
+  - BR-002: create outcome getByTestId('create-result').locator('.toast') with timeout 4000ms
+  - waiting for getByTestId('create-result').locator('.toast')

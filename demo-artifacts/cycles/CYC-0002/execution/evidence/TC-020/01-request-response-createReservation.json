@@ -1,0 +1,43 @@
+{
+  "request": {
+    "operation": "createReservation",
+    "variables": {
+      "input": {
+        "locationId": "LOC-SYN-002",
+        "startDate": "2027-03-10",
+        "endDate": "2027-03-15",
+        "customerCount": 3,
+        "resourceType": "SUITE",
+        "customer": {
+          "firstName": "M***",
+          "lastName": "S***",
+          "email": "m***@example.test"
+        },
+        "payment": {
+          "paymentMethod": "CARD_TOKEN",
+          "paymentToken": "tok_****328c"
+        }
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "data": {
+        "createReservation": {
+          "success": false,
+          "errors": [
+            {
+              "code": "RESOURCE_UNAVAILABLE",
+              "field": "resourceType",
+              "message": "The requested resource is not available for the selected dates",
+              "ruleId": "BR-007"
+            }
+          ],
+          "reservation": null
+        }
+      }
+    }
+  },
+  "durationMs": 3
+}

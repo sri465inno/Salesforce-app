@@ -1,0 +1,15 @@
+{
+  "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called.",
+  "type": "Initiative",
+  "id": "INIT-100",
+  "title": "Service Cloud reservation modernisation",
+  "description": "Move reservation handling for service associates onto a Salesforce Lightning console with an Apex service layer and a GraphQL API, so that every reservation is validated consistently and every customer receives a confirmation number.",
+  "businessOutcomes": [
+    "Every successfully created reservation returns a confirmation number to the customer.",
+    "Invalid reservations are rejected before they reach fulfilment."
+  ],
+  "owner": "Synthetic Product Owner (placeholder)",
+  "epics": [
+    "EPIC-10"
+  ]
+}

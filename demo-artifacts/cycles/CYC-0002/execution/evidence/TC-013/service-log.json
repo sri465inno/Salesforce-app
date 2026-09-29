@@ -1,0 +1,81 @@
+[
+  {
+    "seq": 15,
+    "at": "2026-09-29T21:40:59.624Z",
+    "testId": "TC-013",
+    "operationName": "CreateReservation",
+    "variables": {
+      "input": {
+        "locationId": "LOC-SYN-001",
+        "startDate": "2027-02-15",
+        "endDate": "2027-02-17",
+        "customerCount": 3,
+        "resourceType": "STANDARD_ROOM",
+        "customer": {
+          "firstName": "R***",
+          "lastName": "S***",
+          "email": "r***@example.test"
+        },
+        "payment": {
+          "paymentMethod": "INVOICE",
+          "paymentToken": "tok_****7c38"
+        }
+      }
+    },
+    "response": {
+      "data": {
+        "createReservation": {
+          "success": true,
+          "errors": [],
+          "reservation": {
+            "reservationId": "RSV-SYN-000004",
+            "confirmationNumber": "CNF-723G7DLJ",
+            "locationId": "LOC-SYN-001",
+            "startDate": "2027-02-15",
+            "endDate": "2027-02-17",
+            "customerCount": 3,
+            "resourceType": "STANDARD_ROOM",
+            "status": "CONFIRMED",
+            "createdAt": "2026-09-29T21:40:59.625Z",
+            "payment": {
+              "paymentMethod": "INVOICE",
+              "paymentToken": "tok_****7c38",
+              "authorizationStatus": "AUTHORIZED"
+            }
+          }
+        }
+      }
+    },
+    "durationMs": 1
+  },
+  {
+    "seq": 16,
+    "at": "2026-09-29T21:40:59.628Z",
+    "testId": "TC-013",
+    "operationName": "Reservation",
+    "variables": {
+      "confirmationNumber": "CNF-723G7DLJ"
+    },
+    "response": {
+      "data": {
+        "reservation": {
+          "reservationId": "RSV-SYN-000004",
+          "confirmationNumber": "CNF-723G7DLJ",
+          "locationId": "LOC-SYN-001",
+          "startDate": "2027-02-15",
+          "endDate": "2027-02-17",
+          "customerCount": 3,
+          "resourceType": "STANDARD_ROOM",
+          "status": "CONFIRMED",
+          "createdAt": "2026-09-29T21:40:59.625Z",
+          "payment": {
+            "paymentMethod": "INVOICE",
+            "paymentToken": "tok_****7c38",
+            "authorizationStatus": "AUTHORIZED"
+          }
+        }
+      }
+    },
+    "durationMs": 2
+  }
+]

@@ -1,0 +1,43 @@
+[
+  {
+    "seq": 2,
+    "at": "2026-09-29T21:40:59.501Z",
+    "testId": "TC-001",
+    "operationName": "CreateReservation",
+    "variables": {
+      "input": {
+        "locationId": "LOC-SYN-001",
+        "startDate": "2027-01-22",
+        "endDate": "2027-01-21",
+        "customerCount": 3,
+        "resourceType": "STANDARD_ROOM",
+        "customer": {
+          "firstName": "R***",
+          "lastName": "P***",
+          "email": "r***@example.test"
+        },
+        "payment": {
+          "paymentMethod": "CARD_TOKEN",
+          "paymentToken": "tok_****d654"
+        }
+      }
+    },
+    "response": {
+      "data": {
+        "createReservation": {
+          "success": false,
+          "errors": [
+            {
+              "code": "INVALID_DATE_RANGE",
+              "field": "startDate",
+              "message": "Start date must be earlier than end date",
+              "ruleId": "BR-001"
+            }
+          ],
+          "reservation": null
+        }
+      }
+    },
+    "durationMs": 0
+  }
+]

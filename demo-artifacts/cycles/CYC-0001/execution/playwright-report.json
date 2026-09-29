@@ -1,0 +1,1448 @@
+{
+  "config": {
+    "argv": [
+      "/home/ubuntu/.nvm/versions/node/v24.21.0/bin/node",
+      "/home/ubuntu/repos/Salesforce-app/node_modules/@playwright/test/cli.js",
+      "test",
+      "-c",
+      "playwright.config.ts"
+    ],
+    "configFile": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/automation/playwright.config.ts",
+    "rootDir": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/automation/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json",
+        {
+          "outputFile": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/playwright-report.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "TC-001.api.spec.ts",
+      "file": "TC-001.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-001 startDate after endDate is rejected",
+          "ok": true,
+          "tags": [
+            "BR-001",
+            "REQ-003",
+            "REQ-011",
+            "negative",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 53,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:53.925Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-001.api-TC-001-startDate-after-endDate-is-rejected/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f47a799e4e1f675b7d24-82a918c365af7f39e222",
+          "file": "TC-001.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-002.api.spec.ts",
+      "file": "TC-002.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-002 startDate equal to endDate is rejected",
+          "ok": true,
+          "tags": [
+            "BR-001",
+            "REQ-003",
+            "REQ-011",
+            "boundary",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 34,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:53.955Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-002.api-TC-002-startDate-equal-to-endDate-is-rejected/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "af84b934c279bf6e82a0-b63d83dc13ea21c86b60",
+          "file": "TC-002.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-003.api.spec.ts",
+      "file": "TC-003.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-003 endDate one day after startDate is accepted",
+          "ok": true,
+          "tags": [
+            "BR-001",
+            "REQ-003",
+            "REQ-011",
+            "boundary",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 60,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:53.928Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "request-response-reservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-003.api-TC-003-endDate--ed14c-after-startDate-is-accepted/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "5988d04313ab739b0b70-79ead3c2739c8c094fb0",
+          "file": "TC-003.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-004.api.spec.ts",
+      "file": "TC-004.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-004 customerCount = 0 is rejected",
+          "ok": false,
+          "tags": [
+            "BR-002",
+            "REQ-004",
+            "REQ-009",
+            "REQ-012",
+            "boundary",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 46,
+                  "error": {
+                    "message": "Error: BR-002: createReservation.success\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m",
+                    "stack": "Error: BR-002: createReservation.success\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n    at /home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/automation/tests/TC-004.api.spec.ts:14:63",
+                    "location": {
+                      "file": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/automation/tests/TC-004.api.spec.ts",
+                      "column": 63,
+                      "line": 14
+                    },
+                    "snippet": "  12 |   const ds = aqe.dataset('DS-TC-004');\n  13 |   const result = await aqe.createReservation(ds.values);\n> 14 |   expect(result.success, 'BR-002: createReservation.success').toBe(false);\n     |                                                               ^\n  15 |   expect(result.reservation, 'BR-002: no reservation created').toBeNull();\n  16 |   expect(result.errors.map((e) => e.code), 'BR-002: error codes').toContain('INVALID_CUSTOMER_COUNT');\n  17 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/automation/tests/TC-004.api.spec.ts",
+                        "column": 63,
+                        "line": 14
+                      },
+                      "message": "Error: BR-002: createReservation.success\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mfalse\u001b[39m\nReceived: \u001b[31mtrue\u001b[39m\n\n  12 |   const ds = aqe.dataset('DS-TC-004');\n  13 |   const result = await aqe.createReservation(ds.values);\n> 14 |   expect(result.success, 'BR-002: createReservation.success').toBe(false);\n     |                                                               ^\n  15 |   expect(result.reservation, 'BR-002: no reservation created').toBeNull();\n  16 |   expect(result.errors.map((e) => e.code), 'BR-002: error codes').toContain('INVALID_CUSTOMER_COUNT');\n  17 | });\n    at /home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/automation/tests/TC-004.api.spec.ts:14:63"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:53.932Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-004.api-TC-004-customerCount-0-is-rejected/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-004.api-TC-004-customerCount-0-is-rejected/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/automation/tests/TC-004.api.spec.ts",
+                    "column": 63,
+                    "line": 14
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "80adf2f2273a83327d4a-6af90387e381435225d6",
+          "file": "TC-004.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-005.ui.spec.ts",
+      "file": "TC-005.ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-005 customerCount = 0 is rejected in the console",
+          "ok": false,
+          "tags": [
+            "BR-002",
+            "REQ-004",
+            "REQ-009",
+            "REQ-012",
+            "boundary",
+            "ui"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4391,
+                  "error": {
+                    "message": "Error: BR-002: create outcome\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('create-result').locator('.toast')\nExpected: \u001b[32m\"\u001b[7merror\u001b[27m-toast\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7msuccess\u001b[27m-toast\"\u001b[39m\nTimeout:  4000ms\n\nCall log:\n\u001b[2m  - BR-002: create outcome getByTestId('create-result').locator('.toast') with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('create-result').locator('.toast')\u001b[22m\n\u001b[2m    12 × locator resolved to <div class=\"toast success\" data-testid=\"success-toast\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"success-toast\"\u001b[22m\n",
+                    "stack": "Error: BR-002: create outcome\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('create-result').locator('.toast')\nExpected: \u001b[32m\"\u001b[7merror\u001b[27m-toast\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7msuccess\u001b[27m-toast\"\u001b[39m\nTimeout:  4000ms\n\nCall log:\n\u001b[2m  - BR-002: create outcome getByTestId('create-result').locator('.toast') with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('create-result').locator('.toast')\u001b[22m\n\u001b[2m    12 × locator resolved to <div class=\"toast success\" data-testid=\"success-toast\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"success-toast\"\u001b[22m\n\n    at /home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/automation/tests/TC-005.ui.spec.ts:19:56",
+                    "location": {
+                      "file": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/automation/tests/TC-005.ui.spec.ts",
+                      "column": 56,
+                      "line": 19
+                    },
+                    "snippet": "  17 |   await ui.submitCreate();\n  18 |   await aqe.screenshot(page, 'create-outcome');\n> 19 |   await expect(ui.outcome(), 'BR-002: create outcome').toHaveAttribute('data-testid', 'error-toast');\n     |                                                        ^\n  20 |   await expect(ui.error('INVALID_CUSTOMER_COUNT'), 'BR-002: INVALID_CUSTOMER_COUNT shown').toBeVisible();\n  21 |   await expect(page.getByTestId('confirmation-number'), 'BR-002: no confirmation number issued').toHaveCount(0);\n  22 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/automation/tests/TC-005.ui.spec.ts",
+                        "column": 56,
+                        "line": 19
+                      },
+                      "message": "Error: BR-002: create outcome\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('create-result').locator('.toast')\nExpected: \u001b[32m\"\u001b[7merror\u001b[27m-toast\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7msuccess\u001b[27m-toast\"\u001b[39m\nTimeout:  4000ms\n\nCall log:\n\u001b[2m  - BR-002: create outcome getByTestId('create-result').locator('.toast') with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('create-result').locator('.toast')\u001b[22m\n\u001b[2m    12 × locator resolved to <div class=\"toast success\" data-testid=\"success-toast\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"success-toast\"\u001b[22m\n\n\n  17 |   await ui.submitCreate();\n  18 |   await aqe.screenshot(page, 'create-outcome');\n> 19 |   await expect(ui.outcome(), 'BR-002: create outcome').toHaveAttribute('data-testid', 'error-toast');\n     |                                                        ^\n  20 |   await expect(ui.error('INVALID_CUSTOMER_COUNT'), 'BR-002: INVALID_CUSTOMER_COUNT shown').toBeVisible();\n  21 |   await expect(page.getByTestId('confirmation-number'), 'BR-002: no confirmation number issued').toHaveCount(0);\n  22 | });\n    at /home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/automation/tests/TC-005.ui.spec.ts:19:56"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.023Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot-create-outcome",
+                      "contentType": "image/png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-005.ui-TC-005-customerCount-0-is-rejected-in-the-console/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-005.ui-TC-005-customerCount-0-is-rejected-in-the-console/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/automation/tests/TC-005.ui.spec.ts",
+                    "column": 56,
+                    "line": 19
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "c20cb3b9230515ef708b-8e50036c4a9563d92243",
+          "file": "TC-005.ui.spec.ts",
+          "line": 12,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-006.api.spec.ts",
+      "file": "TC-006.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-006 customerCount = -1 is rejected",
+          "ok": true,
+          "tags": [
+            "BR-002",
+            "REQ-004",
+            "REQ-009",
+            "REQ-012",
+            "negative",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 15,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.032Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-006.api-TC-006-customerCount--1-is-rejected/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "338402f65b6383562185-ef0baf5f4b1bda01f1f7",
+          "file": "TC-006.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-007.api.spec.ts",
+      "file": "TC-007.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-007 customerCount = 1 is accepted",
+          "ok": true,
+          "tags": [
+            "BR-002",
+            "REQ-004",
+            "REQ-009",
+            "REQ-012",
+            "boundary",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 16,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.035Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "request-response-reservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-007.api-TC-007-customerCount-1-is-accepted/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bb6cc147174b0f66a3ea-d4318fa1558e949f3cdd",
+          "file": "TC-007.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-008.api.spec.ts",
+      "file": "TC-008.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-008 customerCount = 10 (dictionary maximum) is accepted",
+          "ok": true,
+          "tags": [
+            "BR-002",
+            "REQ-004",
+            "REQ-009",
+            "REQ-012",
+            "boundary",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 41,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.332Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "request-response-reservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-008.api-TC-008-customer-1c025-tionary-maximum-is-accepted/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b9e653beb72236ba1113-649200afe42ca04ec959",
+          "file": "TC-008.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-009.api.spec.ts",
+      "file": "TC-009.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-009 customerCount = 11 is rejected",
+          "ok": true,
+          "tags": [
+            "BR-002",
+            "REQ-004",
+            "REQ-009",
+            "REQ-012",
+            "boundary",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 14,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.060Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-009.api-TC-009-customerCount-11-is-rejected/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2dca7d02a697b024653e-47acb68496c23303871c",
+          "file": "TC-009.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-010.api.spec.ts",
+      "file": "TC-010.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-010 Unknown locationId is rejected",
+          "ok": true,
+          "tags": [
+            "BR-003",
+            "REQ-005",
+            "REQ-013",
+            "negative",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 17,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.066Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-010.api-TC-010-Unknown-locationId-is-rejected/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b1ff326f49e2062eb4a3-6812b52be8546d8d894d",
+          "file": "TC-010.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-011.api.spec.ts",
+      "file": "TC-011.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-011 Inactive locationId LOC-SYN-004 is rejected",
+          "ok": true,
+          "tags": [
+            "BR-003",
+            "REQ-005",
+            "REQ-013",
+            "negative",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 17,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.088Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-011.api-TC-011-Inactive-7171b-nId-LOC-SYN-004-is-rejected/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "21503bb5e7a9a8095ec7-c0f87a5b7e5db043499d",
+          "file": "TC-011.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-012.api.spec.ts",
+      "file": "TC-012.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-012 Unapproved payment.paymentMethod CASH is rejected",
+          "ok": true,
+          "tags": [
+            "BR-004",
+            "REQ-006",
+            "REQ-014",
+            "negative",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 11,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.100Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-012.api-TC-012-Unapprov-7b282-mentMethod-CASH-is-rejected/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2d4d2aa7bb101698b4f7-9b60ec85ab6d7c8ce673",
+          "file": "TC-012.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-013.api.spec.ts",
+      "file": "TC-013.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-013 Approved payment.paymentMethod INVOICE is accepted",
+          "ok": true,
+          "tags": [
+            "BR-004",
+            "REQ-006",
+            "REQ-014",
+            "positive",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 17,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.120Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "request-response-reservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-013.api-TC-013-Approved-edaa6-tMethod-INVOICE-is-accepted/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "256482ff3c27ed4f8b74-8a8ad72d2aaf25c62475",
+          "file": "TC-013.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-014.api.spec.ts",
+      "file": "TC-014.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-014 Smoke: createReservation with valid synthetic data returns a confirmation number",
+          "ok": true,
+          "tags": [
+            "BR-005",
+            "REQ-001",
+            "REQ-002",
+            "REQ-015",
+            "smoke",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 22,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.126Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "request-response-reservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-014.api-TC-014-Smoke-cr-d9aac-turns-a-confirmation-number/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "35af5864c6a9d7d3b28c-860f2e333d4bdf719470",
+          "file": "TC-014.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-015.ui.spec.ts",
+      "file": "TC-015.ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-015 Service associate creates a reservation in the console and receives a confirmation number",
+          "ok": true,
+          "tags": [
+            "BR-005",
+            "REQ-001",
+            "REQ-002",
+            "REQ-015",
+            "positive",
+            "ui"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 359,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.157Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot-create-outcome",
+                      "contentType": "image/png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-015.ui-TC-015-Service-a-65108-eives-a-confirmation-number/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b25634e0a4a9a4f8c973-9d94b66298ac795ff465",
+          "file": "TC-015.ui.spec.ts",
+          "line": 12,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-016.ui.spec.ts",
+      "file": "TC-016.ui.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-016 End to end: create, search by confirmation number and cancel the reservation",
+          "ok": true,
+          "tags": [
+            "BR-005",
+            "REQ-001",
+            "REQ-002",
+            "REQ-015",
+            "e2e",
+            "ui"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 755,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.164Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot-create-outcome",
+                      "contentType": "image/png"
+                    },
+                    {
+                      "name": "screenshot-search-result",
+                      "contentType": "image/png"
+                    },
+                    {
+                      "name": "screenshot-after-cancel",
+                      "contentType": "image/png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-016.ui-TC-016-End-to-en-23999--and-cancel-the-reservation/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "395081f3dbf57a981a43-5d0f6d270f6298334d82",
+          "file": "TC-016.ui.spec.ts",
+          "line": 12,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-017.api.spec.ts",
+      "file": "TC-017.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-017 Missing customer.email is rejected",
+          "ok": true,
+          "tags": [
+            "BR-006",
+            "REQ-007",
+            "REQ-016",
+            "negative",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 12,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.422Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-017.api-TC-017-Missing-customer-email-is-rejected/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "aa690383474b912448a9-f282fb6f4e162d1eb9ab",
+          "file": "TC-017.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-018.api.spec.ts",
+      "file": "TC-018.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-018 Missing customer.firstName is rejected",
+          "ok": true,
+          "tags": [
+            "BR-006",
+            "REQ-007",
+            "REQ-016",
+            "negative",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 9,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.446Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-018.api-TC-018-Missing-customer-firstName-is-rejected/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "817a9f9b82da14be2570-74c1672b64fad3860587",
+          "file": "TC-018.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-019.api.spec.ts",
+      "file": "TC-019.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-019 Missing customer.lastName is rejected",
+          "ok": true,
+          "tags": [
+            "BR-006",
+            "REQ-007",
+            "REQ-016",
+            "negative",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 11,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.467Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-019.api-TC-019-Missing-customer-lastName-is-rejected/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "34f75cedce5e2f1da78e-bf9eeafbfa1174982b83",
+          "file": "TC-019.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-020.api.spec.ts",
+      "file": "TC-020.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-020 Unavailable SUITE at LOC-SYN-002 for booked dates is rejected",
+          "ok": true,
+          "tags": [
+            "BR-007",
+            "REQ-017",
+            "REQ-018",
+            "negative",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 10,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.489Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-020.api-TC-020-Unavaila-3e424-or-booked-dates-is-rejected/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "72871e34fa50671b3cba-3f8a1740edfc1a58c4e4",
+          "file": "TC-020.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-021.api.spec.ts",
+      "file": "TC-021.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-021 Malformed customer.email is rejected",
+          "ok": true,
+          "tags": [
+            "BR-D01",
+            "REQ-019",
+            "negative",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 12,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.510Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-021.api-TC-021-Malformed-customer-email-is-rejected/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0d6a69fc286071c73c23-8aaf3f7ce93eb25bd293",
+          "file": "TC-021.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "TC-022.api.spec.ts",
+      "file": "TC-022.api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-022 Declined synthetic payment token is rejected",
+          "ok": true,
+          "tags": [
+            "BR-D02",
+            "REQ-020",
+            "negative",
+            "api"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 9,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-29T21:40:54.536Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "request-response-createReservation",
+                      "contentType": "application/json"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/execution/test-output/TC-022.api-TC-022-Declined-e5fef-c-payment-token-is-rejected/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "dba866a0a3f0b8947f95-a992caf112d2d3e2bb54",
+          "file": "TC-022.api.spec.ts",
+          "line": 11,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-29T21:40:53.494Z",
+    "duration": 5015.697999999999,
+    "expected": 20,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,530 @@
+{
+  "id": "BL-0002",
+  "cycleId": "CYC-0002",
+  "approvedBy": "Demo QE Lead",
+  "approvedAt": "2026-09-29T21:41:00.552Z",
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "kind": "story",
+      "text": "As a service associate, I want to create a customer reservation, so that the customer receives a confirmation number.",
+      "sourceId": "STORY-001",
+      "provenance": {
+        "source": "fixtures/inputs/story-001.json",
+        "path": "#/narrative",
+        "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "674fc1b7972ac2772e70570a310eb8d8c8303ba1389a7593d88cbe7a51798401",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-002",
+      "kind": "acceptance-criterion",
+      "text": "Given valid reservation details, when the associate submits the reservation, then a confirmation number must be generated and the reservation status is CONFIRMED.",
+      "sourceId": "STORY-001-AC-1",
+      "provenance": {
+        "source": "fixtures/inputs/story-001.json",
+        "path": "#/acceptanceCriteria/0",
+        "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "742b90e84fda87be21ba9ab9c8d97a3634810987901720083a1d8bf3020b6507",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-003",
+      "kind": "acceptance-criterion",
+      "text": "The start date must be earlier than the end date.",
+      "sourceId": "STORY-001-AC-2",
+      "provenance": {
+        "source": "fixtures/inputs/story-001.json",
+        "path": "#/acceptanceCriteria/1",
+        "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "cc282b66fa538c81c20930de490661102724c452ecc6b0ef236640e64af71c81",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-004",
+      "kind": "acceptance-criterion",
+      "text": "The customer count must be greater than zero.",
+      "sourceId": "STORY-001-AC-3",
+      "provenance": {
+        "source": "fixtures/inputs/story-001.json",
+        "path": "#/acceptanceCriteria/2",
+        "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "95f27001ba2596d7d0112106ef382e4ba468f178b3b1f60f14f3e751d60288b2",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-005",
+      "kind": "acceptance-criterion",
+      "text": "A valid location is required.",
+      "sourceId": "STORY-001-AC-4",
+      "provenance": {
+        "source": "fixtures/inputs/story-001.json",
+        "path": "#/acceptanceCriteria/3",
+        "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "62d025d1632b97b7eed3bed20eb1aeb3b6d62610a94584cd21699f6e16072db0",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-006",
+      "kind": "acceptance-criterion",
+      "text": "An approved payment method is required.",
+      "sourceId": "STORY-001-AC-5",
+      "provenance": {
+        "source": "fixtures/inputs/story-001.json",
+        "path": "#/acceptanceCriteria/4",
+        "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "71b15a1de1a740a0ebeefa6b71d5b89170e6f90e0fca7e3b1337d4c1d2876ccf",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-007",
+      "kind": "acceptance-criterion",
+      "text": "Customer first name, last name and email are required.",
+      "sourceId": "STORY-001-AC-6",
+      "provenance": {
+        "source": "fixtures/inputs/story-001.json",
+        "path": "#/acceptanceCriteria/5",
+        "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "929b01c71cf65704bf181f37ee77ea847aec4629a2e75077e7832a383759891c",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-008",
+      "kind": "acceptance-criterion",
+      "text": "The number of customers must be at least one.",
+      "sourceId": "STORY-001-AC-7",
+      "provenance": {
+        "source": "fixtures/inputs/story-001.json",
+        "path": "#/acceptanceCriteria/6",
+        "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "048bd7b73d1125000b6a6b90248d20c71855d771317c67ee03d91e5cbbc78e57",
+      "status": "merged",
+      "mergedInto": "REQ-004",
+      "reviewerNote": "Merged into REQ-004 by Demo QE Lead (RF-001)."
+    },
+    {
+      "id": "REQ-009",
+      "kind": "epic-criterion",
+      "text": "A reservation may include up to 12 customers.",
+      "sourceId": "EPIC-10-AC-1",
+      "provenance": {
+        "source": "fixtures/inputs/epic.json",
+        "path": "#/acceptanceCriteria/0",
+        "sha256": "e7171f60e7066065f66c48e5ec3a17099b06b84d6f95803bb2401db630791740",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "1c1255fb1880acd8467ca4bf6cd84d9a581273de4b0f0baa81520847e9d5fe96",
+      "status": "baselined",
+      "reviewerNote": "Tested upper bound is 10 (dictionary and code); 12 pending product-owner confirmation. Accepted by Demo QE Lead (RF-002)."
+    },
+    {
+      "id": "REQ-010",
+      "kind": "epic-criterion",
+      "text": "All customer and payment data used outside production must be synthetic.",
+      "sourceId": "EPIC-10-AC-2",
+      "provenance": {
+        "source": "fixtures/inputs/epic.json",
+        "path": "#/acceptanceCriteria/1",
+        "sha256": "e7171f60e7066065f66c48e5ec3a17099b06b84d6f95803bb2401db630791740",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "0e636010b3070b0b8f50aaa77622a354d208f2581d2665733d5429e4314a51a8",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-011",
+      "kind": "business-rule-statement",
+      "text": "Start date must be earlier than end date.",
+      "sourceId": "BR-001",
+      "provenance": {
+        "source": "fixtures/inputs/business-rules.json",
+        "path": "#/rules/0",
+        "sha256": "9383955ea5929c011e75c35ed5652c05d87566f17576694800902ef3e42d30b4",
+        "recordedFrom": "Local recorded fixture (synthetic business-rules catalogue)."
+      },
+      "version": 1,
+      "contentHash": "4754c6b92a55ea1904e12fbc6726afe57045daeaaf3e14a9fc2ce890d6099612",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-012",
+      "kind": "business-rule-statement",
+      "text": "Customer count must be greater than zero.",
+      "sourceId": "BR-002",
+      "provenance": {
+        "source": "fixtures/inputs/business-rules.json",
+        "path": "#/rules/1",
+        "sha256": "9383955ea5929c011e75c35ed5652c05d87566f17576694800902ef3e42d30b4",
+        "recordedFrom": "Local recorded fixture (synthetic business-rules catalogue)."
+      },
+      "version": 1,
+      "contentHash": "fd25c408ee7a0815e87c00b401a163cb74789f557ab721c397524a7c8eaf543e",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-013",
+      "kind": "business-rule-statement",
+      "text": "A valid location is required.",
+      "sourceId": "BR-003",
+      "provenance": {
+        "source": "fixtures/inputs/business-rules.json",
+        "path": "#/rules/2",
+        "sha256": "9383955ea5929c011e75c35ed5652c05d87566f17576694800902ef3e42d30b4",
+        "recordedFrom": "Local recorded fixture (synthetic business-rules catalogue)."
+      },
+      "version": 1,
+      "contentHash": "62d025d1632b97b7eed3bed20eb1aeb3b6d62610a94584cd21699f6e16072db0",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-014",
+      "kind": "business-rule-statement",
+      "text": "An approved payment method is required.",
+      "sourceId": "BR-004",
+      "provenance": {
+        "source": "fixtures/inputs/business-rules.json",
+        "path": "#/rules/3",
+        "sha256": "9383955ea5929c011e75c35ed5652c05d87566f17576694800902ef3e42d30b4",
+        "recordedFrom": "Local recorded fixture (synthetic business-rules catalogue)."
+      },
+      "version": 1,
+      "contentHash": "71b15a1de1a740a0ebeefa6b71d5b89170e6f90e0fca7e3b1337d4c1d2876ccf",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-015",
+      "kind": "business-rule-statement",
+      "text": "A confirmation number must be generated after successful creation.",
+      "sourceId": "BR-005",
+      "provenance": {
+        "source": "fixtures/inputs/business-rules.json",
+        "path": "#/rules/4",
+        "sha256": "9383955ea5929c011e75c35ed5652c05d87566f17576694800902ef3e42d30b4",
+        "recordedFrom": "Local recorded fixture (synthetic business-rules catalogue)."
+      },
+      "version": 1,
+      "contentHash": "6603c5fd20e66924ad0268265f840ae71aa7817a485e1afb50f3cccd60614403",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-016",
+      "kind": "business-rule-statement",
+      "text": "Required customer fields must be supplied.",
+      "sourceId": "BR-006",
+      "provenance": {
+        "source": "fixtures/inputs/business-rules.json",
+        "path": "#/rules/5",
+        "sha256": "9383955ea5929c011e75c35ed5652c05d87566f17576694800902ef3e42d30b4",
+        "recordedFrom": "Local recorded fixture (synthetic business-rules catalogue)."
+      },
+      "version": 1,
+      "contentHash": "51f920ac31fdb673308a608295dafb1a68dab589033e791efd5a871f86cbd93e",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-017",
+      "kind": "business-rule-statement",
+      "text": "The requested resource must be available for the selected dates.",
+      "sourceId": "BR-007",
+      "provenance": {
+        "source": "fixtures/inputs/business-rules.json",
+        "path": "#/rules/6",
+        "sha256": "9383955ea5929c011e75c35ed5652c05d87566f17576694800902ef3e42d30b4",
+        "recordedFrom": "Local recorded fixture (synthetic business-rules catalogue)."
+      },
+      "version": 1,
+      "contentHash": "733fa1feb9d4b95cd25d86c82ca93d0889b932aaa7e72ac8cecb1adc79dcd672",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-018",
+      "kind": "reviewer-added",
+      "text": "The requested resource must be available for the selected dates.",
+      "sourceId": "RF-003:BR-007",
+      "version": 1,
+      "status": "baselined",
+      "reviewerNote": "Added by Demo QE Lead from review finding RF-003.",
+      "provenance": {
+        "source": "human-review",
+        "path": "#/findings/RF-003",
+        "sha256": "",
+        "recordedFrom": "Reviewer decision by Demo QE Lead"
+      },
+      "contentHash": ""
+    },
+    {
+      "id": "REQ-019",
+      "kind": "reviewer-added",
+      "text": "Customer email must be valid.",
+      "sourceId": "RF-004:BR-D01",
+      "version": 1,
+      "status": "baselined",
+      "reviewerNote": "Code-only behavior accepted as a requirement by Demo QE Lead (RF-004).",
+      "provenance": {
+        "source": "human-review",
+        "path": "#/findings/RF-004",
+        "sha256": "",
+        "recordedFrom": "Reviewer decision by Demo QE Lead"
+      },
+      "contentHash": ""
+    },
+    {
+      "id": "REQ-020",
+      "kind": "reviewer-added",
+      "text": "Payment must be authorized by the payment gateway.",
+      "sourceId": "RF-005:BR-D02",
+      "version": 1,
+      "status": "baselined",
+      "reviewerNote": "Code-only behavior accepted as a requirement by Demo QE Lead (RF-005).",
+      "provenance": {
+        "source": "human-review",
+        "path": "#/findings/RF-005",
+        "sha256": "",
+        "recordedFrom": "Reviewer decision by Demo QE Lead"
+      },
+      "contentHash": ""
+    }
+  ],
+  "rules": [
+    "BR-001",
+    "BR-002",
+    "BR-003",
+    "BR-004",
+    "BR-005",
+    "BR-006",
+    "BR-007",
+    "BR-D01",
+    "BR-D02"
+  ],
+  "testCases": [
+    "TC-001",
+    "TC-002",
+    "TC-003",
+    "TC-004",
+    "TC-005",
+    "TC-006",
+    "TC-007",
+    "TC-008",
+    "TC-009",
+    "TC-010",
+    "TC-011",
+    "TC-012",
+    "TC-013",
+    "TC-014",
+    "TC-015",
+    "TC-016",
+    "TC-017",
+    "TC-018",
+    "TC-019",
+    "TC-020",
+    "TC-021",
+    "TC-022"
+  ],
+  "scripts": [
+    {
+      "id": "AS-TC-001",
+      "sha256": "fa669888a7cd4acfde3227197c91394a0ae18c7ff4344b01713cd74096c3be92"
+    },
+    {
+      "id": "AS-TC-002",
+      "sha256": "a9f6d990acae3688bb73a7e204a21cb95b93f65883bd245dd8d8f45b9e343922"
+    },
+    {
+      "id": "AS-TC-003",
+      "sha256": "9a11a0ffcfe1b11e12729c7b1268ed6cc609add383d0a400c1a8505400fe8373"
+    },
+    {
+      "id": "AS-TC-004",
+      "sha256": "ba958322643a81e4b43fbcbfc65e9432b90c990c04ae5420fda9a994eae2d68f"
+    },
+    {
+      "id": "AS-TC-005",
+      "sha256": "879c4c203ef37605c71fc8334e5a24ef34c822e535832722913e0611fd559a03"
+    },
+    {
+      "id": "AS-TC-006",
+      "sha256": "ce491d4392c6bbd492859bfeaa1842b6735860de740428d9dc8d0626d8e09f6c"
+    },
+    {
+      "id": "AS-TC-007",
+      "sha256": "8db2836256ee2e762013866d24681c9b73140247c6f1541c6d83ff886b2fee8d"
+    },
+    {
+      "id": "AS-TC-008",
+      "sha256": "894619a1f39e8d463ca51c3497382e79a5f501bf081359efe255025dc664bd3d"
+    },
+    {
+      "id": "AS-TC-009",
+      "sha256": "17bc606e7f9e9ce6b4dafbcc29d3efdbc4fac6af205f1fadc1c6dddcfc192ad5"
+    },
+    {
+      "id": "AS-TC-010",
+      "sha256": "018a9a10b5284a7a978b6e23e8fdbc5b4ea437a0c444faef6f2e940e0efa776b"
+    },
+    {
+      "id": "AS-TC-011",
+      "sha256": "cb229c830d499f35299ad46c4755acdc5bb317b7f16ee4dad5e4dca269481dc4"
+    },
+    {
+      "id": "AS-TC-012",
+      "sha256": "021b7801db1ac030b2e22878b3892808b979e972a47eb8c786763df9e4dc6a74"
+    },
+    {
+      "id": "AS-TC-013",
+      "sha256": "8f9207a3079273a5d66bb1c4d554e0d72e90716963c10493e0d6292c16fac6c0"
+    },
+    {
+      "id": "AS-TC-014",
+      "sha256": "7d7e7ea8118c2212cd97ad69ffb0b4d11e1234c01ec13d0cb3cb8a06d419c2f4"
+    },
+    {
+      "id": "AS-TC-015",
+      "sha256": "74c41b829e4faf20c7be091529d3aba7c295830a6c4ba304bacd281baf0bf9fc"
+    },
+    {
+      "id": "AS-TC-016",
+      "sha256": "61d41612c1a1441c82574afb0efef3d89e91d8b3d4fef1e6430942f0f73d87d1"
+    },
+    {
+      "id": "AS-TC-017",
+      "sha256": "3ad4c4d03c6587ceca65725aa89e0707662aea9ac6aa7f72becdc62dd0bec52d"
+    },
+    {
+      "id": "AS-TC-018",
+      "sha256": "50de5616ef2b3946c4939aa740742050a7b1cf7e7a2e5e057d344ab74d698a35"
+    },
+    {
+      "id": "AS-TC-019",
+      "sha256": "b4782ee3a57ee1276b1135c2c84d3bc59b0290216696309a6b865dc5b74056aa"
+    },
+    {
+      "id": "AS-TC-020",
+      "sha256": "10f8a87c3415d487af9d07b2410df8908773a62fa17755a4cc5ebe9eb43ccb03"
+    },
+    {
+      "id": "AS-TC-021",
+      "sha256": "8f541f9e1aad7cb6f907443a88d3c89b0d855bb82f0534f0ab68d56a6de68327"
+    },
+    {
+      "id": "AS-TC-022",
+      "sha256": "3efa03d0dd1365b60fb0232ed67d31b7d72c03baa9207fe923d82050d558fe8b"
+    }
+  ],
+  "results": [
+    {
+      "id": "EX-TC-001",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-002",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-003",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-004",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-005",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-006",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-007",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-008",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-009",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-010",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-011",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-012",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-013",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-014",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-015",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-016",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-017",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-018",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-019",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-020",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-021",
+      "status": "passed"
+    },
+    {
+      "id": "EX-TC-022",
+      "status": "passed"
+    }
+  ],
+  "defects": []
+}

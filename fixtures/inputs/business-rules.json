@@ -1,0 +1,15 @@
+{
+  "recordedFrom": "Local recorded fixture (synthetic business-rules catalogue).",
+  "catalogue": "Reservation business rules",
+  "version": "1.0.0",
+  "story": "STORY-001",
+  "rules": [
+    { "id": "BR-001", "text": "Start date must be earlier than end date." },
+    { "id": "BR-002", "text": "Customer count must be greater than zero." },
+    { "id": "BR-003", "text": "A valid location is required." },
+    { "id": "BR-004", "text": "An approved payment method is required." },
+    { "id": "BR-005", "text": "A confirmation number must be generated after successful creation." },
+    { "id": "BR-006", "text": "Required customer fields must be supplied." },
+    { "id": "BR-007", "text": "The requested resource must be available for the selected dates." }
+  ]
+}

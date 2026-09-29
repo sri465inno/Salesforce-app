@@ -1,0 +1,5184 @@
+[
+  {
+    "id": "DS-TC-001",
+    "testCaseId": "TC-001",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-001:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.076Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-001",
+      "startDate": "2027-01-22",
+      "endDate": "2027-01-21",
+      "customerCount": 3,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Rowan",
+        "lastName": "Placeholder",
+        "email": "rowan.placeholder.558@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_96244a17d654"
+      }
+    },
+    "intentionalViolations": [
+      "startDate/endDate"
+    ],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-01-22",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-01-21",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "5",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "11",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-01-22 .. 2027-01-21",
+          "result": "intentional-violation"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-002",
+    "testCaseId": "TC-002",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-002:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.077Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-002",
+      "startDate": "2027-01-09",
+      "endDate": "2027-01-09",
+      "customerCount": 2,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Rowan",
+        "lastName": "Datafield",
+        "email": "rowan.datafield.124@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_8208cc22fe15"
+      }
+    },
+    "intentionalViolations": [
+      "startDate/endDate"
+    ],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-01-09",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-01-09",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "5",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "9",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-01-09 .. 2027-01-09",
+          "result": "intentional-violation"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-003",
+    "testCaseId": "TC-003",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-003:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.077Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-001",
+      "startDate": "2027-02-15",
+      "endDate": "2027-02-16",
+      "customerCount": 3,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Sage",
+        "lastName": "Mockridge",
+        "email": "sage.mockridge.232@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_6c75457b62ba"
+      }
+    },
+    "intentionalViolations": [],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-02-15",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-02-16",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "4",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "9",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-02-15 .. 2027-02-16",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-004",
+    "testCaseId": "TC-004",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-004:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.077Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-001",
+      "startDate": "2027-02-03",
+      "endDate": "2027-02-04",
+      "customerCount": 0,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Rowan",
+        "lastName": "Testwood",
+        "email": "rowan.testwood.449@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_39fb284f9024"
+      }
+    },
+    "intentionalViolations": [
+      "customerCount"
+    ],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-02-03",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-02-04",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "0",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "0",
+          "result": "intentional-violation"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "0",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "5",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "8",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-02-03 .. 2027-02-04",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-005",
+    "testCaseId": "TC-005",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-005:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.077Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-002",
+      "startDate": "2027-01-19",
+      "endDate": "2027-01-23",
+      "customerCount": 0,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Casey",
+        "lastName": "Testwood",
+        "email": "casey.testwood.808@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_ba84557a0ca5"
+      }
+    },
+    "intentionalViolations": [
+      "customerCount"
+    ],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-01-19",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-01-23",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "0",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "0",
+          "result": "intentional-violation"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "0",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "5",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "8",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-01-19 .. 2027-01-23",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-006",
+    "testCaseId": "TC-006",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-006:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.077Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-001",
+      "startDate": "2027-02-07",
+      "endDate": "2027-02-10",
+      "customerCount": -1,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Riley",
+        "lastName": "Stubbins",
+        "email": "riley.stubbins.867@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_9b52efd0a525"
+      }
+    },
+    "intentionalViolations": [
+      "customerCount"
+    ],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-02-07",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-02-10",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "-1",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "-1",
+          "result": "intentional-violation"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "-1",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "5",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "8",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-02-07 .. 2027-02-10",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-007",
+    "testCaseId": "TC-007",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-007:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.077Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-002",
+      "startDate": "2027-02-19",
+      "endDate": "2027-02-20",
+      "customerCount": 1,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Rowan",
+        "lastName": "Fixtureson",
+        "email": "rowan.fixtureson.851@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_39be3d41079c"
+      }
+    },
+    "intentionalViolations": [],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-02-19",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-02-20",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "1",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "1",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "1",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "5",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "10",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-02-19 .. 2027-02-20",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-008",
+    "testCaseId": "TC-008",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-008:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.077Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-001",
+      "startDate": "2027-02-01",
+      "endDate": "2027-02-02",
+      "customerCount": 10,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Riley",
+        "lastName": "Synthwell",
+        "email": "riley.synthwell.694@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_b07c11286a3a"
+      }
+    },
+    "intentionalViolations": [],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-02-01",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-02-02",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "10",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "10",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "10",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "5",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "9",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-02-01 .. 2027-02-02",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-009",
+    "testCaseId": "TC-009",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-009:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.078Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-001",
+      "startDate": "2027-02-03",
+      "endDate": "2027-02-07",
+      "customerCount": 11,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Riley",
+        "lastName": "Datafield",
+        "email": "riley.datafield.491@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_c22f8e8c29fe"
+      }
+    },
+    "intentionalViolations": [
+      "customerCount"
+    ],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-02-03",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-02-07",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "11",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "11",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "11",
+          "result": "intentional-violation"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "5",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "9",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-02-03 .. 2027-02-07",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-010",
+    "testCaseId": "TC-010",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-010:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.078Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-999",
+      "startDate": "2027-02-10",
+      "endDate": "2027-02-12",
+      "customerCount": 2,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Sage",
+        "lastName": "Datafield",
+        "email": "sage.datafield.320@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_fe4a55a01aea"
+      }
+    },
+    "intentionalViolations": [
+      "locationId"
+    ],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "unknown",
+          "result": "intentional-violation"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-02-10",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-02-12",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "4",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "9",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-02-10 .. 2027-02-12",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-011",
+    "testCaseId": "TC-011",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-011:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.078Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-004",
+      "startDate": "2027-02-05",
+      "endDate": "2027-02-06",
+      "customerCount": 3,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Morgan",
+        "lastName": "Fixtureson",
+        "email": "morgan.fixtureson.748@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_2609f73e0e9a"
+      }
+    },
+    "intentionalViolations": [
+      "locationId"
+    ],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "inactive",
+          "result": "intentional-violation"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-02-05",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-02-06",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "6",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "10",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-02-05 .. 2027-02-06",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-012",
+    "testCaseId": "TC-012",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-012:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.078Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-002",
+      "startDate": "2027-02-01",
+      "endDate": "2027-02-03",
+      "customerCount": 1,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Riley",
+        "lastName": "Datafield",
+        "email": "riley.datafield.813@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CASH",
+        "paymentToken": "tok_synthetic_1703cf8a3a90"
+      }
+    },
+    "intentionalViolations": [
+      "payment.paymentMethod"
+    ],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-02-01",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-02-03",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "1",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "1",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "1",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "5",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "9",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "intentional-violation"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-02-01 .. 2027-02-03",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-013",
+    "testCaseId": "TC-013",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-013:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.078Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-001",
+      "startDate": "2027-02-15",
+      "endDate": "2027-02-17",
+      "customerCount": 3,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Riley",
+        "lastName": "Stubbins",
+        "email": "riley.stubbins.293@example.test"
+      },
+      "payment": {
+        "paymentMethod": "INVOICE",
+        "paymentToken": "tok_synthetic_bc059a4c7c38"
+      }
+    },
+    "intentionalViolations": [],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-02-15",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-02-17",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "5",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "8",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-02-15 .. 2027-02-17",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-014",
+    "testCaseId": "TC-014",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-014:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.078Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-001",
+      "startDate": "2027-01-15",
+      "endDate": "2027-01-17",
+      "customerCount": 2,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Quinn",
+        "lastName": "Placeholder",
+        "email": "quinn.placeholder.868@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_1921d5d7a7cd"
+      }
+    },
+    "intentionalViolations": [],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-01-15",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-01-17",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "5",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "11",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-01-15 .. 2027-01-17",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-015",
+    "testCaseId": "TC-015",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-015:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.078Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-002",
+      "startDate": "2027-01-27",
+      "endDate": "2027-01-31",
+      "customerCount": 4,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Jordan",
+        "lastName": "Mockridge",
+        "email": "jordan.mockridge.293@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_6c3b150c34dd"
+      }
+    },
+    "intentionalViolations": [],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-01-27",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-01-31",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "4",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "4",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "4",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "6",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "9",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-01-27 .. 2027-01-31",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-016",
+    "testCaseId": "TC-016",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-016:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.078Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-001",
+      "startDate": "2027-02-06",
+      "endDate": "2027-02-10",
+      "customerCount": 2,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Casey",
+        "lastName": "Fixtureson",
+        "email": "casey.fixtureson.617@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_6b1a210f6906"
+      }
+    },
+    "intentionalViolations": [],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-02-06",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-02-10",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "5",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "10",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-02-06 .. 2027-02-10",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-017",
+    "testCaseId": "TC-017",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-017:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.078Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-001",
+      "startDate": "2027-02-16",
+      "endDate": "2027-02-17",
+      "customerCount": 2,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Morgan",
+        "lastName": "Sampleton",
+        "email": null
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_23f3355c988f"
+      }
+    },
+    "intentionalViolations": [
+      "customer.email"
+    ],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-02-16",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-02-17",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "6",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "9",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "missing",
+          "result": "intentional-violation"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-02-16 .. 2027-02-17",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "no email"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-018",
+    "testCaseId": "TC-018",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-018:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.078Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-002",
+      "startDate": "2027-02-03",
+      "endDate": "2027-02-06",
+      "customerCount": 3,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": null,
+        "lastName": "Sampleton",
+        "email": "riley.sampleton.802@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_8421c2d30092"
+      }
+    },
+    "intentionalViolations": [
+      "customer.firstName"
+    ],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-02-03",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-02-06",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "missing",
+          "result": "intentional-violation"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "9",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-02-03 .. 2027-02-06",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-019",
+    "testCaseId": "TC-019",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-019:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.078Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-003",
+      "startDate": "2027-01-23",
+      "endDate": "2027-01-27",
+      "customerCount": 4,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Quinn",
+        "lastName": null,
+        "email": "quinn.mockridge.501@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_b1ad05c0a867"
+      }
+    },
+    "intentionalViolations": [
+      "customer.lastName"
+    ],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-01-23",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-01-27",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "4",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "4",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "4",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "5",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "missing",
+          "result": "intentional-violation"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-01-23 .. 2027-01-27",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-020",
+    "testCaseId": "TC-020",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-020:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.078Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-002",
+      "startDate": "2027-03-10",
+      "endDate": "2027-03-15",
+      "customerCount": 3,
+      "resourceType": "SUITE",
+      "customer": {
+        "firstName": "Morgan",
+        "lastName": "Synthwell",
+        "email": "morgan.synthwell.725@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_c0e55687328c"
+      }
+    },
+    "intentionalViolations": [
+      "availability"
+    ],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-03-10",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-03-15",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "3",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "6",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "9",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-03-10 .. 2027-03-15",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "Seeded booking in the demo service: the only SUITE at LOC-SYN-002 is taken",
+          "result": "intentional-violation"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-021",
+    "testCaseId": "TC-021",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-021:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.078Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-003",
+      "startDate": "2027-01-15",
+      "endDate": "2027-01-18",
+      "customerCount": 4,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Riley",
+        "lastName": "Testwood",
+        "email": "not-an-email"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_de6950601f88"
+      }
+    },
+    "intentionalViolations": [
+      "customer.email"
+    ],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-01-15",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-01-18",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "4",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "4",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "4",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "5",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "8",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "intentional-violation"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-01-15 .. 2027-01-18",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "authorizable token",
+          "result": "pass"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  },
+  {
+    "id": "DS-TC-022",
+    "testCaseId": "TC-022",
+    "classification": "SYNTHETIC",
+    "version": 1,
+    "provenance": {
+      "generator": "aqe-test-data-agent@1.0.0",
+      "seed": "TC-022:1.0.0",
+      "dictionaryVersion": "1.0.0",
+      "dictionarySha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+      "generatedAt": "2026-09-29T21:40:53.078Z"
+    },
+    "values": {
+      "locationId": "LOC-SYN-002",
+      "startDate": "2027-01-31",
+      "endDate": "2027-02-03",
+      "customerCount": 2,
+      "resourceType": "STANDARD_ROOM",
+      "customer": {
+        "firstName": "Riley",
+        "lastName": "Mockridge",
+        "email": "riley.mockridge.715@example.test"
+      },
+      "payment": {
+        "paymentMethod": "CARD_TOKEN",
+        "paymentToken": "tok_synthetic_decline36ac4"
+      }
+    },
+    "intentionalViolations": [
+      "payment.paymentToken"
+    ],
+    "validation": {
+      "status": "valid",
+      "checks": [
+        {
+          "field": "locationId",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "pattern",
+          "detail": "^LOC-SYN-[0-9]{3}$",
+          "result": "pass"
+        },
+        {
+          "field": "locationId",
+          "rule": "reference:active-location",
+          "detail": "active",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "startDate",
+          "rule": "type:date",
+          "detail": "2027-01-31",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "endDate",
+          "rule": "type:date",
+          "detail": "2027-02-03",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "type:integer",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "min:1",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "customerCount",
+          "rule": "max:10",
+          "detail": "2",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "resourceType",
+          "rule": "enum",
+          "detail": "STANDARD_ROOM|SUITE|CONFERENCE_ROOM",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.firstName",
+          "rule": "maxLength:40",
+          "detail": "5",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.lastName",
+          "rule": "maxLength:80",
+          "detail": "9",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "customer.email",
+          "rule": "pattern",
+          "detail": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "enum",
+          "detail": "CARD_TOKEN|INVOICE|CASH|GIFT_VOUCHER",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentMethod",
+          "rule": "approved-value",
+          "detail": "CARD_TOKEN|INVOICE",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "required",
+          "detail": "present",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "pattern",
+          "detail": "^tok_synthetic_[a-z0-9]{12}$",
+          "result": "pass"
+        },
+        {
+          "field": "startDate/endDate",
+          "rule": "startDate < endDate",
+          "detail": "2027-01-31 .. 2027-02-03",
+          "result": "pass"
+        },
+        {
+          "field": "availability",
+          "rule": "resource available",
+          "detail": "no known conflict",
+          "result": "pass"
+        },
+        {
+          "field": "payment.paymentToken",
+          "rule": "gateway-authorizable",
+          "detail": "declined token",
+          "result": "intentional-violation"
+        }
+      ],
+      "privacy": [
+        {
+          "field": "dataset",
+          "rule": "classification is SYNTHETIC",
+          "result": "pass",
+          "detail": "SYNTHETIC"
+        },
+        {
+          "field": "dataset",
+          "rule": "provenance generator recognised",
+          "result": "pass",
+          "detail": "aqe-test-data-agent@1.0.0"
+        },
+        {
+          "field": "dataset",
+          "rule": "email uses reserved synthetic domain",
+          "result": "pass",
+          "detail": "example.test"
+        },
+        {
+          "field": "dataset",
+          "rule": "payment token is a synthetic placeholder",
+          "result": "pass",
+          "detail": "tok_synthetic_*"
+        },
+        {
+          "field": "dataset",
+          "rule": "no payment-card numbers",
+          "result": "pass",
+          "detail": "0 long digit runs scanned"
+        },
+        {
+          "field": "dataset",
+          "rule": "names drawn from synthetic name lists",
+          "result": "pass",
+          "detail": "synthetic lists"
+        }
+      ]
+    }
+  }
+]

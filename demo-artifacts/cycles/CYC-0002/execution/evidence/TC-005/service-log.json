@@ -1,0 +1,77 @@
+[
+  {
+    "seq": 19,
+    "at": "2026-09-29T21:40:59.651Z",
+    "testId": "TC-005",
+    "operationName": "Locations",
+    "variables": {},
+    "response": {
+      "data": {
+        "locations": [
+          {
+            "locationId": "LOC-SYN-001",
+            "name": "Synthetic Downtown Centre",
+            "active": true
+          },
+          {
+            "locationId": "LOC-SYN-002",
+            "name": "Synthetic Airport Lodge",
+            "active": true
+          },
+          {
+            "locationId": "LOC-SYN-003",
+            "name": "Synthetic Harbour Suites",
+            "active": true
+          },
+          {
+            "locationId": "LOC-SYN-004",
+            "name": "Synthetic Closed Annex",
+            "active": false
+          }
+        ]
+      }
+    },
+    "durationMs": 0
+  },
+  {
+    "seq": 28,
+    "at": "2026-09-29T21:40:59.833Z",
+    "testId": "TC-005",
+    "operationName": "CreateReservation",
+    "variables": {
+      "input": {
+        "locationId": "LOC-SYN-002",
+        "resourceType": "STANDARD_ROOM",
+        "startDate": "2027-01-19",
+        "endDate": "2027-01-23",
+        "customerCount": 0,
+        "customer": {
+          "firstName": "C***",
+          "lastName": "T***",
+          "email": "c***@example.test"
+        },
+        "payment": {
+          "paymentMethod": "CARD_TOKEN",
+          "paymentToken": "tok_****0ca5"
+        }
+      }
+    },
+    "response": {
+      "data": {
+        "createReservation": {
+          "success": false,
+          "errors": [
+            {
+              "code": "INVALID_CUSTOMER_COUNT",
+              "field": "customerCount",
+              "message": "Customer count must be between 1 and 10",
+              "ruleId": "BR-002"
+            }
+          ],
+          "reservation": null
+        }
+      }
+    },
+    "durationMs": 1
+  }
+]
