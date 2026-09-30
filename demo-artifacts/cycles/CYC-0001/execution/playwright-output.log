@@ -1,0 +1,96 @@
+
+Running 22 tests using 4 workers
+
+  ✓   1 tests/TC-001.api.spec.ts:11:5 › TC-001 startDate after endDate is rejected @BR-001 @REQ-003 @REQ-011 @negative @api (53ms)
+  ✓   4 tests/TC-002.api.spec.ts:11:5 › TC-002 startDate equal to endDate is rejected @BR-001 @REQ-003 @REQ-011 @boundary @api (34ms)
+  ✓   2 tests/TC-003.api.spec.ts:11:5 › TC-003 endDate one day after startDate is accepted @BR-001 @REQ-003 @REQ-011 @boundary @api (60ms)
+  ✘   3 tests/TC-004.api.spec.ts:11:5 › TC-004 customerCount = 0 is rejected @BR-002 @REQ-004 @REQ-009 @REQ-012 @boundary @api (46ms)
+  ✓   6 tests/TC-006.api.spec.ts:11:5 › TC-006 customerCount = -1 is rejected @BR-002 @REQ-004 @REQ-009 @REQ-012 @negative @api (15ms)
+  ✓   7 tests/TC-007.api.spec.ts:11:5 › TC-007 customerCount = 1 is accepted @BR-002 @REQ-004 @REQ-009 @REQ-012 @boundary @api (16ms)
+  ✓   8 tests/TC-009.api.spec.ts:11:5 › TC-009 customerCount = 11 is rejected @BR-002 @REQ-004 @REQ-009 @REQ-012 @boundary @api (14ms)
+  ✓   9 tests/TC-010.api.spec.ts:11:5 › TC-010 Unknown locationId is rejected @BR-003 @REQ-005 @REQ-013 @negative @api (17ms)
+  ✓  10 tests/TC-011.api.spec.ts:11:5 › TC-011 Inactive locationId LOC-SYN-004 is rejected @BR-003 @REQ-005 @REQ-013 @negative @api (17ms)
+  ✓  11 tests/TC-012.api.spec.ts:11:5 › TC-012 Unapproved payment.paymentMethod CASH is rejected @BR-004 @REQ-006 @REQ-014 @negative @api (11ms)
+  ✓  12 tests/TC-013.api.spec.ts:11:5 › TC-013 Approved payment.paymentMethod INVOICE is accepted @BR-004 @REQ-006 @REQ-014 @positive @api (17ms)
+  ✓  13 tests/TC-014.api.spec.ts:11:5 › TC-014 Smoke: createReservation with valid synthetic data returns a confirmation number @BR-005 @REQ-001 @REQ-002 @REQ-015 @smoke @api (22ms)
+  ✓  16 tests/TC-008.api.spec.ts:11:5 › TC-008 customerCount = 10 (dictionary maximum) is accepted @BR-002 @REQ-004 @REQ-009 @REQ-012 @boundary @api (41ms)
+  ✓  17 tests/TC-017.api.spec.ts:11:5 › TC-017 Missing customer.email is rejected @BR-006 @REQ-007 @REQ-016 @negative @api (12ms)
+  ✓  18 tests/TC-018.api.spec.ts:11:5 › TC-018 Missing customer.firstName is rejected @BR-006 @REQ-007 @REQ-016 @negative @api (9ms)
+  ✓  19 tests/TC-019.api.spec.ts:11:5 › TC-019 Missing customer.lastName is rejected @BR-006 @REQ-007 @REQ-016 @negative @api (11ms)
+  ✓  20 tests/TC-020.api.spec.ts:11:5 › TC-020 Unavailable SUITE at LOC-SYN-002 for booked dates is rejected @BR-007 @REQ-017 @REQ-018 @negative @api (10ms)
+  ✓  21 tests/TC-021.api.spec.ts:11:5 › TC-021 Malformed customer.email is rejected @BR-D01 @REQ-019 @negative @api (12ms)
+  ✓  22 tests/TC-022.api.spec.ts:11:5 › TC-022 Declined synthetic payment token is rejected @BR-D02 @REQ-020 @negative @api (9ms)
+  ✓  14 tests/TC-015.ui.spec.ts:12:5 › TC-015 Service associate creates a reservation in the console and receives a confirmation number @BR-005 @REQ-001 @REQ-002 @REQ-015 @positive @ui (359ms)
+  ✓  15 tests/TC-016.ui.spec.ts:12:5 › TC-016 End to end: create, search by confirmation number and cancel the reservation @BR-005 @REQ-001 @REQ-002 @REQ-015 @e2e @ui (755ms)
+  ✘   5 tests/TC-005.ui.spec.ts:12:5 › TC-005 customerCount = 0 is rejected in the console @BR-002 @REQ-004 @REQ-009 @REQ-012 @boundary @ui (4.4s)
+
+
+  1) tests/TC-004.api.spec.ts:11:5 › TC-004 customerCount = 0 is rejected @BR-002 @REQ-004 @REQ-009 @REQ-012 @boundary @api 
+
+    Error: BR-002: createReservation.success
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+      12 |   const ds = aqe.dataset('DS-TC-004');
+      13 |   const result = await aqe.createReservation(ds.values);
+    > 14 |   expect(result.success, 'BR-002: createReservation.success').toBe(false);
+         |                                                               ^
+      15 |   expect(result.reservation, 'BR-002: no reservation created').toBeNull();
+      16 |   expect(result.errors.map((e) => e.code), 'BR-002: error codes').toContain('INVALID_CUSTOMER_COUNT');
+      17 | });
+        at /home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/automation/tests/TC-004.api.spec.ts:14:63
+
+    Error Context: ../execution/test-output/TC-004.api-TC-004-customerCount-0-is-rejected/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../execution/test-output/TC-004.api-TC-004-customerCount-0-is-rejected/trace.zip
+    Usage:
+
+        npx playwright show-trace ../execution/test-output/TC-004.api-TC-004-customerCount-0-is-rejected/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests/TC-005.ui.spec.ts:12:5 › TC-005 customerCount = 0 is rejected in the console @BR-002 @REQ-004 @REQ-009 @REQ-012 @boundary @ui 
+
+    Error: BR-002: create outcome
+
+    expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByTestId('create-result').locator('.toast')
+    Expected: "error-toast"
+    Received: "success-toast"
+    Timeout:  4000ms
+
+    Call log:
+      - BR-002: create outcome getByTestId('create-result').locator('.toast') with timeout 4000ms
+      - waiting for getByTestId('create-result').locator('.toast')
+        12 × locator resolved to <div class="toast success" data-testid="success-toast">…</div>
+           - unexpected value "success-toast"
+
+
+      17 |   await ui.submitCreate();
+      18 |   await aqe.screenshot(page, 'create-outcome');
+    > 19 |   await expect(ui.outcome(), 'BR-002: create outcome').toHaveAttribute('data-testid', 'error-toast');
+         |                                                        ^
+      20 |   await expect(ui.error('INVALID_CUSTOMER_COUNT'), 'BR-002: INVALID_CUSTOMER_COUNT shown').toBeVisible();
+      21 |   await expect(page.getByTestId('confirmation-number'), 'BR-002: no confirmation number issued').toHaveCount(0);
+      22 | });
+        at /home/ubuntu/repos/Salesforce-app/demo-artifacts/cycles/CYC-0001/automation/tests/TC-005.ui.spec.ts:19:56
+
+    Error Context: ../execution/test-output/TC-005.ui-TC-005-customerCount-0-is-rejected-in-the-console/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../execution/test-output/TC-005.ui-TC-005-customerCount-0-is-rejected-in-the-console/trace.zip
+    Usage:
+
+        npx playwright show-trace ../execution/test-output/TC-005.ui-TC-005-customerCount-0-is-rejected-in-the-console/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    tests/TC-004.api.spec.ts:11:5 › TC-004 customerCount = 0 is rejected @BR-002 @REQ-004 @REQ-009 @REQ-012 @boundary @api 
+    tests/TC-005.ui.spec.ts:12:5 › TC-005 customerCount = 0 is rejected in the console @BR-002 @REQ-004 @REQ-009 @REQ-012 @boundary @ui 
+  20 passed (5.0s)

@@ -1,0 +1,117 @@
+[
+  {
+    "id": "RF-001",
+    "type": "duplicate",
+    "severity": "low",
+    "title": "STORY-001-AC-7 duplicates STORY-001-AC-3",
+    "detail": "Both criteria express the same check (min-exclusive:customerCount:{\"threshold\":0}).",
+    "recommendation": "Merge REQ-008 (STORY-001-AC-7) into REQ-004 (STORY-001-AC-3) so the rule is tested once and traced to one criterion.",
+    "affected": [
+      "REQ-004",
+      "REQ-008"
+    ],
+    "evidence": [
+      {
+        "source": "fixtures/inputs/story-001.json#/acceptanceCriteria/2",
+        "quote": "The customer count must be greater than zero."
+      },
+      {
+        "source": "fixtures/inputs/story-001.json#/acceptanceCriteria/6",
+        "quote": "The number of customers must be at least one."
+      }
+    ],
+    "proposedAction": {
+      "type": "merge",
+      "from": "REQ-008",
+      "into": "REQ-004"
+    }
+  },
+  {
+    "id": "RF-002",
+    "type": "conflict",
+    "severity": "medium",
+    "title": "EPIC-10-AC-1 allows 12 customers; data dictionary and code allow 10",
+    "detail": "EPIC-10-AC-1 says up to 12; Reservation.customerCount has max 10 and force-app/main/default/classes/ReservationValidator.cls:61 rejects values above 10.",
+    "recommendation": "Confirm the maximum with the product owner. Until then treat 10 as the tested upper bound and record EPIC-10-AC-1 as needing clarification.",
+    "affected": [
+      "REQ-009"
+    ],
+    "evidence": [
+      {
+        "source": "fixtures/inputs/epic.json#/acceptanceCriteria/0",
+        "quote": "A reservation may include up to 12 customers."
+      },
+      {
+        "source": "fixtures/inputs/data-dictionary.json#/entities/Reservation/fields/customerCount",
+        "quote": "\"max\": 10"
+      }
+    ],
+    "proposedAction": {
+      "type": "clarify",
+      "requirementId": "REQ-009",
+      "note": "Tested upper bound is 10 (dictionary and code); 12 pending product-owner confirmation."
+    }
+  },
+  {
+    "id": "RF-003",
+    "type": "missing",
+    "severity": "high",
+    "title": "BR-007 has no acceptance criterion in STORY-001",
+    "detail": "The business-rules catalogue requires \"The requested resource must be available for the selected dates.\" but no STORY-001 acceptance criterion states it.",
+    "recommendation": "Add an acceptance criterion to STORY-001: \"The requested resource must be available for the selected dates.\"",
+    "affected": [
+      "REQ-017"
+    ],
+    "evidence": [
+      {
+        "source": "fixtures/inputs/business-rules.json#/rules/6",
+        "quote": "The requested resource must be available for the selected dates."
+      }
+    ],
+    "proposedAction": {
+      "type": "add-requirement",
+      "text": "The requested resource must be available for the selected dates.",
+      "ruleId": "BR-007"
+    }
+  },
+  {
+    "id": "RF-004",
+    "type": "code-only",
+    "severity": "medium",
+    "title": "Code enforces INVALID_EMAIL (BR-D01) but no requirement states it",
+    "detail": "force-app/main/default/classes/ReservationValidator.cls:47 rejects requests with INVALID_EMAIL. Neither STORY-001 nor the rules catalogue mention it.",
+    "recommendation": "Confirm the behavior and, if intended, add it to the rules catalogue as \"Customer email must be valid.\" so it is tested and traced.",
+    "affected": [],
+    "evidence": [
+      {
+        "source": "force-app/main/default/classes/ReservationValidator.cls:47",
+        "quote": "@rule BR-D01 INVALID_EMAIL"
+      }
+    ],
+    "proposedAction": {
+      "type": "include-code-rule",
+      "ruleId": "BR-D01",
+      "text": "Customer email must be valid."
+    }
+  },
+  {
+    "id": "RF-005",
+    "type": "code-only",
+    "severity": "medium",
+    "title": "Code enforces PAYMENT_NOT_AUTHORIZED (BR-D02) but no requirement states it",
+    "detail": "force-app/main/default/classes/ReservationValidator.cls:82 rejects requests with PAYMENT_NOT_AUTHORIZED. Neither STORY-001 nor the rules catalogue mention it.",
+    "recommendation": "Confirm the behavior and, if intended, add it to the rules catalogue as \"Payment must be authorized by the payment gateway.\" so it is tested and traced.",
+    "affected": [],
+    "evidence": [
+      {
+        "source": "force-app/main/default/classes/ReservationValidator.cls:82",
+        "quote": "@rule BR-D02 PAYMENT_NOT_AUTHORIZED"
+      }
+    ],
+    "proposedAction": {
+      "type": "include-code-rule",
+      "ruleId": "BR-D02",
+      "text": "Payment must be authorized by the payment gateway."
+    }
+  }
+]

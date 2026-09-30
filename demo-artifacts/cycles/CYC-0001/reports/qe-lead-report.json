@@ -1,0 +1,969 @@
+{
+  "reportId": "RPT-CYC-0001-QE-LEAD",
+  "metrics": {
+    "cycleId": "CYC-0001",
+    "generatedAt": "2026-09-29T21:43:00.150Z",
+    "requirements": {
+      "total": 20,
+      "active": 19,
+      "merged": 1,
+      "reviewerAdded": 3,
+      "covered": 18,
+      "verified": 15,
+      "failing": 3,
+      "notCovered": 0
+    },
+    "rules": {
+      "total": 9,
+      "verified": 8,
+      "failing": 1,
+      "untested": 0,
+      "byRule": [
+        {
+          "id": "BR-001",
+          "tests": 3,
+          "passed": 3,
+          "failed": 0,
+          "status": "verified"
+        },
+        {
+          "id": "BR-002",
+          "tests": 6,
+          "passed": 4,
+          "failed": 2,
+          "status": "failing"
+        },
+        {
+          "id": "BR-003",
+          "tests": 2,
+          "passed": 2,
+          "failed": 0,
+          "status": "verified"
+        },
+        {
+          "id": "BR-004",
+          "tests": 2,
+          "passed": 2,
+          "failed": 0,
+          "status": "verified"
+        },
+        {
+          "id": "BR-005",
+          "tests": 3,
+          "passed": 3,
+          "failed": 0,
+          "status": "verified"
+        },
+        {
+          "id": "BR-006",
+          "tests": 3,
+          "passed": 3,
+          "failed": 0,
+          "status": "verified"
+        },
+        {
+          "id": "BR-007",
+          "tests": 1,
+          "passed": 1,
+          "failed": 0,
+          "status": "verified"
+        },
+        {
+          "id": "BR-D01",
+          "tests": 1,
+          "passed": 1,
+          "failed": 0,
+          "status": "verified"
+        },
+        {
+          "id": "BR-D02",
+          "tests": 1,
+          "passed": 1,
+          "failed": 0,
+          "status": "verified"
+        }
+      ]
+    },
+    "testCases": {
+      "total": 22,
+      "byType": {
+        "smoke": 1,
+        "positive": 2,
+        "negative": 11,
+        "boundary": 7,
+        "e2e": 1
+      },
+      "byChannel": {
+        "ui": 3,
+        "api": 19
+      },
+      "excluded": 0
+    },
+    "datasets": {
+      "total": 22,
+      "valid": 22,
+      "invalid": 0,
+      "synthetic": 22,
+      "provenanceApproved": 22
+    },
+    "scripts": {
+      "total": 22,
+      "ui": 3,
+      "api": 19
+    },
+    "execution": {
+      "executed": true,
+      "total": 22,
+      "passed": 20,
+      "failed": 2,
+      "skipped": 0,
+      "notRun": 0,
+      "passRate": 90.9,
+      "durationMs": 5447,
+      "build": "reservation-demo@1.0.0 (seeded defect BR-002)"
+    },
+    "defects": {
+      "total": 1,
+      "blocking": 1,
+      "bySeverity": {
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    "review": {
+      "findings": 5,
+      "accepted": 5,
+      "rejected": 0,
+      "deferred": 0,
+      "deferredHigh": 0
+    },
+    "approvals": [
+      {
+        "gate": "requirements-baseline",
+        "status": "approved",
+        "approver": "Demo QE Lead",
+        "timestamp": "2026-09-29T21:40:53.070Z",
+        "comments": "Requirements baseline approved after reviewing every finding (npm run demo)."
+      },
+      {
+        "gate": "test-design",
+        "status": "approved",
+        "approver": "Demo QE Lead",
+        "timestamp": "2026-09-29T21:40:53.075Z",
+        "comments": "Test cases and coverage matrix reviewed."
+      },
+      {
+        "gate": "execution",
+        "status": "approved",
+        "approver": "Demo QE Lead",
+        "timestamp": "2026-09-29T21:40:53.085Z",
+        "comments": "Execution against the local demo service approved."
+      },
+      {
+        "gate": "release",
+        "status": "approved",
+        "approver": "Demo QE Lead",
+        "timestamp": "2026-09-29T21:40:58.590Z",
+        "comments": "Signed off: agree with No-go. Fix DEF-001 (BR-002) and re-run TC-004, TC-005; they must pass before release."
+      }
+    ],
+    "privacy": {
+      "checks": [
+        {
+          "name": "Every dataset classified SYNTHETIC",
+          "passed": true,
+          "detail": "22 datasets"
+        },
+        {
+          "name": "Dataset provenance recognised (unknown provenance rejected)",
+          "passed": true,
+          "detail": "22/22 from aqe-test-data-agent@1.0.0"
+        },
+        {
+          "name": "Dataset privacy checks (synthetic domain, token placeholders, no card numbers)",
+          "passed": true,
+          "detail": "132 checks"
+        },
+        {
+          "name": "Secret and card-number scan of generated code, evidence and reports",
+          "passed": true,
+          "detail": "159 files, 0 findings"
+        },
+        {
+          "name": "Demo service bound to localhost only",
+          "passed": true,
+          "detail": "http://127.0.0.1:42003"
+        },
+        {
+          "name": "Sensitive values masked in evidence and logs",
+          "passed": true,
+          "detail": "emails, names, payment tokens masked; screenshots mask [data-sensitive] fields"
+        }
+      ],
+      "secretScan": {
+        "filesScanned": 159,
+        "findings": []
+      }
+    },
+    "recommendation": {
+      "decision": "No-go",
+      "reason": "RP-4 failed: No open release-blocking (critical/high) defects (DEF-001 (high)) RP-5 failed: Every P1 test case passed (TC-004, TC-005)",
+      "conditions": [
+        "Fix DEF-001 (BR-002) and re-run TC-004, TC-005; they must pass before release."
+      ],
+      "policy": [
+        {
+          "id": "RP-1",
+          "description": "Generated tests were executed against the demo service",
+          "passed": true,
+          "outcomeIfFailed": "Not ready",
+          "detail": "22 tests executed"
+        },
+        {
+          "id": "RP-2",
+          "description": "Gates 1-3 (requirements, test design, execution) approved by a human",
+          "passed": true,
+          "outcomeIfFailed": "Not ready",
+          "detail": "requirements-baseline: approved; test-design: approved; execution: approved"
+        },
+        {
+          "id": "RP-3",
+          "description": "Privacy and security validation passed",
+          "passed": true,
+          "outcomeIfFailed": "No-go",
+          "detail": "all checks passed"
+        },
+        {
+          "id": "RP-4",
+          "description": "No open release-blocking (critical/high) defects",
+          "passed": false,
+          "outcomeIfFailed": "No-go",
+          "detail": "DEF-001 (high)"
+        },
+        {
+          "id": "RP-5",
+          "description": "Every P1 test case passed",
+          "passed": false,
+          "outcomeIfFailed": "No-go",
+          "detail": "TC-004, TC-005"
+        },
+        {
+          "id": "RP-6",
+          "description": "Every business rule verified by at least one passing test",
+          "passed": false,
+          "outcomeIfFailed": "Conditional go",
+          "detail": "BR-002 failing"
+        },
+        {
+          "id": "RP-7",
+          "description": "No open non-blocking defects and no unaccepted high-severity review findings",
+          "passed": true,
+          "outcomeIfFailed": "Conditional go",
+          "detail": "0 non-blocking defects, 0 unaccepted high findings"
+        }
+      ]
+    },
+    "risks": [
+      "REQ-009 (EPIC-10-AC-1) needs clarification: Tested upper bound is 10 (dictionary and code); 12 pending product-owner confirmation. Accepted by Demo QE Lead (RF-002).",
+      "BR-002 is failing",
+      "Out of scope for this cycle: STORY-002..004 (search, modify, cancel) are exercised only by the end-to-end UI case.",
+      "Playwright traces contain DOM snapshots with synthetic (unmasked) form values; they are covered by the evidence-retention policy."
+    ]
+  },
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "kind": "story",
+      "text": "As a service associate, I want to create a customer reservation, so that the customer receives a confirmation number.",
+      "sourceId": "STORY-001",
+      "provenance": {
+        "source": "fixtures/inputs/story-001.json",
+        "path": "#/narrative",
+        "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "674fc1b7972ac2772e70570a310eb8d8c8303ba1389a7593d88cbe7a51798401",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-002",
+      "kind": "acceptance-criterion",
+      "text": "Given valid reservation details, when the associate submits the reservation, then a confirmation number must be generated and the reservation status is CONFIRMED.",
+      "sourceId": "STORY-001-AC-1",
+      "provenance": {
+        "source": "fixtures/inputs/story-001.json",
+        "path": "#/acceptanceCriteria/0",
+        "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "742b90e84fda87be21ba9ab9c8d97a3634810987901720083a1d8bf3020b6507",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-003",
+      "kind": "acceptance-criterion",
+      "text": "The start date must be earlier than the end date.",
+      "sourceId": "STORY-001-AC-2",
+      "provenance": {
+        "source": "fixtures/inputs/story-001.json",
+        "path": "#/acceptanceCriteria/1",
+        "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "cc282b66fa538c81c20930de490661102724c452ecc6b0ef236640e64af71c81",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-004",
+      "kind": "acceptance-criterion",
+      "text": "The customer count must be greater than zero.",
+      "sourceId": "STORY-001-AC-3",
+      "provenance": {
+        "source": "fixtures/inputs/story-001.json",
+        "path": "#/acceptanceCriteria/2",
+        "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "95f27001ba2596d7d0112106ef382e4ba468f178b3b1f60f14f3e751d60288b2",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-005",
+      "kind": "acceptance-criterion",
+      "text": "A valid location is required.",
+      "sourceId": "STORY-001-AC-4",
+      "provenance": {
+        "source": "fixtures/inputs/story-001.json",
+        "path": "#/acceptanceCriteria/3",
+        "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "62d025d1632b97b7eed3bed20eb1aeb3b6d62610a94584cd21699f6e16072db0",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-006",
+      "kind": "acceptance-criterion",
+      "text": "An approved payment method is required.",
+      "sourceId": "STORY-001-AC-5",
+      "provenance": {
+        "source": "fixtures/inputs/story-001.json",
+        "path": "#/acceptanceCriteria/4",
+        "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "71b15a1de1a740a0ebeefa6b71d5b89170e6f90e0fca7e3b1337d4c1d2876ccf",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-007",
+      "kind": "acceptance-criterion",
+      "text": "Customer first name, last name and email are required.",
+      "sourceId": "STORY-001-AC-6",
+      "provenance": {
+        "source": "fixtures/inputs/story-001.json",
+        "path": "#/acceptanceCriteria/5",
+        "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "929b01c71cf65704bf181f37ee77ea847aec4629a2e75077e7832a383759891c",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-008",
+      "kind": "acceptance-criterion",
+      "text": "The number of customers must be at least one.",
+      "sourceId": "STORY-001-AC-7",
+      "provenance": {
+        "source": "fixtures/inputs/story-001.json",
+        "path": "#/acceptanceCriteria/6",
+        "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "048bd7b73d1125000b6a6b90248d20c71855d771317c67ee03d91e5cbbc78e57",
+      "status": "merged",
+      "mergedInto": "REQ-004",
+      "reviewerNote": "Merged into REQ-004 by Demo QE Lead (RF-001)."
+    },
+    {
+      "id": "REQ-009",
+      "kind": "epic-criterion",
+      "text": "A reservation may include up to 12 customers.",
+      "sourceId": "EPIC-10-AC-1",
+      "provenance": {
+        "source": "fixtures/inputs/epic.json",
+        "path": "#/acceptanceCriteria/0",
+        "sha256": "e7171f60e7066065f66c48e5ec3a17099b06b84d6f95803bb2401db630791740",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "1c1255fb1880acd8467ca4bf6cd84d9a581273de4b0f0baa81520847e9d5fe96",
+      "status": "baselined",
+      "reviewerNote": "Tested upper bound is 10 (dictionary and code); 12 pending product-owner confirmation. Accepted by Demo QE Lead (RF-002)."
+    },
+    {
+      "id": "REQ-010",
+      "kind": "epic-criterion",
+      "text": "All customer and payment data used outside production must be synthetic.",
+      "sourceId": "EPIC-10-AC-2",
+      "provenance": {
+        "source": "fixtures/inputs/epic.json",
+        "path": "#/acceptanceCriteria/1",
+        "sha256": "e7171f60e7066065f66c48e5ec3a17099b06b84d6f95803bb2401db630791740",
+        "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+      },
+      "version": 1,
+      "contentHash": "0e636010b3070b0b8f50aaa77622a354d208f2581d2665733d5429e4314a51a8",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-011",
+      "kind": "business-rule-statement",
+      "text": "Start date must be earlier than end date.",
+      "sourceId": "BR-001",
+      "provenance": {
+        "source": "fixtures/inputs/business-rules.json",
+        "path": "#/rules/0",
+        "sha256": "9383955ea5929c011e75c35ed5652c05d87566f17576694800902ef3e42d30b4",
+        "recordedFrom": "Local recorded fixture (synthetic business-rules catalogue)."
+      },
+      "version": 1,
+      "contentHash": "4754c6b92a55ea1904e12fbc6726afe57045daeaaf3e14a9fc2ce890d6099612",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-012",
+      "kind": "business-rule-statement",
+      "text": "Customer count must be greater than zero.",
+      "sourceId": "BR-002",
+      "provenance": {
+        "source": "fixtures/inputs/business-rules.json",
+        "path": "#/rules/1",
+        "sha256": "9383955ea5929c011e75c35ed5652c05d87566f17576694800902ef3e42d30b4",
+        "recordedFrom": "Local recorded fixture (synthetic business-rules catalogue)."
+      },
+      "version": 1,
+      "contentHash": "fd25c408ee7a0815e87c00b401a163cb74789f557ab721c397524a7c8eaf543e",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-013",
+      "kind": "business-rule-statement",
+      "text": "A valid location is required.",
+      "sourceId": "BR-003",
+      "provenance": {
+        "source": "fixtures/inputs/business-rules.json",
+        "path": "#/rules/2",
+        "sha256": "9383955ea5929c011e75c35ed5652c05d87566f17576694800902ef3e42d30b4",
+        "recordedFrom": "Local recorded fixture (synthetic business-rules catalogue)."
+      },
+      "version": 1,
+      "contentHash": "62d025d1632b97b7eed3bed20eb1aeb3b6d62610a94584cd21699f6e16072db0",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-014",
+      "kind": "business-rule-statement",
+      "text": "An approved payment method is required.",
+      "sourceId": "BR-004",
+      "provenance": {
+        "source": "fixtures/inputs/business-rules.json",
+        "path": "#/rules/3",
+        "sha256": "9383955ea5929c011e75c35ed5652c05d87566f17576694800902ef3e42d30b4",
+        "recordedFrom": "Local recorded fixture (synthetic business-rules catalogue)."
+      },
+      "version": 1,
+      "contentHash": "71b15a1de1a740a0ebeefa6b71d5b89170e6f90e0fca7e3b1337d4c1d2876ccf",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-015",
+      "kind": "business-rule-statement",
+      "text": "A confirmation number must be generated after successful creation.",
+      "sourceId": "BR-005",
+      "provenance": {
+        "source": "fixtures/inputs/business-rules.json",
+        "path": "#/rules/4",
+        "sha256": "9383955ea5929c011e75c35ed5652c05d87566f17576694800902ef3e42d30b4",
+        "recordedFrom": "Local recorded fixture (synthetic business-rules catalogue)."
+      },
+      "version": 1,
+      "contentHash": "6603c5fd20e66924ad0268265f840ae71aa7817a485e1afb50f3cccd60614403",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-016",
+      "kind": "business-rule-statement",
+      "text": "Required customer fields must be supplied.",
+      "sourceId": "BR-006",
+      "provenance": {
+        "source": "fixtures/inputs/business-rules.json",
+        "path": "#/rules/5",
+        "sha256": "9383955ea5929c011e75c35ed5652c05d87566f17576694800902ef3e42d30b4",
+        "recordedFrom": "Local recorded fixture (synthetic business-rules catalogue)."
+      },
+      "version": 1,
+      "contentHash": "51f920ac31fdb673308a608295dafb1a68dab589033e791efd5a871f86cbd93e",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-017",
+      "kind": "business-rule-statement",
+      "text": "The requested resource must be available for the selected dates.",
+      "sourceId": "BR-007",
+      "provenance": {
+        "source": "fixtures/inputs/business-rules.json",
+        "path": "#/rules/6",
+        "sha256": "9383955ea5929c011e75c35ed5652c05d87566f17576694800902ef3e42d30b4",
+        "recordedFrom": "Local recorded fixture (synthetic business-rules catalogue)."
+      },
+      "version": 1,
+      "contentHash": "733fa1feb9d4b95cd25d86c82ca93d0889b932aaa7e72ac8cecb1adc79dcd672",
+      "status": "baselined"
+    },
+    {
+      "id": "REQ-018",
+      "kind": "reviewer-added",
+      "text": "The requested resource must be available for the selected dates.",
+      "sourceId": "RF-003:BR-007",
+      "version": 1,
+      "status": "baselined",
+      "reviewerNote": "Added by Demo QE Lead from review finding RF-003.",
+      "provenance": {
+        "source": "human-review",
+        "path": "#/findings/RF-003",
+        "sha256": "",
+        "recordedFrom": "Reviewer decision by Demo QE Lead"
+      },
+      "contentHash": ""
+    },
+    {
+      "id": "REQ-019",
+      "kind": "reviewer-added",
+      "text": "Customer email must be valid.",
+      "sourceId": "RF-004:BR-D01",
+      "version": 1,
+      "status": "baselined",
+      "reviewerNote": "Code-only behavior accepted as a requirement by Demo QE Lead (RF-004).",
+      "provenance": {
+        "source": "human-review",
+        "path": "#/findings/RF-004",
+        "sha256": "",
+        "recordedFrom": "Reviewer decision by Demo QE Lead"
+      },
+      "contentHash": ""
+    },
+    {
+      "id": "REQ-020",
+      "kind": "reviewer-added",
+      "text": "Payment must be authorized by the payment gateway.",
+      "sourceId": "RF-005:BR-D02",
+      "version": 1,
+      "status": "baselined",
+      "reviewerNote": "Code-only behavior accepted as a requirement by Demo QE Lead (RF-005).",
+      "provenance": {
+        "source": "human-review",
+        "path": "#/findings/RF-005",
+        "sha256": "",
+        "recordedFrom": "Reviewer decision by Demo QE Lead"
+      },
+      "contentHash": ""
+    }
+  ],
+  "rules": [
+    {
+      "id": "BR-001",
+      "text": "Start date must be earlier than end date.",
+      "kind": "constraint",
+      "entity": "Reservation",
+      "condition": "startDate < endDate",
+      "expectedOutcome": "createReservation returns success=false with error INVALID_DATE_RANGE",
+      "check": {
+        "type": "date-order",
+        "fields": [
+          "startDate",
+          "endDate"
+        ],
+        "errorCode": "INVALID_DATE_RANGE",
+        "parameters": {}
+      },
+      "sourceRequirements": [
+        "REQ-003",
+        "REQ-011"
+      ],
+      "codeReferences": [
+        {
+          "file": "force-app/main/default/classes/ReservationValidator.cls",
+          "line": 54,
+          "symbol": "validateDates"
+        },
+        {
+          "file": "src/demo-service/reservation-validator.ts",
+          "line": 74,
+          "symbol": "validateDates"
+        }
+      ],
+      "origin": "catalogue",
+      "criticality": "high"
+    },
+    {
+      "id": "BR-002",
+      "text": "Customer count must be greater than zero.",
+      "kind": "validation",
+      "entity": "Reservation",
+      "condition": "customerCount > 0 and customerCount <= 10 (data dictionary)",
+      "expectedOutcome": "createReservation returns success=false with error INVALID_CUSTOMER_COUNT",
+      "check": {
+        "type": "min-exclusive",
+        "fields": [
+          "customerCount"
+        ],
+        "errorCode": "INVALID_CUSTOMER_COUNT",
+        "parameters": {
+          "threshold": 0,
+          "max": 10
+        }
+      },
+      "sourceRequirements": [
+        "REQ-004",
+        "REQ-009",
+        "REQ-012"
+      ],
+      "codeReferences": [
+        {
+          "file": "force-app/main/default/classes/ReservationValidator.cls",
+          "line": 61,
+          "symbol": "validateCustomerCount"
+        },
+        {
+          "file": "src/demo-service/reservation-validator.ts",
+          "line": 82,
+          "symbol": "validateCustomerCount"
+        }
+      ],
+      "origin": "catalogue",
+      "criticality": "high"
+    },
+    {
+      "id": "BR-003",
+      "text": "A valid location is required.",
+      "kind": "validation",
+      "entity": "Reservation",
+      "condition": "locationId in active locations (LOC-SYN-001, LOC-SYN-002, LOC-SYN-003)",
+      "expectedOutcome": "createReservation returns success=false with error INVALID_LOCATION",
+      "check": {
+        "type": "reference",
+        "fields": [
+          "locationId"
+        ],
+        "errorCode": "INVALID_LOCATION",
+        "parameters": {
+          "validValues": [
+            "LOC-SYN-001",
+            "LOC-SYN-002",
+            "LOC-SYN-003"
+          ]
+        }
+      },
+      "sourceRequirements": [
+        "REQ-005",
+        "REQ-013"
+      ],
+      "codeReferences": [
+        {
+          "file": "force-app/main/default/classes/ReservationValidator.cls",
+          "line": 68,
+          "symbol": "validateLocation"
+        },
+        {
+          "file": "src/demo-service/reservation-validator.ts",
+          "line": 91,
+          "symbol": "validateLocation"
+        }
+      ],
+      "origin": "catalogue",
+      "criticality": "high"
+    },
+    {
+      "id": "BR-004",
+      "text": "An approved payment method is required.",
+      "kind": "validation",
+      "entity": "Payment",
+      "condition": "payment.paymentMethod in (CARD_TOKEN, INVOICE)",
+      "expectedOutcome": "createReservation returns success=false with error PAYMENT_METHOD_NOT_APPROVED",
+      "check": {
+        "type": "approved-value",
+        "fields": [
+          "payment.paymentMethod"
+        ],
+        "errorCode": "PAYMENT_METHOD_NOT_APPROVED",
+        "parameters": {
+          "approvedValues": [
+            "CARD_TOKEN",
+            "INVOICE"
+          ]
+        }
+      },
+      "sourceRequirements": [
+        "REQ-006",
+        "REQ-014"
+      ],
+      "codeReferences": [
+        {
+          "file": "force-app/main/default/classes/ReservationValidator.cls",
+          "line": 75,
+          "symbol": "validatePaymentMethod"
+        },
+        {
+          "file": "src/demo-service/reservation-validator.ts",
+          "line": 99,
+          "symbol": "validatePaymentMethod"
+        }
+      ],
+      "origin": "catalogue",
+      "criticality": "critical"
+    },
+    {
+      "id": "BR-005",
+      "text": "A confirmation number must be generated after successful creation.",
+      "kind": "outcome",
+      "entity": "Reservation",
+      "condition": "on success, confirmationNumber matches ^CNF-[A-Z0-9]{8}$",
+      "expectedOutcome": "createReservation returns success=true, status CONFIRMED and a confirmation number",
+      "check": {
+        "type": "generated-output",
+        "fields": [
+          "confirmationNumber"
+        ],
+        "errorCode": null,
+        "parameters": {
+          "pattern": "^CNF-[A-Z0-9]{8}$"
+        }
+      },
+      "sourceRequirements": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-015"
+      ],
+      "codeReferences": [
+        {
+          "file": "force-app/main/default/classes/ReservationService.cls",
+          "line": 43,
+          "symbol": "generateConfirmationNumber"
+        },
+        {
+          "file": "src/demo-service/reservation-service.ts",
+          "line": 103,
+          "symbol": "confirmationNumber"
+        }
+      ],
+      "origin": "catalogue",
+      "criticality": "critical"
+    },
+    {
+      "id": "BR-006",
+      "text": "Required customer fields must be supplied.",
+      "kind": "validation",
+      "entity": "Customer",
+      "condition": "customer.email, customer.firstName, customer.lastName are non-blank",
+      "expectedOutcome": "createReservation returns success=false with error MISSING_REQUIRED_FIELD",
+      "check": {
+        "type": "required-fields",
+        "fields": [
+          "customer.email",
+          "customer.firstName",
+          "customer.lastName"
+        ],
+        "errorCode": "MISSING_REQUIRED_FIELD",
+        "parameters": {}
+      },
+      "sourceRequirements": [
+        "REQ-007",
+        "REQ-016"
+      ],
+      "codeReferences": [
+        {
+          "file": "force-app/main/default/classes/ReservationValidator.cls",
+          "line": 33,
+          "symbol": "validateRequiredCustomerFields"
+        },
+        {
+          "file": "src/demo-service/reservation-validator.ts",
+          "line": 57,
+          "symbol": "validateRequiredCustomerFields"
+        }
+      ],
+      "origin": "catalogue",
+      "criticality": "high"
+    },
+    {
+      "id": "BR-007",
+      "text": "The requested resource must be available for the selected dates.",
+      "kind": "decision",
+      "entity": "Reservation",
+      "condition": "remaining capacity for resourceType at the location over [startDate, endDate) > 0",
+      "expectedOutcome": "createReservation returns success=false with error RESOURCE_UNAVAILABLE",
+      "check": {
+        "type": "availability",
+        "fields": [
+          "resourceType",
+          "startDate",
+          "endDate"
+        ],
+        "errorCode": "RESOURCE_UNAVAILABLE",
+        "parameters": {}
+      },
+      "sourceRequirements": [
+        "REQ-017",
+        "REQ-018"
+      ],
+      "codeReferences": [
+        {
+          "file": "force-app/main/default/classes/ReservationValidator.cls",
+          "line": 90,
+          "symbol": "validateAvailability"
+        },
+        {
+          "file": "src/demo-service/reservation-validator.ts",
+          "line": 114,
+          "symbol": "validateAvailability"
+        }
+      ],
+      "origin": "catalogue",
+      "criticality": "high"
+    },
+    {
+      "id": "BR-D01",
+      "text": "Customer email must be valid.",
+      "kind": "validation",
+      "entity": "Customer",
+      "condition": "customer.email is a syntactically valid value",
+      "expectedOutcome": "createReservation returns success=false with error INVALID_EMAIL",
+      "check": {
+        "type": "format",
+        "fields": [
+          "customer.email"
+        ],
+        "errorCode": "INVALID_EMAIL",
+        "parameters": {}
+      },
+      "sourceRequirements": [
+        "REQ-019"
+      ],
+      "codeReferences": [
+        {
+          "file": "force-app/main/default/classes/ReservationValidator.cls",
+          "line": 47,
+          "symbol": "validateEmail"
+        },
+        {
+          "file": "src/demo-service/reservation-validator.ts",
+          "line": 66,
+          "symbol": "validateEmail"
+        }
+      ],
+      "origin": "code-only (reviewer accepted)",
+      "criticality": "medium"
+    },
+    {
+      "id": "BR-D02",
+      "text": "Payment must be authorized by the payment gateway.",
+      "kind": "decision",
+      "entity": "Payment",
+      "condition": "mock payment gateway returns AUTHORIZED for the synthetic token",
+      "expectedOutcome": "createReservation returns success=false with error PAYMENT_NOT_AUTHORIZED",
+      "check": {
+        "type": "authorization",
+        "fields": [
+          "payment.paymentToken"
+        ],
+        "errorCode": "PAYMENT_NOT_AUTHORIZED",
+        "parameters": {}
+      },
+      "sourceRequirements": [
+        "REQ-020"
+      ],
+      "codeReferences": [
+        {
+          "file": "force-app/main/default/classes/ReservationValidator.cls",
+          "line": 82,
+          "symbol": "validateAuthorization"
+        },
+        {
+          "file": "src/demo-service/reservation-validator.ts",
+          "line": 107,
+          "symbol": "validateAuthorization"
+        }
+      ],
+      "origin": "code-only (reviewer accepted)",
+      "criticality": "high"
+    }
+  ],
+  "defects": [
+    {
+      "id": "DEF-001",
+      "title": "BR-002 not enforced: customerCount = 0 is accepted by createReservation",
+      "status": "open",
+      "severity": "high",
+      "blocksRelease": true,
+      "ruleId": "BR-002",
+      "requirementIds": [
+        "REQ-004",
+        "REQ-009",
+        "REQ-012"
+      ],
+      "testCaseIds": [
+        "TC-004",
+        "TC-005"
+      ],
+      "executionIds": [
+        "EX-TC-004",
+        "EX-TC-005"
+      ],
+      "evidenceIds": [
+        "EV-TC-004-01",
+        "EV-TC-004-02",
+        "EV-TC-004-03",
+        "EV-TC-004-04",
+        "EV-TC-004-05",
+        "EV-TC-005-01",
+        "EV-TC-005-02",
+        "EV-TC-005-03",
+        "EV-TC-005-04",
+        "EV-TC-005-05"
+      ],
+      "expected": "Customer count must be greater than zero. createReservation returns success=false with error INVALID_CUSTOMER_COUNT when customerCount = 0 (TC-004 API, TC-005 UI).",
+      "actual": "createReservation returned success=true, status CONFIRMED, confirmation number CNF-XBJ6ST38.",
+      "impact": "Reservation records that violate BR-002 (customerCount > 0 and customerCount <= 10 (data dictionary)) are confirmed and receive a confirmation number, so fulfilment and occupancy reporting receive invalid reservations. Reproduced through API and UI in 2 test(s).",
+      "suspectedCause": "Boundary value 0 for customerCount passes validation. The rule is enforced in validateCustomerCount (src/demo-service/reservation-validator.ts:82) by `if (count === undefined || count === null || !Number.isInteger(count) || count < lowerBound || count > 10) {`; the lower bound admits 0 although BR-002 requires customerCount > 0.",
+      "codeReference": {
+        "file": "src/demo-service/reservation-validator.ts",
+        "line": 82,
+        "symbol": "validateCustomerCount",
+        "excerpt": [
+          "export function validateCustomerCount(input: CreateReservationInput, errors: ValidationError[], options: ValidatorOptions = {}): void {",
+          "  const count = input.customerCount;",
+          "  const lowerBound = options.fixedDefects?.includes('BR-002') ? 1 : 0;",
+          "  if (count === undefined || count === null || !Number.isInteger(count) || count < lowerBound || count > 10) {",
+          "    errors.push({ code: 'INVALID_CUSTOMER_COUNT', field: 'customerCount', message: 'Customer count must be between 1 and 10', ruleId: 'BR-002' });",
+          "  }",
+          "}",
+          ""
+        ]
+      },
+      "suggestedRemediation": "Reject customerCount <= 0 in validateCustomerCount (lower bound 1) and apply the same fix to force-app/main/default/classes/ReservationValidator.cls:61; then re-run TC-004, TC-005.",
+      "createdAt": "2026-09-29T21:40:58.535Z",
+      "createdFrom": "execution-failure"
+    }
+  ]
+}

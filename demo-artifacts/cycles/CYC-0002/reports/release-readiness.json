@@ -1,0 +1,56 @@
+{
+  "decision": "Go",
+  "reason": "Every release policy rule passed.",
+  "conditions": [],
+  "policy": [
+    {
+      "id": "RP-1",
+      "description": "Generated tests were executed against the demo service",
+      "passed": true,
+      "outcomeIfFailed": "Not ready",
+      "detail": "22 tests executed"
+    },
+    {
+      "id": "RP-2",
+      "description": "Gates 1-3 (requirements, test design, execution) approved by a human",
+      "passed": true,
+      "outcomeIfFailed": "Not ready",
+      "detail": "requirements-baseline: approved; test-design: approved; execution: approved"
+    },
+    {
+      "id": "RP-3",
+      "description": "Privacy and security validation passed",
+      "passed": true,
+      "outcomeIfFailed": "No-go",
+      "detail": "all checks passed"
+    },
+    {
+      "id": "RP-4",
+      "description": "No open release-blocking (critical/high) defects",
+      "passed": true,
+      "outcomeIfFailed": "No-go",
+      "detail": "none"
+    },
+    {
+      "id": "RP-5",
+      "description": "Every P1 test case passed",
+      "passed": true,
+      "outcomeIfFailed": "No-go",
+      "detail": "all P1 passed"
+    },
+    {
+      "id": "RP-6",
+      "description": "Every business rule verified by at least one passing test",
+      "passed": true,
+      "outcomeIfFailed": "Conditional go",
+      "detail": "all rules verified"
+    },
+    {
+      "id": "RP-7",
+      "description": "No open non-blocking defects and no unaccepted high-severity review findings",
+      "passed": true,
+      "outcomeIfFailed": "Conditional go",
+      "detail": "0 non-blocking defects, 0 unaccepted high findings"
+    }
+  ]
+}

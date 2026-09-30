@@ -1,0 +1,27 @@
+:root { --brand: #0176d3; --bg: #f3f3f3; --border: #dddbda; --err: #ba0517; --ok: #2e844a; font-family: "Salesforce Sans", -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: #181818; font-size: 14px; }
+.slds-global-header { display: flex; gap: 12px; align-items: center; padding: 10px 20px; background: #fff; border-bottom: 1px solid var(--border); }
+.logo { color: var(--brand); font-size: 22px; }
+.badge { background: #fef1cd; color: #8c4b02; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 700; }
+.build { margin-left: auto; color: #706e6b; font-size: 12px; }
+.slds-tabs { display: flex; gap: 4px; padding: 0 20px; background: #fff; border-bottom: 1px solid var(--border); }
+.slds-tabs button { border: 0; background: none; padding: 12px 14px; cursor: pointer; border-bottom: 3px solid transparent; font-size: 14px; }
+.slds-tabs button.active { border-color: var(--brand); color: var(--brand); font-weight: 600; }
+main { padding: 20px; max-width: 1000px; }
+.slds-card { background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 16px 20px; }
+.hidden { display: none; }
+h2 { margin: 0 0 12px; font-size: 18px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px 16px; margin-bottom: 14px; }
+.inline { display: flex; gap: 12px; align-items: end; margin-bottom: 12px; flex-wrap: wrap; }
+label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #444; }
+input, select { padding: 7px 8px; border: 1px solid var(--border); border-radius: 4px; font-size: 14px; }
+button { padding: 8px 14px; border: 1px solid var(--border); background: #fff; border-radius: 4px; cursor: pointer; }
+button.brand { background: var(--brand); color: #fff; border-color: var(--brand); }
+button.destructive { background: var(--err); color: #fff; border-color: var(--err); }
+.toast { margin-top: 14px; padding: 10px 14px; border-radius: 4px; }
+.toast.success { background: #ebf7e6; color: var(--ok); border: 1px solid #91db8b; }
+.toast.error { background: #fef1ee; color: var(--err); border: 1px solid #fe9b91; }
+.toast ul { margin: 6px 0 0; padding-left: 18px; }
+table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); font-size: 13px; }

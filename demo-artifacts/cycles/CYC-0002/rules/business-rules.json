@@ -1,0 +1,329 @@
+[
+  {
+    "id": "BR-001",
+    "text": "Start date must be earlier than end date.",
+    "kind": "constraint",
+    "entity": "Reservation",
+    "condition": "startDate < endDate",
+    "expectedOutcome": "createReservation returns success=false with error INVALID_DATE_RANGE",
+    "check": {
+      "type": "date-order",
+      "fields": [
+        "startDate",
+        "endDate"
+      ],
+      "errorCode": "INVALID_DATE_RANGE",
+      "parameters": {}
+    },
+    "sourceRequirements": [
+      "REQ-003",
+      "REQ-011"
+    ],
+    "codeReferences": [
+      {
+        "file": "force-app/main/default/classes/ReservationValidator.cls",
+        "line": 54,
+        "symbol": "validateDates"
+      },
+      {
+        "file": "src/demo-service/reservation-validator.ts",
+        "line": 74,
+        "symbol": "validateDates"
+      }
+    ],
+    "origin": "catalogue",
+    "criticality": "high"
+  },
+  {
+    "id": "BR-002",
+    "text": "Customer count must be greater than zero.",
+    "kind": "validation",
+    "entity": "Reservation",
+    "condition": "customerCount > 0 and customerCount <= 10 (data dictionary)",
+    "expectedOutcome": "createReservation returns success=false with error INVALID_CUSTOMER_COUNT",
+    "check": {
+      "type": "min-exclusive",
+      "fields": [
+        "customerCount"
+      ],
+      "errorCode": "INVALID_CUSTOMER_COUNT",
+      "parameters": {
+        "threshold": 0,
+        "max": 10
+      }
+    },
+    "sourceRequirements": [
+      "REQ-004",
+      "REQ-009",
+      "REQ-012"
+    ],
+    "codeReferences": [
+      {
+        "file": "force-app/main/default/classes/ReservationValidator.cls",
+        "line": 61,
+        "symbol": "validateCustomerCount"
+      },
+      {
+        "file": "src/demo-service/reservation-validator.ts",
+        "line": 82,
+        "symbol": "validateCustomerCount"
+      }
+    ],
+    "origin": "catalogue",
+    "criticality": "high"
+  },
+  {
+    "id": "BR-003",
+    "text": "A valid location is required.",
+    "kind": "validation",
+    "entity": "Reservation",
+    "condition": "locationId in active locations (LOC-SYN-001, LOC-SYN-002, LOC-SYN-003)",
+    "expectedOutcome": "createReservation returns success=false with error INVALID_LOCATION",
+    "check": {
+      "type": "reference",
+      "fields": [
+        "locationId"
+      ],
+      "errorCode": "INVALID_LOCATION",
+      "parameters": {
+        "validValues": [
+          "LOC-SYN-001",
+          "LOC-SYN-002",
+          "LOC-SYN-003"
+        ]
+      }
+    },
+    "sourceRequirements": [
+      "REQ-005",
+      "REQ-013"
+    ],
+    "codeReferences": [
+      {
+        "file": "force-app/main/default/classes/ReservationValidator.cls",
+        "line": 68,
+        "symbol": "validateLocation"
+      },
+      {
+        "file": "src/demo-service/reservation-validator.ts",
+        "line": 91,
+        "symbol": "validateLocation"
+      }
+    ],
+    "origin": "catalogue",
+    "criticality": "high"
+  },
+  {
+    "id": "BR-004",
+    "text": "An approved payment method is required.",
+    "kind": "validation",
+    "entity": "Payment",
+    "condition": "payment.paymentMethod in (CARD_TOKEN, INVOICE)",
+    "expectedOutcome": "createReservation returns success=false with error PAYMENT_METHOD_NOT_APPROVED",
+    "check": {
+      "type": "approved-value",
+      "fields": [
+        "payment.paymentMethod"
+      ],
+      "errorCode": "PAYMENT_METHOD_NOT_APPROVED",
+      "parameters": {
+        "approvedValues": [
+          "CARD_TOKEN",
+          "INVOICE"
+        ]
+      }
+    },
+    "sourceRequirements": [
+      "REQ-006",
+      "REQ-014"
+    ],
+    "codeReferences": [
+      {
+        "file": "force-app/main/default/classes/ReservationValidator.cls",
+        "line": 75,
+        "symbol": "validatePaymentMethod"
+      },
+      {
+        "file": "src/demo-service/reservation-validator.ts",
+        "line": 99,
+        "symbol": "validatePaymentMethod"
+      }
+    ],
+    "origin": "catalogue",
+    "criticality": "critical"
+  },
+  {
+    "id": "BR-005",
+    "text": "A confirmation number must be generated after successful creation.",
+    "kind": "outcome",
+    "entity": "Reservation",
+    "condition": "on success, confirmationNumber matches ^CNF-[A-Z0-9]{8}$",
+    "expectedOutcome": "createReservation returns success=true, status CONFIRMED and a confirmation number",
+    "check": {
+      "type": "generated-output",
+      "fields": [
+        "confirmationNumber"
+      ],
+      "errorCode": null,
+      "parameters": {
+        "pattern": "^CNF-[A-Z0-9]{8}$"
+      }
+    },
+    "sourceRequirements": [
+      "REQ-001",
+      "REQ-002",
+      "REQ-015"
+    ],
+    "codeReferences": [
+      {
+        "file": "force-app/main/default/classes/ReservationService.cls",
+        "line": 43,
+        "symbol": "generateConfirmationNumber"
+      },
+      {
+        "file": "src/demo-service/reservation-service.ts",
+        "line": 103,
+        "symbol": "confirmationNumber"
+      }
+    ],
+    "origin": "catalogue",
+    "criticality": "critical"
+  },
+  {
+    "id": "BR-006",
+    "text": "Required customer fields must be supplied.",
+    "kind": "validation",
+    "entity": "Customer",
+    "condition": "customer.email, customer.firstName, customer.lastName are non-blank",
+    "expectedOutcome": "createReservation returns success=false with error MISSING_REQUIRED_FIELD",
+    "check": {
+      "type": "required-fields",
+      "fields": [
+        "customer.email",
+        "customer.firstName",
+        "customer.lastName"
+      ],
+      "errorCode": "MISSING_REQUIRED_FIELD",
+      "parameters": {}
+    },
+    "sourceRequirements": [
+      "REQ-007",
+      "REQ-016"
+    ],
+    "codeReferences": [
+      {
+        "file": "force-app/main/default/classes/ReservationValidator.cls",
+        "line": 33,
+        "symbol": "validateRequiredCustomerFields"
+      },
+      {
+        "file": "src/demo-service/reservation-validator.ts",
+        "line": 57,
+        "symbol": "validateRequiredCustomerFields"
+      }
+    ],
+    "origin": "catalogue",
+    "criticality": "high"
+  },
+  {
+    "id": "BR-007",
+    "text": "The requested resource must be available for the selected dates.",
+    "kind": "decision",
+    "entity": "Reservation",
+    "condition": "remaining capacity for resourceType at the location over [startDate, endDate) > 0",
+    "expectedOutcome": "createReservation returns success=false with error RESOURCE_UNAVAILABLE",
+    "check": {
+      "type": "availability",
+      "fields": [
+        "resourceType",
+        "startDate",
+        "endDate"
+      ],
+      "errorCode": "RESOURCE_UNAVAILABLE",
+      "parameters": {}
+    },
+    "sourceRequirements": [
+      "REQ-017",
+      "REQ-018"
+    ],
+    "codeReferences": [
+      {
+        "file": "force-app/main/default/classes/ReservationValidator.cls",
+        "line": 90,
+        "symbol": "validateAvailability"
+      },
+      {
+        "file": "src/demo-service/reservation-validator.ts",
+        "line": 114,
+        "symbol": "validateAvailability"
+      }
+    ],
+    "origin": "catalogue",
+    "criticality": "high"
+  },
+  {
+    "id": "BR-D01",
+    "text": "Customer email must be valid.",
+    "kind": "validation",
+    "entity": "Customer",
+    "condition": "customer.email is a syntactically valid value",
+    "expectedOutcome": "createReservation returns success=false with error INVALID_EMAIL",
+    "check": {
+      "type": "format",
+      "fields": [
+        "customer.email"
+      ],
+      "errorCode": "INVALID_EMAIL",
+      "parameters": {}
+    },
+    "sourceRequirements": [
+      "REQ-019"
+    ],
+    "codeReferences": [
+      {
+        "file": "force-app/main/default/classes/ReservationValidator.cls",
+        "line": 47,
+        "symbol": "validateEmail"
+      },
+      {
+        "file": "src/demo-service/reservation-validator.ts",
+        "line": 66,
+        "symbol": "validateEmail"
+      }
+    ],
+    "origin": "code-only (reviewer accepted)",
+    "criticality": "medium"
+  },
+  {
+    "id": "BR-D02",
+    "text": "Payment must be authorized by the payment gateway.",
+    "kind": "decision",
+    "entity": "Payment",
+    "condition": "mock payment gateway returns AUTHORIZED for the synthetic token",
+    "expectedOutcome": "createReservation returns success=false with error PAYMENT_NOT_AUTHORIZED",
+    "check": {
+      "type": "authorization",
+      "fields": [
+        "payment.paymentToken"
+      ],
+      "errorCode": "PAYMENT_NOT_AUTHORIZED",
+      "parameters": {}
+    },
+    "sourceRequirements": [
+      "REQ-020"
+    ],
+    "codeReferences": [
+      {
+        "file": "force-app/main/default/classes/ReservationValidator.cls",
+        "line": 82,
+        "symbol": "validateAuthorization"
+      },
+      {
+        "file": "src/demo-service/reservation-validator.ts",
+        "line": 107,
+        "symbol": "validateAuthorization"
+      }
+    ],
+    "origin": "code-only (reviewer accepted)",
+    "criticality": "high"
+  }
+]

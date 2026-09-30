@@ -1,0 +1,40 @@
+{
+  "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called.",
+  "type": "Epic",
+  "id": "EPIC-10",
+  "initiative": "INIT-100",
+  "title": "Reservation lifecycle in the Lightning service console",
+  "description": "Service associates create, search, modify and cancel customer reservations, and the service validates customer and payment information.",
+  "acceptanceCriteria": [
+    {
+      "id": "EPIC-10-AC-1",
+      "text": "A reservation may include up to 12 customers."
+    },
+    {
+      "id": "EPIC-10-AC-2",
+      "text": "All customer and payment data used outside production must be synthetic."
+    }
+  ],
+  "stories": [
+    {
+      "id": "STORY-001",
+      "title": "Create a customer reservation",
+      "inScope": true
+    },
+    {
+      "id": "STORY-002",
+      "title": "Search for a reservation",
+      "inScope": false
+    },
+    {
+      "id": "STORY-003",
+      "title": "Modify a reservation",
+      "inScope": false
+    },
+    {
+      "id": "STORY-004",
+      "title": "Cancel a reservation",
+      "inScope": false
+    }
+  ]
+}

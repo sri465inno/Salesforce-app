@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Search Reservations" icon-name="standard:search">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Confirmation number" data-field="confirmationNumber" onchange={handleChange}></lightning-input>
+            <lightning-input label="Last name" data-field="lastName" onchange={handleChange}></lightning-input>
+            <lightning-button label="Search" onclick={handleSearch}></lightning-button>
+            <lightning-datatable key-field="Id" data={results} columns={columns} hide-checkbox-column></lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

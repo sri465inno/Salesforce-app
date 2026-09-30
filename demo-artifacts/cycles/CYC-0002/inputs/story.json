@@ -1,0 +1,46 @@
+{
+  "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called.",
+  "type": "Story",
+  "id": "STORY-001",
+  "epic": "EPIC-10",
+  "title": "Create a customer reservation",
+  "narrative": {
+    "asA": "service associate",
+    "iWant": "to create a customer reservation",
+    "soThat": "the customer receives a confirmation number"
+  },
+  "acceptanceCriteria": [
+    {
+      "id": "STORY-001-AC-1",
+      "text": "Given valid reservation details, when the associate submits the reservation, then a confirmation number must be generated and the reservation status is CONFIRMED."
+    },
+    {
+      "id": "STORY-001-AC-2",
+      "text": "The start date must be earlier than the end date."
+    },
+    {
+      "id": "STORY-001-AC-3",
+      "text": "The customer count must be greater than zero."
+    },
+    {
+      "id": "STORY-001-AC-4",
+      "text": "A valid location is required."
+    },
+    {
+      "id": "STORY-001-AC-5",
+      "text": "An approved payment method is required."
+    },
+    {
+      "id": "STORY-001-AC-6",
+      "text": "Customer first name, last name and email are required."
+    },
+    {
+      "id": "STORY-001-AC-7",
+      "text": "The number of customers must be at least one."
+    }
+  ],
+  "components": [
+    "force-app/main/default/lwc/createReservation",
+    "force-app/main/default/classes/ReservationService.cls"
+  ]
+}

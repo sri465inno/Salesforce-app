@@ -1,0 +1,159 @@
+"""
+Reservation management API contract.
+Salesforce-oriented: mirrors force-app/main/default/classes/ReservationService.cls.
+Served locally by the demo service (src/demo-service) at POST /graphql.
+Input fields are nullable on purpose: required-field rules (BR-006) are business rules
+enforced by the service layer and reported as ValidationError, not as schema errors.
+"""
+scalar Date
+scalar DateTime
+
+enum ResourceType {
+  STANDARD_ROOM
+  SUITE
+  CONFERENCE_ROOM
+}
+
+enum ReservationStatus {
+  PENDING
+  CONFIRMED
+  MODIFIED
+  CANCELLED
+}
+
+enum PaymentMethod {
+  CARD_TOKEN
+  INVOICE
+  CASH
+  GIFT_VOUCHER
+}
+
+enum AuthorizationStatus {
+  AUTHORIZED
+  PENDING
+  DECLINED
+}
+
+enum ValidationCode {
+  INVALID_DATE_RANGE
+  INVALID_CUSTOMER_COUNT
+  INVALID_LOCATION
+  PAYMENT_METHOD_NOT_APPROVED
+  PAYMENT_NOT_AUTHORIZED
+  MISSING_REQUIRED_FIELD
+  INVALID_EMAIL
+  RESOURCE_UNAVAILABLE
+  RESERVATION_NOT_FOUND
+  INVALID_STATUS_TRANSITION
+}
+
+type Customer {
+  customerId: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+}
+
+"""paymentToken is always returned masked (tok_****abcd)."""
+type Payment {
+  paymentMethod: PaymentMethod!
+  paymentToken: String!
+  authorizationStatus: AuthorizationStatus!
+}
+
+type Reservation {
+  reservationId: ID!
+  confirmationNumber: String!
+  locationId: String!
+  startDate: Date!
+  endDate: Date!
+  customerCount: Int!
+  resourceType: ResourceType!
+  status: ReservationStatus!
+  createdAt: DateTime!
+  customer: Customer!
+  payment: Payment!
+}
+
+type Location {
+  locationId: String!
+  name: String!
+  active: Boolean!
+}
+
+type ValidationError {
+  code: ValidationCode!
+  field: String
+  message: String!
+  ruleId: String
+}
+
+type ReservationPayload {
+  success: Boolean!
+  reservation: Reservation
+  errors: [ValidationError!]!
+}
+
+type ValidationResult {
+  valid: Boolean!
+  errors: [ValidationError!]!
+  authorizationStatus: AuthorizationStatus
+}
+
+type Availability {
+  available: Boolean!
+  remaining: Int!
+}
+
+input CustomerInput {
+  firstName: String
+  lastName: String
+  email: String
+}
+
+input PaymentInput {
+  paymentMethod: PaymentMethod
+  paymentToken: String
+}
+
+input CreateReservationInput {
+  locationId: String
+  startDate: Date
+  endDate: Date
+  customerCount: Int
+  resourceType: ResourceType
+  customer: CustomerInput
+  payment: PaymentInput
+}
+
+input ModifyReservationInput {
+  confirmationNumber: String!
+  locationId: String
+  startDate: Date
+  endDate: Date
+  customerCount: Int
+  resourceType: ResourceType
+}
+
+input ReservationSearchInput {
+  confirmationNumber: String
+  lastName: String
+  locationId: String
+  status: ReservationStatus
+}
+
+type Query {
+  health: String!
+  locations: [Location!]!
+  reservation(confirmationNumber: String!): Reservation
+  searchReservations(filter: ReservationSearchInput!): [Reservation!]!
+  availability(locationId: String!, resourceType: ResourceType!, startDate: Date!, endDate: Date!): Availability!
+  validateCustomer(customer: CustomerInput!): ValidationResult!
+  validatePayment(payment: PaymentInput!): ValidationResult!
+}
+
+type Mutation {
+  createReservation(input: CreateReservationInput!): ReservationPayload!
+  modifyReservation(input: ModifyReservationInput!): ReservationPayload!
+  cancelReservation(confirmationNumber: String!, reason: String): ReservationPayload!
+}

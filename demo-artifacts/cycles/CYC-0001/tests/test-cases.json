@@ -1,0 +1,783 @@
+[
+  {
+    "title": "startDate after endDate is rejected",
+    "type": "negative",
+    "channel": "api",
+    "mutation": {
+      "endDate": {
+        "$relative": "startDate",
+        "days": -1
+      }
+    },
+    "expected": {
+      "success": false,
+      "errorCode": "INVALID_DATE_RANGE"
+    },
+    "violates": [
+      "startDate/endDate"
+    ],
+    "objective": "End date before start date must be rejected.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success=false and error INVALID_DATE_RANGE"
+    ],
+    "id": "TC-001",
+    "ruleIds": [
+      "BR-001"
+    ],
+    "requirementIds": [
+      "REQ-003",
+      "REQ-011"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-001 is valid"
+    ],
+    "priority": "P2"
+  },
+  {
+    "title": "startDate equal to endDate is rejected",
+    "type": "boundary",
+    "channel": "api",
+    "mutation": {
+      "endDate": {
+        "$relative": "startDate",
+        "days": 0
+      }
+    },
+    "expected": {
+      "success": false,
+      "errorCode": "INVALID_DATE_RANGE"
+    },
+    "violates": [
+      "startDate/endDate"
+    ],
+    "objective": "Same-day start and end is not \"earlier than\" and must be rejected.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success=false and error INVALID_DATE_RANGE"
+    ],
+    "id": "TC-002",
+    "ruleIds": [
+      "BR-001"
+    ],
+    "requirementIds": [
+      "REQ-003",
+      "REQ-011"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-002 is valid"
+    ],
+    "priority": "P2"
+  },
+  {
+    "title": "endDate one day after startDate is accepted",
+    "type": "boundary",
+    "channel": "api",
+    "mutation": {
+      "endDate": {
+        "$relative": "startDate",
+        "days": 1
+      }
+    },
+    "expected": {
+      "success": true,
+      "confirmationPattern": "^CNF-[A-Z0-9]{8}$",
+      "status": "CONFIRMED"
+    },
+    "violates": [],
+    "objective": "The smallest valid date range is accepted.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success, CONFIRMED status and confirmation-number format"
+    ],
+    "id": "TC-003",
+    "ruleIds": [
+      "BR-001"
+    ],
+    "requirementIds": [
+      "REQ-003",
+      "REQ-011"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-003 is valid"
+    ],
+    "priority": "P2"
+  },
+  {
+    "title": "customerCount = 0 is rejected",
+    "type": "boundary",
+    "channel": "api",
+    "mutation": {
+      "customerCount": 0
+    },
+    "expected": {
+      "success": false,
+      "errorCode": "INVALID_CUSTOMER_COUNT"
+    },
+    "violates": [
+      "customerCount"
+    ],
+    "objective": "customerCount must be greater than 0; the boundary value 0 must be rejected.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success=false and error INVALID_CUSTOMER_COUNT"
+    ],
+    "priority": "P1",
+    "id": "TC-004",
+    "ruleIds": [
+      "BR-002"
+    ],
+    "requirementIds": [
+      "REQ-004",
+      "REQ-009",
+      "REQ-012"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-004 is valid"
+    ]
+  },
+  {
+    "title": "customerCount = 0 is rejected in the console",
+    "type": "boundary",
+    "channel": "ui",
+    "mutation": {
+      "customerCount": 0
+    },
+    "expected": {
+      "success": false,
+      "errorCode": "INVALID_CUSTOMER_COUNT"
+    },
+    "violates": [
+      "customerCount"
+    ],
+    "flow": "create",
+    "priority": "P1",
+    "objective": "The console must not confirm a reservation with customerCount = 0.",
+    "steps": [
+      "Open the reservation console",
+      "Fill the create form with customerCount = 0",
+      "Submit",
+      "Assert the error INVALID_CUSTOMER_COUNT is shown and no confirmation number is issued"
+    ],
+    "id": "TC-005",
+    "ruleIds": [
+      "BR-002"
+    ],
+    "requirementIds": [
+      "REQ-004",
+      "REQ-009",
+      "REQ-012"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-005 is valid"
+    ]
+  },
+  {
+    "title": "customerCount = -1 is rejected",
+    "type": "negative",
+    "channel": "api",
+    "mutation": {
+      "customerCount": -1
+    },
+    "expected": {
+      "success": false,
+      "errorCode": "INVALID_CUSTOMER_COUNT"
+    },
+    "violates": [
+      "customerCount"
+    ],
+    "objective": "Negative customerCount must be rejected.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success=false and error INVALID_CUSTOMER_COUNT"
+    ],
+    "id": "TC-006",
+    "ruleIds": [
+      "BR-002"
+    ],
+    "requirementIds": [
+      "REQ-004",
+      "REQ-009",
+      "REQ-012"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-006 is valid"
+    ],
+    "priority": "P2"
+  },
+  {
+    "title": "customerCount = 1 is accepted",
+    "type": "boundary",
+    "channel": "api",
+    "mutation": {
+      "customerCount": 1
+    },
+    "expected": {
+      "success": true,
+      "confirmationPattern": "^CNF-[A-Z0-9]{8}$",
+      "status": "CONFIRMED"
+    },
+    "violates": [],
+    "objective": "The smallest valid customerCount is accepted.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success, CONFIRMED status and confirmation-number format"
+    ],
+    "id": "TC-007",
+    "ruleIds": [
+      "BR-002"
+    ],
+    "requirementIds": [
+      "REQ-004",
+      "REQ-009",
+      "REQ-012"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-007 is valid"
+    ],
+    "priority": "P2"
+  },
+  {
+    "title": "customerCount = 10 (dictionary maximum) is accepted",
+    "type": "boundary",
+    "channel": "api",
+    "mutation": {
+      "customerCount": 10
+    },
+    "expected": {
+      "success": true,
+      "confirmationPattern": "^CNF-[A-Z0-9]{8}$",
+      "status": "CONFIRMED"
+    },
+    "violates": [],
+    "objective": "The largest valid customerCount is accepted.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success, CONFIRMED status and confirmation-number format"
+    ],
+    "id": "TC-008",
+    "ruleIds": [
+      "BR-002"
+    ],
+    "requirementIds": [
+      "REQ-004",
+      "REQ-009",
+      "REQ-012"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-008 is valid"
+    ],
+    "priority": "P2"
+  },
+  {
+    "title": "customerCount = 11 is rejected",
+    "type": "boundary",
+    "channel": "api",
+    "mutation": {
+      "customerCount": 11
+    },
+    "expected": {
+      "success": false,
+      "errorCode": "INVALID_CUSTOMER_COUNT"
+    },
+    "violates": [
+      "customerCount"
+    ],
+    "objective": "customerCount above the dictionary maximum must be rejected.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success=false and error INVALID_CUSTOMER_COUNT"
+    ],
+    "id": "TC-009",
+    "ruleIds": [
+      "BR-002"
+    ],
+    "requirementIds": [
+      "REQ-004",
+      "REQ-009",
+      "REQ-012"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-009 is valid"
+    ],
+    "priority": "P2"
+  },
+  {
+    "title": "Unknown locationId is rejected",
+    "type": "negative",
+    "channel": "api",
+    "mutation": {
+      "locationId": "LOC-SYN-999"
+    },
+    "expected": {
+      "success": false,
+      "errorCode": "INVALID_LOCATION"
+    },
+    "violates": [
+      "locationId"
+    ],
+    "objective": "A locationId that does not exist must be rejected.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success=false and error INVALID_LOCATION"
+    ],
+    "id": "TC-010",
+    "ruleIds": [
+      "BR-003"
+    ],
+    "requirementIds": [
+      "REQ-005",
+      "REQ-013"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-010 is valid"
+    ],
+    "priority": "P2"
+  },
+  {
+    "title": "Inactive locationId LOC-SYN-004 is rejected",
+    "type": "negative",
+    "channel": "api",
+    "mutation": {
+      "locationId": "LOC-SYN-004"
+    },
+    "expected": {
+      "success": false,
+      "errorCode": "INVALID_LOCATION"
+    },
+    "violates": [
+      "locationId"
+    ],
+    "objective": "An inactive locationId must be rejected.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success=false and error INVALID_LOCATION"
+    ],
+    "id": "TC-011",
+    "ruleIds": [
+      "BR-003"
+    ],
+    "requirementIds": [
+      "REQ-005",
+      "REQ-013"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-011 is valid"
+    ],
+    "priority": "P2"
+  },
+  {
+    "title": "Unapproved payment.paymentMethod CASH is rejected",
+    "type": "negative",
+    "channel": "api",
+    "mutation": {
+      "payment.paymentMethod": "CASH"
+    },
+    "expected": {
+      "success": false,
+      "errorCode": "PAYMENT_METHOD_NOT_APPROVED"
+    },
+    "violates": [
+      "payment.paymentMethod"
+    ],
+    "objective": "Only approved payment methods are accepted.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success=false and error PAYMENT_METHOD_NOT_APPROVED"
+    ],
+    "id": "TC-012",
+    "ruleIds": [
+      "BR-004"
+    ],
+    "requirementIds": [
+      "REQ-006",
+      "REQ-014"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-012 is valid"
+    ],
+    "priority": "P2"
+  },
+  {
+    "title": "Approved payment.paymentMethod INVOICE is accepted",
+    "type": "positive",
+    "channel": "api",
+    "mutation": {
+      "payment.paymentMethod": "INVOICE"
+    },
+    "expected": {
+      "success": true,
+      "confirmationPattern": "^CNF-[A-Z0-9]{8}$",
+      "status": "CONFIRMED"
+    },
+    "violates": [],
+    "objective": "Every approved payment method is accepted.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success, CONFIRMED status and confirmation-number format"
+    ],
+    "id": "TC-013",
+    "ruleIds": [
+      "BR-004"
+    ],
+    "requirementIds": [
+      "REQ-006",
+      "REQ-014"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-013 is valid"
+    ],
+    "priority": "P1"
+  },
+  {
+    "title": "Smoke: createReservation with valid synthetic data returns a confirmation number",
+    "type": "smoke",
+    "channel": "api",
+    "mutation": {},
+    "expected": {
+      "success": true,
+      "confirmationPattern": "^CNF-[A-Z0-9]{8}$",
+      "status": "CONFIRMED"
+    },
+    "violates": [],
+    "objective": "The core create path works and issues a confirmation number.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success, CONFIRMED status and confirmation-number format"
+    ],
+    "priority": "P1",
+    "id": "TC-014",
+    "ruleIds": [
+      "BR-005"
+    ],
+    "requirementIds": [
+      "REQ-001",
+      "REQ-002",
+      "REQ-015"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-014 is valid"
+    ]
+  },
+  {
+    "title": "Service associate creates a reservation in the console and receives a confirmation number",
+    "type": "positive",
+    "channel": "ui",
+    "mutation": {},
+    "expected": {
+      "success": true,
+      "confirmationPattern": "^CNF-[A-Z0-9]{8}$",
+      "status": "CONFIRMED"
+    },
+    "violates": [],
+    "flow": "create",
+    "priority": "P1",
+    "objective": "The Lightning-style create form shows the generated confirmation number.",
+    "steps": [
+      "Open the reservation console",
+      "Fill the create form with the synthetic dataset",
+      "Submit",
+      "Assert the confirmation number and CONFIRMED status are shown"
+    ],
+    "id": "TC-015",
+    "ruleIds": [
+      "BR-005"
+    ],
+    "requirementIds": [
+      "REQ-001",
+      "REQ-002",
+      "REQ-015"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-015 is valid"
+    ]
+  },
+  {
+    "title": "End to end: create, search by confirmation number and cancel the reservation",
+    "type": "e2e",
+    "channel": "ui",
+    "mutation": {},
+    "expected": {
+      "success": true,
+      "status": "CANCELLED",
+      "confirmationPattern": "^CNF-[A-Z0-9]{8}$"
+    },
+    "violates": [],
+    "flow": "create-search-cancel",
+    "priority": "P1",
+    "objective": "A confirmed reservation can be found and cancelled by its confirmation number.",
+    "steps": [
+      "Create a reservation in the console",
+      "Search by the confirmation number",
+      "Cancel it with a reason",
+      "Assert status CANCELLED in the search results"
+    ],
+    "id": "TC-016",
+    "ruleIds": [
+      "BR-005"
+    ],
+    "requirementIds": [
+      "REQ-001",
+      "REQ-002",
+      "REQ-015"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-016 is valid"
+    ]
+  },
+  {
+    "title": "Missing customer.email is rejected",
+    "type": "negative",
+    "channel": "api",
+    "mutation": {
+      "customer.email": null
+    },
+    "expected": {
+      "success": false,
+      "errorCode": "MISSING_REQUIRED_FIELD"
+    },
+    "violates": [
+      "customer.email"
+    ],
+    "objective": "customer.email is required.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success=false and error MISSING_REQUIRED_FIELD"
+    ],
+    "id": "TC-017",
+    "ruleIds": [
+      "BR-006"
+    ],
+    "requirementIds": [
+      "REQ-007",
+      "REQ-016"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-017 is valid"
+    ],
+    "priority": "P2"
+  },
+  {
+    "title": "Missing customer.firstName is rejected",
+    "type": "negative",
+    "channel": "api",
+    "mutation": {
+      "customer.firstName": null
+    },
+    "expected": {
+      "success": false,
+      "errorCode": "MISSING_REQUIRED_FIELD"
+    },
+    "violates": [
+      "customer.firstName"
+    ],
+    "objective": "customer.firstName is required.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success=false and error MISSING_REQUIRED_FIELD"
+    ],
+    "id": "TC-018",
+    "ruleIds": [
+      "BR-006"
+    ],
+    "requirementIds": [
+      "REQ-007",
+      "REQ-016"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-018 is valid"
+    ],
+    "priority": "P2"
+  },
+  {
+    "title": "Missing customer.lastName is rejected",
+    "type": "negative",
+    "channel": "api",
+    "mutation": {
+      "customer.lastName": null
+    },
+    "expected": {
+      "success": false,
+      "errorCode": "MISSING_REQUIRED_FIELD"
+    },
+    "violates": [
+      "customer.lastName"
+    ],
+    "objective": "customer.lastName is required.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success=false and error MISSING_REQUIRED_FIELD"
+    ],
+    "id": "TC-019",
+    "ruleIds": [
+      "BR-006"
+    ],
+    "requirementIds": [
+      "REQ-007",
+      "REQ-016"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-019 is valid"
+    ],
+    "priority": "P2"
+  },
+  {
+    "title": "Unavailable SUITE at LOC-SYN-002 for booked dates is rejected",
+    "type": "negative",
+    "channel": "api",
+    "mutation": {
+      "locationId": "LOC-SYN-002",
+      "resourceType": "SUITE",
+      "startDate": "2027-03-10",
+      "endDate": "2027-03-15"
+    },
+    "expected": {
+      "success": false,
+      "errorCode": "RESOURCE_UNAVAILABLE"
+    },
+    "violates": [
+      "availability"
+    ],
+    "objective": "A fully booked resource must not be reserved.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success=false and error RESOURCE_UNAVAILABLE"
+    ],
+    "id": "TC-020",
+    "ruleIds": [
+      "BR-007"
+    ],
+    "requirementIds": [
+      "REQ-017",
+      "REQ-018"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-020 is valid"
+    ],
+    "priority": "P2"
+  },
+  {
+    "title": "Malformed customer.email is rejected",
+    "type": "negative",
+    "channel": "api",
+    "mutation": {
+      "customer.email": "not-an-email"
+    },
+    "expected": {
+      "success": false,
+      "errorCode": "INVALID_EMAIL"
+    },
+    "violates": [
+      "customer.email"
+    ],
+    "objective": "customer.email must be syntactically valid.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success=false and error INVALID_EMAIL"
+    ],
+    "id": "TC-021",
+    "ruleIds": [
+      "BR-D01"
+    ],
+    "requirementIds": [
+      "REQ-019"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-021 is valid"
+    ],
+    "priority": "P2"
+  },
+  {
+    "title": "Declined synthetic payment token is rejected",
+    "type": "negative",
+    "channel": "api",
+    "mutation": {
+      "payment.paymentToken": {
+        "$token": "decline"
+      }
+    },
+    "expected": {
+      "success": false,
+      "errorCode": "PAYMENT_NOT_AUTHORIZED"
+    },
+    "violates": [
+      "payment.paymentToken"
+    ],
+    "objective": "A payment the gateway declines must not produce a reservation.",
+    "flow": "create",
+    "steps": [
+      "Load the linked synthetic dataset",
+      "Call the createReservation GraphQL mutation",
+      "Assert success=false and error PAYMENT_NOT_AUTHORIZED"
+    ],
+    "id": "TC-022",
+    "ruleIds": [
+      "BR-D02"
+    ],
+    "requirementIds": [
+      "REQ-020"
+    ],
+    "preconditions": [
+      "Local demo reservation service is running",
+      "Synthetic dataset DS-TC-022 is valid"
+    ],
+    "priority": "P2"
+  }
+]

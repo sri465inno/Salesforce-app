@@ -1,0 +1,9 @@
+{
+  "packageDirectories": [
+    { "path": "force-app", "default": true, "package": "ReservationManagement", "versionName": "MVP", "versionNumber": "0.1.0.NEXT" }
+  ],
+  "name": "reservation-management",
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "62.0"
+}

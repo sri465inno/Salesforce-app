@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Create Reservation" icon-name="custom:custom63">
+        <div class="slds-p-around_medium">
+            <lightning-combobox data-field="locationId" label="Location" options={locationOptions} value={input.locationId} onchange={handleChange} required></lightning-combobox>
+            <lightning-input data-field="startDate" type="date" label="Start date" value={input.startDate} onchange={handleChange} required></lightning-input>
+            <lightning-input data-field="endDate" type="date" label="End date" value={input.endDate} onchange={handleChange} required></lightning-input>
+            <lightning-input data-field="customerCount" type="number" label="Customer count" value={input.customerCount} onchange={handleChange} required></lightning-input>
+            <lightning-combobox data-field="resourceType" label="Resource type" options={resourceOptions} value={input.resourceType} onchange={handleChange} required></lightning-combobox>
+            <lightning-input data-field="customer.firstName" label="First name" onchange={handleChange} required></lightning-input>
+            <lightning-input data-field="customer.lastName" label="Last name" onchange={handleChange} required></lightning-input>
+            <lightning-input data-field="customer.email" type="email" label="Email" onchange={handleChange} required></lightning-input>
+            <lightning-combobox data-field="payment.paymentMethod" label="Payment method" options={paymentOptions} onchange={handleChange} required></lightning-combobox>
+            <lightning-input data-field="payment.paymentToken" label="Payment token" onchange={handleChange} required></lightning-input>
+            <lightning-button variant="brand" label="Create reservation" onclick={handleSubmit}></lightning-button>
+            <template lwc:if={confirmationNumber}>
+                <p class="slds-text-color_success" data-id="confirmation">Confirmation number: {confirmationNumber}</p>
+            </template>
+            <template for:each={errors} for:item="error">
+                <p key={error.code} class="slds-text-color_error" data-id="error">{error.message}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

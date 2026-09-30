@@ -1,0 +1,170 @@
+[
+  {
+    "seq": 26,
+    "at": "2026-09-29T21:40:59.776Z",
+    "testId": "TC-016",
+    "operationName": "Locations",
+    "variables": {},
+    "response": {
+      "data": {
+        "locations": [
+          {
+            "locationId": "LOC-SYN-001",
+            "name": "Synthetic Downtown Centre",
+            "active": true
+          },
+          {
+            "locationId": "LOC-SYN-002",
+            "name": "Synthetic Airport Lodge",
+            "active": true
+          },
+          {
+            "locationId": "LOC-SYN-003",
+            "name": "Synthetic Harbour Suites",
+            "active": true
+          },
+          {
+            "locationId": "LOC-SYN-004",
+            "name": "Synthetic Closed Annex",
+            "active": false
+          }
+        ]
+      }
+    },
+    "durationMs": 2
+  },
+  {
+    "seq": 30,
+    "at": "2026-09-29T21:40:59.919Z",
+    "testId": "TC-016",
+    "operationName": "CreateReservation",
+    "variables": {
+      "input": {
+        "locationId": "LOC-SYN-001",
+        "resourceType": "STANDARD_ROOM",
+        "startDate": "2027-02-06",
+        "endDate": "2027-02-10",
+        "customerCount": 2,
+        "customer": {
+          "firstName": "C***",
+          "lastName": "F***",
+          "email": "c***@example.test"
+        },
+        "payment": {
+          "paymentMethod": "CARD_TOKEN",
+          "paymentToken": "tok_****6906"
+        }
+      }
+    },
+    "response": {
+      "data": {
+        "createReservation": {
+          "success": true,
+          "errors": [],
+          "reservation": {
+            "reservationId": "RSV-SYN-000007",
+            "confirmationNumber": "CNF-6PVPH3XC",
+            "locationId": "LOC-SYN-001",
+            "startDate": "2027-02-06",
+            "endDate": "2027-02-10",
+            "customerCount": 2,
+            "resourceType": "STANDARD_ROOM",
+            "status": "CONFIRMED",
+            "createdAt": "2026-09-29T21:40:59.919Z"
+          }
+        }
+      }
+    },
+    "durationMs": 0
+  },
+  {
+    "seq": 31,
+    "at": "2026-09-29T21:41:00.065Z",
+    "testId": "TC-016",
+    "operationName": "Search",
+    "variables": {
+      "filter": {
+        "confirmationNumber": "CNF-6PVPH3XC",
+        "lastName": null
+      }
+    },
+    "response": {
+      "data": {
+        "searchReservations": [
+          {
+            "reservationId": "RSV-SYN-000007",
+            "confirmationNumber": "CNF-6PVPH3XC",
+            "locationId": "LOC-SYN-001",
+            "startDate": "2027-02-06",
+            "endDate": "2027-02-10",
+            "customerCount": 2,
+            "resourceType": "STANDARD_ROOM",
+            "status": "CONFIRMED",
+            "createdAt": "2026-09-29T21:40:59.919Z"
+          }
+        ]
+      }
+    },
+    "durationMs": 0
+  },
+  {
+    "seq": 32,
+    "at": "2026-09-29T21:41:00.217Z",
+    "testId": "TC-016",
+    "operationName": "Cancel",
+    "variables": {
+      "confirmationNumber": "CNF-6PVPH3XC",
+      "reason": "Synthetic cancellation for automated test"
+    },
+    "response": {
+      "data": {
+        "cancelReservation": {
+          "success": true,
+          "errors": [],
+          "reservation": {
+            "reservationId": "RSV-SYN-000007",
+            "confirmationNumber": "CNF-6PVPH3XC",
+            "locationId": "LOC-SYN-001",
+            "startDate": "2027-02-06",
+            "endDate": "2027-02-10",
+            "customerCount": 2,
+            "resourceType": "STANDARD_ROOM",
+            "status": "CANCELLED",
+            "createdAt": "2026-09-29T21:40:59.919Z"
+          }
+        }
+      }
+    },
+    "durationMs": 0
+  },
+  {
+    "seq": 33,
+    "at": "2026-09-29T21:41:00.333Z",
+    "testId": "TC-016",
+    "operationName": "Search",
+    "variables": {
+      "filter": {
+        "confirmationNumber": "CNF-6PVPH3XC",
+        "lastName": null
+      }
+    },
+    "response": {
+      "data": {
+        "searchReservations": [
+          {
+            "reservationId": "RSV-SYN-000007",
+            "confirmationNumber": "CNF-6PVPH3XC",
+            "locationId": "LOC-SYN-001",
+            "startDate": "2027-02-06",
+            "endDate": "2027-02-10",
+            "customerCount": 2,
+            "resourceType": "STANDARD_ROOM",
+            "status": "CANCELLED",
+            "createdAt": "2026-09-29T21:40:59.919Z"
+          }
+        ]
+      }
+    },
+    "durationMs": 1
+  }
+]

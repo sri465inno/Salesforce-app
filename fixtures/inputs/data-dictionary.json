@@ -1,0 +1,54 @@
+{
+  "recordedFrom": "Local recorded fixture (synthetic data dictionary).",
+  "name": "Reservation data dictionary",
+  "version": "1.0.0",
+  "classificationPolicy": "Every value used in non-production environments must be SYNTHETIC. No real identities, contact details or payment-card numbers.",
+  "entities": {
+    "Reservation": {
+      "salesforceObject": "Reservation__c",
+      "fields": {
+        "reservationId": { "type": "string", "source": "system", "pattern": "^RSV-SYN-[0-9]{6}$", "description": "Reservation record identifier" },
+        "confirmationNumber": { "type": "string", "source": "system", "pattern": "^CNF-[A-Z0-9]{8}$", "description": "Confirmation number given to the customer" },
+        "locationId": { "type": "string", "source": "user", "required": true, "pattern": "^LOC-SYN-[0-9]{3}$", "reference": "locations", "aliases": ["location"], "description": "Location where the resource is booked" },
+        "startDate": { "type": "date", "source": "user", "required": true, "aliases": ["start date"], "description": "First day of the reservation (ISO date)" },
+        "endDate": { "type": "date", "source": "user", "required": true, "aliases": ["end date"], "description": "Last day of the reservation (ISO date)" },
+        "customerCount": { "type": "integer", "source": "user", "required": true, "min": 1, "max": 10, "aliases": ["customer count", "number of customers", "customers"], "description": "Number of customers on the reservation" },
+        "resourceType": { "type": "enum", "source": "user", "required": true, "enum": ["STANDARD_ROOM", "SUITE", "CONFERENCE_ROOM"], "graphqlEnum": "ResourceType", "aliases": ["resource", "requested resource", "resource type"], "description": "Type of resource requested" },
+        "status": { "type": "enum", "source": "system", "enum": ["PENDING", "CONFIRMED", "MODIFIED", "CANCELLED"], "graphqlEnum": "ReservationStatus", "description": "Lifecycle status" },
+        "createdAt": { "type": "datetime", "source": "system", "description": "Creation timestamp" }
+      }
+    },
+    "Customer": {
+      "salesforceObject": "Contact",
+      "fields": {
+        "customerId": { "type": "string", "source": "system", "pattern": "^CUS-SYN-[0-9]{6}$", "description": "Customer identifier" },
+        "firstName": { "type": "string", "source": "user", "required": true, "maxLength": 40, "sensitivity": "PII", "aliases": ["first name"], "description": "Customer first name" },
+        "lastName": { "type": "string", "source": "user", "required": true, "maxLength": 80, "sensitivity": "PII", "aliases": ["last name"], "description": "Customer last name" },
+        "email": { "type": "string", "source": "user", "required": true, "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$", "sensitivity": "PII", "syntheticDomain": "example.test", "aliases": ["email"], "description": "Customer email address" }
+      }
+    },
+    "Payment": {
+      "salesforceObject": "Payment__c",
+      "fields": {
+        "paymentMethod": { "type": "enum", "source": "user", "required": true, "enum": ["CARD_TOKEN", "INVOICE", "CASH", "GIFT_VOUCHER"], "approvedValues": ["CARD_TOKEN", "INVOICE"], "graphqlEnum": "PaymentMethod", "aliases": ["payment method"], "description": "How the reservation is paid" },
+        "paymentToken": { "type": "string", "source": "user", "required": true, "pattern": "^tok_synthetic_[a-z0-9]{12}$", "sensitivity": "PAYMENT", "description": "Synthetic payment-token placeholder; never a card number" },
+        "authorizationStatus": { "type": "enum", "source": "payment-gateway", "enum": ["AUTHORIZED", "PENDING", "DECLINED"], "description": "Result returned by the (mock) payment gateway for the token" }
+      }
+    }
+  },
+  "referenceData": {
+    "locations": [
+      { "locationId": "LOC-SYN-001", "name": "Synthetic Downtown Centre", "active": true },
+      { "locationId": "LOC-SYN-002", "name": "Synthetic Airport Lodge", "active": true },
+      { "locationId": "LOC-SYN-003", "name": "Synthetic Harbour Suites", "active": true },
+      { "locationId": "LOC-SYN-004", "name": "Synthetic Closed Annex", "active": false }
+    ],
+    "knownUnavailable": [
+      { "locationId": "LOC-SYN-002", "resourceType": "SUITE", "startDate": "2027-03-10", "endDate": "2027-03-15", "note": "Seeded booking in the demo service: the only SUITE at LOC-SYN-002 is taken" }
+    ],
+    "gatewayTokens": {
+      "declinedPrefix": "tok_synthetic_decline",
+      "pendingPrefix": "tok_synthetic_pending"
+    }
+  }
+}

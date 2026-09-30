@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Modify or Cancel Reservation" icon-name="standard:record_update">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Confirmation number" value={confirmationNumber} onchange={handleNumber}></lightning-input>
+            <lightning-input label="Cancellation reason" onchange={handleReason}></lightning-input>
+            <lightning-button variant="destructive" label="Cancel reservation" onclick={handleCancel}></lightning-button>
+            <template lwc:if={message}><p data-id="message">{message}</p></template>
+        </div>
+    </lightning-card>
+</template>

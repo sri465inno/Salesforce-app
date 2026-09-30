@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resource_Type__c</fullName>
+    <label>Resource Type</label>
+    <type>Picklist</type><valueSet><valueSetDefinition><value><fullName>STANDARD_ROOM</fullName></value><value><fullName>SUITE</fullName></value><value><fullName>CONFERENCE_ROOM</fullName></value></valueSetDefinition></valueSet>
+</CustomField>

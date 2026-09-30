@@ -1,0 +1,50 @@
+[
+  {
+    "key": "initiative",
+    "file": "fixtures/inputs/initiative.json",
+    "sha256": "32dfcd06de9d12960230619c419b76e7493602599a952e39418a0193b05629d4",
+    "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+  },
+  {
+    "key": "epic",
+    "file": "fixtures/inputs/epic.json",
+    "sha256": "e7171f60e7066065f66c48e5ec3a17099b06b84d6f95803bb2401db630791740",
+    "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+  },
+  {
+    "key": "story",
+    "file": "fixtures/inputs/story-001.json",
+    "sha256": "3f36b1aaca8863636fadc314ae3afdb9a3c8206cd9e6da55042c597502a8d498",
+    "recordedFrom": "Local recorded fixture (synthetic). No Jira or Salesforce instance was called."
+  },
+  {
+    "key": "business-rules",
+    "file": "fixtures/inputs/business-rules.json",
+    "sha256": "9383955ea5929c011e75c35ed5652c05d87566f17576694800902ef3e42d30b4",
+    "recordedFrom": "Local recorded fixture (synthetic business-rules catalogue)."
+  },
+  {
+    "key": "graphql-contract",
+    "file": "fixtures/inputs/graphql-contract.json",
+    "sha256": "1695fbe048ba6bbe830bbe29eddaa9a864ed9614ecffa22117c577bb164dc481",
+    "recordedFrom": "Local fixture pointing at the versioned contract file in this repository."
+  },
+  {
+    "key": "data-dictionary",
+    "file": "fixtures/inputs/data-dictionary.json",
+    "sha256": "51cc4ef72e6ff231c25d1e6286a7fcd214f3bfb7924c352aad5a2cbb31f58e2f",
+    "recordedFrom": "Local recorded fixture (synthetic data dictionary)."
+  },
+  {
+    "key": "source-code-references",
+    "file": "fixtures/inputs/source-code-references.json",
+    "sha256": "bf2e4d73c6f5f49dac7a5b11749c5deca28982bdf82dc4d6f68aaa43255cabf1",
+    "recordedFrom": "Indexed from @rule markers in the repository source by scripts/record-source-refs.ts"
+  },
+  {
+    "key": "graphql-schema",
+    "file": "contracts/reservation.graphql",
+    "sha256": "0981ef2c1a7eb105b9028f92f84f3c8dd23a3e1b027bad245f399406f4ed12fb",
+    "recordedFrom": "Versioned contract file in this repository"
+  }
+]
